@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
- *
+ * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
+
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -41,6 +42,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.telephony.MSimTelephonyManager;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.TelephonyIntents;
@@ -82,6 +84,7 @@ public class ApnSettings extends PreferenceActivity implements
     private RestoreApnProcessHandler mRestoreApnProcessHandler;
 
     private String mSelectedKey;
+    private int mSubscription = 0;
 
     private IntentFilter mMobileStateFilter;
 
@@ -119,7 +122,9 @@ public class ApnSettings extends PreferenceActivity implements
 
         addPreferencesFromResource(R.xml.apn_settings);
         getListView().setItemsCanFocus(true);
-
+        mSubscription = getIntent().getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
+                MSimTelephonyManager.getDefault().getDefaultSubscription());
+        Log.d(TAG, "onCreate received sub :" + mSubscription);
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
     }
@@ -140,15 +145,15 @@ public class ApnSettings extends PreferenceActivity implements
     @Override
     protected void onPause() {
         super.onPause();
-        
+ 
         unregisterReceiver(mMobileStateReceiver);
     }
 
     private void fillList() {
         String where = "numeric=\""
-            + android.os.SystemProperties.get(TelephonyProperties.PROPERTY_ICC_OPERATOR_NUMERIC, "")
-            + "\"";
-
+                + MSimTelephonyManager.getTelephonyProperty
+                    (TelephonyProperties.PROPERTY_ICC_OPERATOR_NUMERIC, mSubscription, "")
+                + "\"";
         Cursor cursor = getContentResolver().query(Telephony.Carriers.CONTENT_URI, new String[] {
                 "_id", "name", "apn", "type"}, where, null,
                 Telephony.Carriers.DEFAULT_SORT_ORDER);
@@ -220,7 +225,9 @@ public class ApnSettings extends PreferenceActivity implements
     }
 
     private void addNewApn() {
-        startActivity(new Intent(Intent.ACTION_INSERT, Telephony.Carriers.CONTENT_URI));
+        Intent intent = new Intent(Intent.ACTION_INSERT, Telephony.Carriers.CONTENT_URI);
+        intent.putExtra(SelectSubscription.SUBSCRIPTION_KEY, mSubscription);
+        startActivity(intent);
     }
 
     @Override
@@ -317,7 +324,7 @@ public class ApnSettings extends PreferenceActivity implements
             switch (msg.what) {
                 case EVENT_RESTORE_DEFAULTAPN_START:
                     ContentResolver resolver = getContentResolver();
-                    resolver.delete(DEFAULTAPN_URI, null, null);                    
+                    resolver.delete(DEFAULTAPN_URI, null, null);                   
                     mRestoreApnUiHandler
                         .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
                     break;

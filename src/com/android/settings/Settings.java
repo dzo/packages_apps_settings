@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +33,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.text.TextUtils;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -316,6 +318,14 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
 
     private void updateHeaderList(List<Header> target) {
         int i = 0;
+        int settingsPrefScreenIndex = 0;
+
+        if (!TelephonyManager.getDefault().isMultiSimEnabled()) {
+            settingsPrefScreenIndex = Utils.MULTISIM_DEF_RESID;
+        } else {
+            settingsPrefScreenIndex = Utils.MULTISIM_RESID;
+        }
+
         while (i < target.size()) {
             Header header = target.get(i);
             // Ids are integers, so downcasting
@@ -335,6 +345,13 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
                     target.remove(header);
                 }
+            } else if (id == R.id.wireless_settings || id == R.id.about_settings) {
+                Bundle args = new Bundle();
+                args.putInt(Utils.RESOURCE_INDEX, settingsPrefScreenIndex);
+                header.fragmentArguments = args;
+            } else if (id == R.id.multi_sim_settings) {
+                if (!TelephonyManager.getDefault().isMultiSimEnabled())
+                    target.remove(header);
             }
 
             // Increment if the current one wasn't removed by the Utils code.

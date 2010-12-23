@@ -58,6 +58,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_MODEL = "device_model";
     private static final String KEY_BASEBAND_VERSION = "baseband_version";
     private static final String KEY_FIRMWARE_VERSION = "firmware_version";
+    private static final String KEY_STATUS = "status_info";
 
     long[] mHits = new long[3];
 
@@ -85,12 +86,18 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
 
+        int resIndex = getArguments().getInt(Utils.RESOURCE_INDEX, 0);
+        if (Utils.MULTISIM_RESID == resIndex) {
+            findPreference(KEY_STATUS).getIntent().setClassName(
+                          "com.android.settings","com.android.settings.deviceinfo.MSimStatus");
+        }
+
         // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
         removePreferenceIfPropertyMissing(getPreferenceScreen(), "safetylegal",
                 PROPERTY_URL_SAFETYLEGAL);
 
         // Remove Baseband version if wifi-only device
-        if (Utils.isWifiOnly(getActivity())) {
+        if (Utils.isWifiOnly(getActivity()) || (Utils.MULTISIM_RESID == resIndex)) {
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
         }
 

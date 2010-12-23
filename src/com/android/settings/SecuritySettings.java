@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,6 +60,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
     // Misc Settings
     private static final String KEY_SIM_LOCK = "sim_lock";
+    private static final String KEY_SIM_LOCK_SETTINGS = "sim_lock_settings";
     private static final String KEY_SHOW_PASSWORD = "show_password";
     private static final String KEY_RESET_CREDENTIALS = "reset_credentials";
     private static final String KEY_TOGGLE_INSTALL_APPLICATIONS = "toggle_install_applications";
@@ -185,6 +187,19 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         // Show password
         mShowPassword = (CheckBoxPreference) root.findPreference(KEY_SHOW_PASSWORD);
+
+        // SIM/RUIM lock
+        Preference iccLock = (Preference) root.findPreference(KEY_SIM_LOCK_SETTINGS);
+
+        Intent intent = new Intent();
+        if (tm.isMultiSimEnabled()) {
+            intent.setClassName("com.android.settings", "com.android.settings.SelectSubscription");
+            intent.putExtra(SelectSubscription.PACKAGE, "com.android.settings");
+            intent.putExtra(SelectSubscription.TARGET_CLASS, "com.android.settings.IccLockSettings");
+        } else {
+            intent.setClassName("com.android.settings", "com.android.settings.IccLockSettings");
+        }
+        iccLock.setIntent(intent);
 
         // Credential storage
         mResetCredentials = root.findPreference(KEY_RESET_CREDENTIALS);

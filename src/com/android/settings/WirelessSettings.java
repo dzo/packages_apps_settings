@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2009 The Android Open Source Project
- *
+ * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
+
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -98,6 +99,14 @@ public class WirelessSettings extends SettingsPreferenceFragment {
 
         final Activity activity = getActivity();
         mAirplaneModePreference = (CheckBoxPreference) findPreference(KEY_TOGGLE_AIRPLANE);
+
+        int resIndex = getArguments().getInt(Utils.RESOURCE_INDEX, 0);
+
+        if (Utils.MULTISIM_RESID == resIndex) {
+            findPreference(KEY_MOBILE_NETWORK_SETTINGS).getIntent().setClassName(
+                    "com.android.phone", "com.android.phone.MSimSettings");
+        }
+
         CheckBoxPreference nfc = (CheckBoxPreference) findPreference(KEY_TOGGLE_NFC);
         PreferenceScreen androidBeam = (PreferenceScreen) findPreference(KEY_ANDROID_BEAM_SETTINGS);
 

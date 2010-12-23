@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
- *
+ * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
+
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,13 +23,16 @@ import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.content.Intent;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.widget.Toast;
 
+import android.telephony.TelephonyManager;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.MSimPhoneFactory;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.CommandException;
 
@@ -163,7 +167,10 @@ public class IccLockSettings extends PreferenceActivity
         // Don't need any changes to be remembered
         getPreferenceScreen().setPersistent(false);
         
-        mPhone = PhoneFactory.getDefaultPhone();
+        Intent intent = getIntent();
+        int subscription = intent.getIntExtra(SelectSubscription.SUBSCRIPTION_KEY, MSimPhoneFactory.getDefaultSubscription());
+        // Use the right phone based on the subscription selected.
+        mPhone = MSimPhoneFactory.getPhone(subscription);
         mRes = getResources();
     }
     
