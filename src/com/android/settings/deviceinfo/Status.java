@@ -201,6 +201,15 @@ public class Status extends PreferenceActivity {
                 removePreferenceFromScreen(key);
             }
         } else {
+
+            if ((SystemProperties.getBoolean("ro.config.multimode_cdma", false))
+                    || (mPhone.getPhoneName().equals("CDMA"))) {
+                setSummaryText(KEY_PRL_VERSION, mPhone.getCdmaPrlVersion());
+            } else {
+                // device does not support CDMA, do not display PRL
+                removePreferenceFromScreen(KEY_PRL_VERSION);
+            }
+
             // NOTE "imei" is the "Device ID" since it represents
             //  the IMEI in GSM and the MEID in CDMA
             if (mPhone.getPhoneName().equals("CDMA")) {
@@ -210,7 +219,7 @@ public class Status extends PreferenceActivity {
                 if (getResources().getBoolean(R.bool.config_msid_enable)) {
                     findPreference(KEY_MIN_NUMBER).setTitle(R.string.status_msid_number);
                 }
-                setSummaryText(KEY_PRL_VERSION, mPhone.getCdmaPrlVersion());
+
                 removePreferenceFromScreen(KEY_IMEI_SV);
 
                 if (mPhone.getLteOnCdmaMode() == Phone.LTE_ON_CDMA_TRUE) {
@@ -232,7 +241,6 @@ public class Status extends PreferenceActivity {
 
                 // device is not CDMA, do not display CDMA features
                 // check Null in case no specified preference in overlay xml
-                removePreferenceFromScreen(KEY_PRL_VERSION);
                 removePreferenceFromScreen(KEY_ESN_NUMBER);
                 removePreferenceFromScreen(KEY_MEID_NUMBER);
                 removePreferenceFromScreen(KEY_MIN_NUMBER);
