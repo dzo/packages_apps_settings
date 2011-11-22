@@ -241,6 +241,15 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
     private void connectInt(LocalBluetoothProfile profile) {
         if (!ensurePaired()) {
             return;
+        } else {
+            // connecting is unreliable while scanning, so cancel discovery
+            if (mLocalAdapter == null) {
+                Log.e(TAG, "Adapter is null");
+                return;
+            }
+            if (mLocalAdapter.isDiscovering()) {
+                mLocalAdapter.cancelDiscovery();
+            }
         }
         if (profile.connect(mDevice)) {
             if (Utils.D) {
@@ -436,6 +445,10 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
         ParcelUuid[] localUuids = mLocalAdapter.getUuids();
         if (localUuids == null) return false;
 
+        if (mProfileManager == null) {
+            Log.e(TAG, "ProfileManager is null");
+            return false;
+        }
         mProfileManager.updateProfiles(uuids, localUuids, mProfiles, mRemovedProfiles);
 
         if (DEBUG) {
@@ -499,6 +512,11 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
                 connect(false);
             }
             mConnectAfterPairing = false;
+        }
+
+        if (bondState == BluetoothDevice.BOND_RETRY) {
+            Log.i(TAG, "Bond state is Retry, set autoconnect");
+            mConnectAfterPairing = true;
         }
     }
 

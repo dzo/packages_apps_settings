@@ -88,7 +88,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        if (!intent.getAction().equals(BluetoothDevice.ACTION_PAIRING_REQUEST))
+        if (intent == null || !BluetoothDevice.ACTION_PAIRING_REQUEST.equals(intent.getAction()))
         {
             Log.e(TAG, "Error: this activity may be started only with intent " +
                   BluetoothDevice.ACTION_PAIRING_REQUEST);
@@ -295,6 +295,12 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mReceiver);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        onCancel();
     }
 
     public void afterTextChanged(Editable s) {

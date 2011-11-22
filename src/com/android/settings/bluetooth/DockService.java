@@ -267,7 +267,11 @@ public final class DockService extends Service implements ServiceListener {
 
         switch (msgType) {
             case MSG_TYPE_SHOW_UI:
-                createDialog(device, state, startId);
+                if (device != null) {
+                    createDialog(device, state, startId);
+                } else {
+                    Log.e(TAG, "Error! mDevice is null, can't create dialog");
+                }
                 break;
 
             case MSG_TYPE_DOCKED:
