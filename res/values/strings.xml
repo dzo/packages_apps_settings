@@ -1389,6 +1389,8 @@
     <string name="wifi_p2p_menu_advanced">Advanced</string>
     <!-- Title for available p2p devices -->
     <string name="wifi_p2p_available_devices">Available devices</string>
+    <string name="wifi_p2p_on_summary">Turn on wifi direct</string>
+    <string name="wifi_p2p_settings">Wifi direct settings</string>
 
     <!-- Wifi AP settings-->
     <!-- Label for wifi tether checkbox. Toggles Access Point on/off -->
