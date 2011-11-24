@@ -102,6 +102,8 @@ public class BluetoothPermissionActivity extends AlertActivity implements
             showFtpDialog();
         } else if (requestType == BluetoothDevice.REQUEST_TYPE_MESSAGE_ACCESS) {
             showMasDialog();
+        }  else if (requestType == BluetoothDevice.REQUEST_TYPE_SIM_ACCESS) {
+            showSapDialog();
         } else {
             Log.e(TAG, "Error: bad request type: " + requestType);
             finish();
@@ -164,6 +166,19 @@ public class BluetoothPermissionActivity extends AlertActivity implements
         setupAlert();
     }
 
+    private void showSapDialog() {
+        final AlertController.AlertParams p = mAlertParams;
+        p.mIconId = android.R.drawable.ic_dialog_info;
+        p.mTitle = getString(R.string.bluetooth_sap_request);
+        p.mView = createFtpDialogView();
+        p.mPositiveButtonText = getString(android.R.string.yes);
+        p.mPositiveButtonListener = this;
+        p.mNegativeButtonText = getString(android.R.string.no);
+        p.mNegativeButtonListener = this;
+        mOkButton = mAlert.getButton(DialogInterface.BUTTON_POSITIVE);
+        setupAlert();
+    }
+
     private String createConnectionDisplayText() {
         String mRemoteName = mDevice != null ? mDevice.getAliasName() : null;
 
@@ -196,6 +211,15 @@ public class BluetoothPermissionActivity extends AlertActivity implements
 
         if (mRemoteName == null) mRemoteName = getString(R.string.unknown);
         String mMessage1 = getString(R.string.bluetooth_mas_acceptance_dialog_text,
+                                     mRemoteName, mRemoteName);
+        return mMessage1;
+    }
+
+    private String createSapDisplayText() {
+        String mRemoteName = mDevice != null ? mDevice.getAliasName() : null;
+
+        if (mRemoteName == null) mRemoteName = getString(R.string.unknown);
+        String mMessage1 = getString(R.string.bluetooth_sap_acceptance_dialog_text,
                                      mRemoteName, mRemoteName);
         return mMessage1;
     }
@@ -248,6 +272,24 @@ public class BluetoothPermissionActivity extends AlertActivity implements
         messageView = (TextView)mView.findViewById(R.id.message);
         messageView.setText(createMasDisplayText());
         mRememberChoice = (CheckBox)mView.findViewById(R.id.bluetooth_mas_remember_choice);
+        mRememberChoice.setChecked(false);
+        mRememberChoice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mRememberChoiceValue = true;
+                } else {
+                    mRememberChoiceValue = false;
+                }
+            }
+            });
+        return mView;
+    }
+
+    private View createSapDialogView() {
+        mView = getLayoutInflater().inflate(R.layout.bluetooth_sap_access, null);
+        messageView = (TextView)mView.findViewById(R.id.message);
+        messageView.setText(createSapDisplayText());
+        mRememberChoice = (CheckBox)mView.findViewById(R.id.bluetooth_sap_remember_choice);
         mRememberChoice.setChecked(false);
         mRememberChoice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

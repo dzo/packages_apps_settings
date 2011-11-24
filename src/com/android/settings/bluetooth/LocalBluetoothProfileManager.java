@@ -21,6 +21,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothInputDevice;
 import android.bluetooth.BluetoothPan;
+import android.bluetooth.BluetoothSap;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.BluetoothUuid;
 import android.content.Context;
@@ -77,6 +78,7 @@ final class LocalBluetoothProfileManager {
     private final HidProfile mHidProfile;
     private OppProfile mOppProfile;
     private final PanProfile mPanProfile;
+    private SapProfile mSapProfile;
 
     /**
      * Mapping from profile name, e.g. "HEADSET" to profile object.
@@ -112,6 +114,10 @@ final class LocalBluetoothProfileManager {
         mPanProfile = new PanProfile(context);
         addPanProfile(mPanProfile, PanProfile.NAME,
                 BluetoothPan.ACTION_CONNECTION_STATE_CHANGED);
+
+        mSapProfile = new SapProfile(context);
+        addProfile(mSapProfile, SapProfile.NAME,
+                BluetoothSap.ACTION_CONNECTION_STATE_CHANGED);
 
         Log.d(TAG, "LocalBluetoothProfileManager construction complete");
     }
