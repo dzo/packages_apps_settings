@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2011, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +29,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -41,6 +43,8 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+import android.util.Log;
+import android.telephony.TelephonyManager;
 
 public class DateTimeSettings extends SettingsPreferenceFragment
         implements OnSharedPreferenceChangeListener,
@@ -59,6 +63,8 @@ public class DateTimeSettings extends SettingsPreferenceFragment
 
     private static final int DIALOG_DATEPICKER = 0;
     private static final int DIALOG_TIMEPICKER = 1;
+    private static final boolean isTimeServicesDaemonEnabled =
+                    SystemProperties.getBoolean("persist.timed.enable", false);
 
     // have we been launched from the setup wizard?
     protected static final String EXTRA_IS_FIRST_RUN = "firstRun";
@@ -147,6 +153,13 @@ public class DateTimeSettings extends SettingsPreferenceFragment
         getPreferenceScreen().getSharedPreferences()
                 .registerOnSharedPreferenceChangeListener(this);
 
+        int activePhoneType = TelephonyManager.getDefault().getPhoneType();
+        // If phone type is CDMA disable the manual time mode & force
+        // auto time mode
+        if (TelephonyManager.PHONE_TYPE_CDMA == activePhoneType &&
+                                         !isTimeServicesDaemonEnabled) {
+            setAutoState(false, true);
+        }
         ((CheckBoxPreference)mTime24Pref).setChecked(is24Hour());
 
         // Register for time ticks and other reasons for time change
@@ -211,10 +224,7 @@ public class DateTimeSettings extends SettingsPreferenceFragment
             updateTimeAndDateDisplay(getActivity());
         } else if (key.equals(KEY_AUTO_TIME)) {
             boolean autoEnabled = preferences.getBoolean(key, true);
-            Settings.System.putInt(getContentResolver(), Settings.System.AUTO_TIME,
-                    autoEnabled ? 1 : 0);
-            mTimePref.setEnabled(!autoEnabled);
-            mDatePref.setEnabled(!autoEnabled);
+            setAutoState(true, autoEnabled);
         } else if (key.equals(KEY_AUTO_TIME_ZONE)) {
             boolean autoZoneEnabled = preferences.getBoolean(key, true);
             Settings.System.putInt(
@@ -302,6 +312,24 @@ public class DateTimeSettings extends SettingsPreferenceFragment
     public void onActivityResult(int requestCode, int resultCode,
             Intent data) {
         updateTimeAndDateDisplay(getActivity());
+    }
+
+   /* sets the auto_time preference to true if isEnabled flag is set true otherwise
+    * sets the auto_time preference based on the user selection(autotimeStatus)
+    * passed as argument.
+    */
+    private void setAutoState(boolean isEnabled, boolean autotimeStatus) {
+        if (isEnabled == false) {
+            mAutoTimePref.setChecked(autotimeStatus);
+            mAutoTimePref.setEnabled(isEnabled);
+        }
+        else {
+            Settings.System.putInt(getContentResolver(),
+               Settings.System.AUTO_TIME, autotimeStatus ? 1 : 0);
+        }
+        mTimePref.setEnabled(!autotimeStatus);
+        mDatePref.setEnabled(!autotimeStatus);
+        mTimeZone.setEnabled(!autotimeStatus);
     }
 
     private void timeUpdated() {
