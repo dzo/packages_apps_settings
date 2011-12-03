@@ -74,6 +74,7 @@ public class Status extends PreferenceActivity {
     private static final String KEY_IMEI = "imei";
     private static final String KEY_PRL_VERSION = "prl_version";
     private static final String KEY_MIN_NUMBER = "min_number";
+    private static final String KEY_ESN_NUMBER = "esn_number";
     private static final String KEY_MEID_NUMBER = "meid_number";
     private static final String KEY_SIGNAL_STRENGTH = "signal_strength";
     private static final String KEY_BATTERY_STATUS = "battery_status";
@@ -95,6 +96,7 @@ public class Status extends PreferenceActivity {
         KEY_IMEI_SV,
         KEY_PRL_VERSION,
         KEY_MIN_NUMBER,
+        KEY_ESN_NUMBER,
         KEY_MEID_NUMBER,
         KEY_SIGNAL_STRENGTH,
         KEY_ICC_ID
@@ -202,6 +204,7 @@ public class Status extends PreferenceActivity {
             // NOTE "imei" is the "Device ID" since it represents
             //  the IMEI in GSM and the MEID in CDMA
             if (mPhone.getPhoneName().equals("CDMA")) {
+                setSummaryText(KEY_ESN_NUMBER, mPhone.getEsn());
                 setSummaryText(KEY_MEID_NUMBER, mPhone.getMeid());
                 setSummaryText(KEY_MIN_NUMBER, mPhone.getCdmaMin());
                 if (getResources().getBoolean(R.bool.config_msid_enable)) {
@@ -230,6 +233,7 @@ public class Status extends PreferenceActivity {
                 // device is not CDMA, do not display CDMA features
                 // check Null in case no specified preference in overlay xml
                 removePreferenceFromScreen(KEY_PRL_VERSION);
+                removePreferenceFromScreen(KEY_ESN_NUMBER);
                 removePreferenceFromScreen(KEY_MEID_NUMBER);
                 removePreferenceFromScreen(KEY_MIN_NUMBER);
                 removePreferenceFromScreen(KEY_ICC_ID);

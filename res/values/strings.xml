@@ -1757,6 +1757,8 @@
     <string name="status_msid_number">MSID</string>
     <!-- About phone, status item title.  The phone PRL Version of the current device.-->
     <string name="status_prl_version">PRL Version</string>
+    <!-- About phone, status item title.  The phone ESN number of the current device.-->
+    <string name="status_esn_number">ESN</string>
     <!-- About phone, status item title.  The phone MEID number of the current LTE/CDMA device. [CHAR LIMIT=30] -->
     <string name="status_meid_number">MEID</string>
     <!-- About phone, status item title.  The ICCID of the current LTE device. [CHAR LIMIT=30] -->

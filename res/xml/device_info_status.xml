@@ -75,6 +75,12 @@
         android:summary="@string/device_info_not_available"
         android:persistent="false" />
     <!-- This menu item is only for CDMA phone -->
+    <Preference android:key="esn_number"
+        style="?android:attr/preferenceInformationStyle"
+        android:title="@string/status_esn_number"
+        android:summary="@string/device_info_not_available"
+        android:persistent="false" />
+    <!-- This menu item is only for CDMA phone -->
     <Preference android:key="meid_number"
         style="?android:attr/preferenceInformationStyle"
         android:title="@string/status_meid_number"
