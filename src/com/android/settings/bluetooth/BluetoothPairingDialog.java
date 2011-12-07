@@ -298,9 +298,17 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onUserLeaveHint() {
+        Log.i(TAG, "User pressed Home key, Destroying the pairing process");
         onCancel();
+        super.onUserLeaveHint();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.i(TAG, "User pressed Back Key. Destroying the pairing process");
+        onCancel();
+        finish();
     }
 
     public void afterTextChanged(Editable s) {
