@@ -37,6 +37,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -55,6 +56,7 @@ public class WifiApEnabler {
     ConnectivityManager mCm;
     private String[] mWifiRegexs;
     private int oldPowerLevel;
+    private boolean mTransmitPower = SystemProperties.getBoolean("ro.ril.transmitpower",false);
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -92,6 +94,7 @@ public class WifiApEnabler {
         mIntentFilter = new IntentFilter(WifiManager.WIFI_AP_STATE_CHANGED_ACTION);
         mIntentFilter.addAction(ConnectivityManager.ACTION_TETHER_STATE_CHANGED);
         mIntentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        Log.d(TAG, "ro.ril.transmitpower property is set to " + mTransmitPower);
     }
 
     public void resume() {
@@ -118,28 +121,30 @@ public class WifiApEnabler {
         final ContentResolver cr = mContext.getContentResolver();
         boolean result = false;
 
-        /* Disable here, enabled on receiving success broadcast */
-        mCheckBox.setEnabled(false);
+        if (mTransmitPower) {
+            /* Disable here, enabled on receiving success broadcast */
+            mCheckBox.setEnabled(false);
 
-        // Change transmit power based on FCC regulation (CFR47 2.1093) before
-        // enabling/disabling the WiFi hotspot
-        if (enable) {
-            // Request modem to reduce the transmit power when
-            // hotspot is enabled
-            result = setTransmitPower(RILConstants.TRANSMIT_POWER_WIFI_HOTSPOT);
-            oldPowerLevel = RILConstants.TRANSMIT_POWER_DEFAULT;
-        } else {
-            // Request modem to restore the transmit power to default values
-            // when hotspot is disabled
-            result = setTransmitPower(RILConstants.TRANSMIT_POWER_DEFAULT);
-            oldPowerLevel = RILConstants.TRANSMIT_POWER_WIFI_HOTSPOT;
-        }
+            // Change transmit power based on FCC regulation (CFR47 2.1093) before
+            // enabling/disabling the WiFi hotspot
+            if (enable) {
+                // Request modem to reduce the transmit power when
+                // hotspot is enabled
+                result = setTransmitPower(RILConstants.TRANSMIT_POWER_WIFI_HOTSPOT);
+                oldPowerLevel = RILConstants.TRANSMIT_POWER_DEFAULT;
+            } else {
+                // Request modem to restore the transmit power to default values
+                // when hotspot is disabled
+                result = setTransmitPower(RILConstants.TRANSMIT_POWER_DEFAULT);
+                oldPowerLevel = RILConstants.TRANSMIT_POWER_WIFI_HOTSPOT;
+            }
 
-        if (result == false) {
-            Log.d(TAG, "Failed to set the transmit power");
-            mCheckBox.setEnabled(true);
-            mCheckBox.setSummary(R.string.wifi_error);
-            return;
+            if (result == false) {
+                Log.d(TAG, "Failed to set the transmit power");
+                mCheckBox.setEnabled(true);
+                mCheckBox.setSummary(R.string.wifi_error);
+                return;
+            }
         }
 
         /**
@@ -152,7 +157,10 @@ public class WifiApEnabler {
             Settings.Secure.putInt(cr, Settings.Secure.WIFI_SAVED_STATE, 1);
         }
 
-        if (mWifiManager.setWifiApEnabled(null, enable) == false) {
+        if (mWifiManager.setWifiApEnabled(null, enable)) {
+            /* Disable here, enabled on receiving success broadcast */
+            mCheckBox.setEnabled(false);
+        } else {
             mCheckBox.setEnabled(true);
             mCheckBox.setSummary(R.string.wifi_error);
         }
@@ -236,11 +244,13 @@ public class WifiApEnabler {
                 mCheckBox.setSummary(R.string.wifi_error);
                 enableWifiCheckBox();
 
-                // In case of failure in enabling/disabling WiFi hotspot restore
-                // the transmit power level to the old power level
-                Log.e(TAG, "Fail to enable/disable the WiFi hotspot, " +
-                           "reverting the transmit power level");
-                setTransmitPower(oldPowerLevel);
+                if (mTransmitPower) {
+                    // In case of failure in enabling/disabling WiFi hotspot restore
+                    // the transmit power level to the old power level
+                    Log.e(TAG, "Fail to enable/disable the WiFi hotspot, " +
+                    "reverting the transmit power level");
+                    setTransmitPower(oldPowerLevel);
+                }
         }
     }
 
