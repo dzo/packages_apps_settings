@@ -516,6 +516,9 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
             setPhonebookPermissionChoice(PHONEBOOK_ACCESS_UNKNOWN);
         }
 
+        if (bondState == BluetoothDevice.BOND_BONDED) {
+            fetchName();
+        }
         refresh();
 
         if (bondState == BluetoothDevice.BOND_BONDED) {
