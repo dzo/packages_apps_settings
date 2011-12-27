@@ -142,7 +142,7 @@ public class WifiApEnabler {
             if (result == false) {
                 Log.d(TAG, "Failed to set the transmit power");
                 mCheckBox.setEnabled(true);
-                mCheckBox.setSummary(R.string.wifi_error);
+                mCheckBox.setSummary(R.string.wifi_tether_transmit_power_error);
                 return;
             }
         }
