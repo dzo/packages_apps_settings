@@ -17,7 +17,10 @@
 
 package com.android.settings;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.AsyncResult;
 import android.os.Bundle;
@@ -35,6 +38,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.MSimPhoneFactory;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.CommandException;
+import com.android.internal.telephony.TelephonyIntents;
 
 /**
  * Implements the preference screen to enable/disable ICC lock and
@@ -45,7 +49,7 @@ import com.android.internal.telephony.CommandException;
  * these operations.
  *
  */
-public class IccLockSettings extends PreferenceActivity 
+public class IccLockSettings extends PreferenceActivity
         implements EditPinPreference.OnPinEnteredListener {
 
     private static final int OFF_MODE = 0;
@@ -57,7 +61,7 @@ public class IccLockSettings extends PreferenceActivity
     private static final int ICC_NEW_MODE = 3;
     // State when entering the new pin - second time
     private static final int ICC_REENTER_MODE = 4;
-    
+
     // Keys in xml file
     private static final String PIN_DIALOG = "sim_pin";
     private static final String PIN_TOGGLE = "sim_toggle";
@@ -71,55 +75,68 @@ public class IccLockSettings extends PreferenceActivity
     // (ex. portrait<-->landscape) during change PIN code
     private static final String OLD_PINCODE = "oldPinCode";
     private static final String NEW_PINCODE = "newPinCode";
-    
+
     private static final int MIN_PIN_LENGTH = 4;
     private static final int MAX_PIN_LENGTH = 8;
     // Which dialog to show next when popped up
     private int mDialogState = OFF_MODE;
-    
+
     private String mPin;
     private String mOldPin;
     private String mNewPin;
     private String mError;
     // Are we trying to enable or disable ICC lock?
     private boolean mToState;
-    
+
     private Phone mPhone;
-    
+
     private EditPinPreference mPinDialog;
     private CheckBoxPreference mPinToggle;
-    
+
     private Resources mRes;
 
     // For async handler to identify request type
-    private static final int ENABLE_ICC_PIN_COMPLETE = 100;
-    private static final int CHANGE_ICC_PIN_COMPLETE = 101;
+    private static final int MSG_ENABLE_ICC_PIN_COMPLETE = 100;
+    private static final int MSG_CHANGE_ICC_PIN_COMPLETE = 101;
+    private static final int MSG_SIM_STATE_CHANGED = 102;
 
     // For replies from IccCard interface
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             AsyncResult ar = (AsyncResult) msg.obj;
             switch (msg.what) {
-                case ENABLE_ICC_PIN_COMPLETE:
+                case MSG_ENABLE_ICC_PIN_COMPLETE:
                     iccLockChanged(ar);
                     break;
-                case CHANGE_ICC_PIN_COMPLETE:
+                case MSG_CHANGE_ICC_PIN_COMPLETE:
                     iccPinChanged(ar);
+                    break;
+                case MSG_SIM_STATE_CHANGED:
+                    updatePreferences();
                     break;
             }
 
             return;
         }
     };
-    
+
+    private final BroadcastReceiver mSimStateReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
+                mHandler.sendMessage(mHandler.obtainMessage(MSG_SIM_STATE_CHANGED));
+            }
+        }
+    };
+
     // For top-level settings screen to query
     static boolean isIccLockEnabled() {
         return PhoneFactory.getDefaultPhone().getIccCard().getIccLockEnabled();
     }
-    
+
     static String getSummary(Context context) {
         Resources res = context.getResources();
-        String summary = isIccLockEnabled() 
+        String summary = isIccLockEnabled()
                 ? res.getString(R.string.sim_lock_on)
                 : res.getString(R.string.sim_lock_off);
         return summary;
@@ -163,7 +180,7 @@ public class IccLockSettings extends PreferenceActivity
         }
 
         mPinDialog.setOnPinEnteredListener(this);
-        
+
         // Don't need any changes to be remembered
         getPreferenceScreen().setPersistent(false);
         
@@ -172,14 +189,22 @@ public class IccLockSettings extends PreferenceActivity
         // Use the right phone based on the subscription selected.
         mPhone = MSimPhoneFactory.getPhone(subscription);
         mRes = getResources();
+        updatePreferences();
     }
-    
+
+    private void updatePreferences() {
+        mPinToggle.setChecked(mPhone.getIccCard().getIccLockEnabled());
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        
-        mPinToggle.setChecked(mPhone.getIccCard().getIccLockEnabled());
-        
+
+        // ACTION_SIM_STATE_CHANGED is sticky, so we'll receive current state after this call,
+        // which will call updatePreferences().
+        final IntentFilter filter = new IntentFilter(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
+        registerReceiver(mSimStateReceiver, filter);
+
         if (mDialogState != OFF_MODE) {
             showPinDialog();
         } else {
@@ -187,7 +212,13 @@ public class IccLockSettings extends PreferenceActivity
             resetDialogState();
         }
     }
-    
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mSimStateReceiver);
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle out) {
         // Need to store this state for slider open/close
@@ -227,17 +258,17 @@ public class IccLockSettings extends PreferenceActivity
             return;
         }
         setDialogValues();
-        
+
         mPinDialog.showPinDialog();
     }
-    
+
     private void setDialogValues() {
         mPinDialog.setText(mPin);
         String message = "";
         switch (mDialogState) {
             case ICC_LOCK_MODE:
                 message = mRes.getString(R.string.sim_enter_pin);
-                mPinDialog.setDialogTitle(mToState 
+                mPinDialog.setDialogTitle(mToState
                         ? mRes.getString(R.string.sim_enable_sim_lock)
                         : mRes.getString(R.string.sim_disable_sim_lock));
                 break;
@@ -266,7 +297,7 @@ public class IccLockSettings extends PreferenceActivity
             resetDialogState();
             return;
         }
-        
+
         mPin = preference.getText();
         if (!reasonablePin(mPin)) {
             // inject error message and display dialog again
@@ -304,13 +335,13 @@ public class IccLockSettings extends PreferenceActivity
                 break;
         }
     }
-    
+
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mPinToggle) {
             // Get the new, preferred state
             mToState = mPinToggle.isChecked();
-            // Flip it back and pop up pin dialog  
-            mPinToggle.setChecked(!mToState);  
+            // Flip it back and pop up pin dialog
+            mPinToggle.setChecked(!mToState);
             mDialogState = ICC_LOCK_MODE;
             showPinDialog();
         } else if (preference == mPinDialog) {
@@ -321,9 +352,9 @@ public class IccLockSettings extends PreferenceActivity
     }
 
     private void tryChangeIccLockState() {
-        // Try to change icc lock. If it succeeds, toggle the lock state and 
+        // Try to change icc lock. If it succeeds, toggle the lock state and
         // reset dialog state. Else inject error message and show dialog again.
-        Message callback = Message.obtain(mHandler, ENABLE_ICC_PIN_COMPLETE);
+        Message callback = Message.obtain(mHandler, MSG_ENABLE_ICC_PIN_COMPLETE);
         mPhone.getIccCard().setIccLockEnabled(mToState, mPin, callback);
 
     }
@@ -372,7 +403,7 @@ public class IccLockSettings extends PreferenceActivity
     }
 
     private void tryChangePin() {
-        Message callback = Message.obtain(mHandler, CHANGE_ICC_PIN_COMPLETE);
+        Message callback = Message.obtain(mHandler, MSG_CHANGE_ICC_PIN_COMPLETE);
         mPhone.getIccCard().changeIccLockPassword(mOldPin,
                 mNewPin, callback);
     }
