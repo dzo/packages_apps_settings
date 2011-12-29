@@ -23,6 +23,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSap;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
+import android.util.Log;
 
 import com.android.settings.R;
 
@@ -34,6 +35,7 @@ import java.util.List;
  */
 final class SapProfile implements LocalBluetoothProfile {
     private BluetoothSap mService;
+    private int mConnectionStatus = 0;
 
     // Tethering direction for each device
     private final HashMap<BluetoothDevice, Integer> mDeviceRoleMap =
@@ -44,23 +46,8 @@ final class SapProfile implements LocalBluetoothProfile {
     // Order of this profile in device profiles list
     private static final int ORDINAL = 5;
 
-    // These callbacks run on the main thread.
-    private final class SapServiceListener
-            implements BluetoothProfile.ServiceListener {
-
-        public void onServiceConnected(int profile, BluetoothProfile proxy) {
-            mService = (BluetoothSap) proxy;
-        }
-
-        public void onServiceDisconnected(int profile) {
-            mService = null;
-        }
-    }
-
-    SapProfile(Context context) {
-        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        adapter.getProfileProxy(context, new SapServiceListener(),
-                BluetoothProfile.SAP);
+    SapProfile() {
+        mService = new BluetoothSap();
     }
 
     public boolean isConnectable() {
@@ -76,11 +63,16 @@ final class SapProfile implements LocalBluetoothProfile {
     }
 
     public boolean disconnect(BluetoothDevice device) {
-        return mService.disconnect();
+        boolean ret = mService.disconnect();
+        return ret;
     }
 
     public int getConnectionStatus(BluetoothDevice device) {
-        return 0;
+        return mConnectionStatus;
+    }
+
+    public void setConnectionStatus(int status) {
+        mConnectionStatus = status;
     }
 
     public boolean isPreferred(BluetoothDevice device) {
@@ -131,4 +123,3 @@ final class SapProfile implements LocalBluetoothProfile {
     }
 
 }
-

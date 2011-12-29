@@ -115,9 +115,11 @@ final class LocalBluetoothProfileManager {
         addPanProfile(mPanProfile, PanProfile.NAME,
                 BluetoothPan.ACTION_CONNECTION_STATE_CHANGED);
 
-        mSapProfile = new SapProfile(context);
-        addProfile(mSapProfile, SapProfile.NAME,
-                BluetoothSap.ACTION_CONNECTION_STATE_CHANGED);
+
+        mSapProfile = new SapProfile();
+        addSapProfile(mSapProfile, SapProfile.NAME,
+                BluetoothDevice.SAP_STATE_CHANGED);
+
 
         Log.d(TAG, "LocalBluetoothProfileManager construction complete");
     }
@@ -188,6 +190,14 @@ final class LocalBluetoothProfileManager {
         mProfileNameMap.put(profileName, profile);
     }
 
+    private void addSapProfile(LocalBluetoothProfile profile,
+            String profileName, String stateChangedAction) {
+        mEventManager.addProfileHandler(stateChangedAction,
+                new SapStateChangedHandler(profile));
+        mProfileNameMap.put(profileName, profile);
+        Log.d(TAG,"Added handler for SAP state changed Notifications");
+    }
+
     LocalBluetoothProfile getProfileByName(String name) {
         return mProfileNameMap.get(name);
     }
@@ -229,6 +239,28 @@ final class LocalBluetoothProfileManager {
             cachedDevice.refresh();
         }
     }
+    private class SapStateChangedHandler extends StateChangedHandler {
+
+       SapStateChangedHandler(LocalBluetoothProfile profile) {
+              super(profile);
+       }
+
+        @Override
+        public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+            SapProfile sapProfile = (SapProfile) mProfile;
+            int state =  intent.getIntExtra("state", 0);
+            Log.d(TAG, "SapStateChanged" + state);
+            CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
+            if (cachedDevice != null) {
+                cachedDevice.onProfileStateChanged(mProfile, state);
+                cachedDevice.refresh();
+                /*Update the Sap State here*/
+                sapProfile.setConnectionStatus(state);
+            } else {
+                Log.w(TAG, "No Cached device!,  shouldn't reach here");
+            }
+        }
+      }
 
     /** State change handler for NAP and PANU profiles. */
     private class PanStateChangedHandler extends StateChangedHandler {

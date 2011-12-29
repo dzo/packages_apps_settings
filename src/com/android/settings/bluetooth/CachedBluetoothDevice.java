@@ -137,6 +137,11 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
             mProfiles.remove(profile);
             mRemovedProfiles.add(profile);
             mLocalNapRoleConnected = false;
+        } else if (profile instanceof SapProfile &&
+             newProfileState == BluetoothProfile.STATE_DISCONNECTED) {
+            mProfiles.remove(profile);
+            mRemovedProfiles.add(profile);
+            Log.d(TAG, "Removed SAP from the list");
         }
     }
 
@@ -162,6 +167,14 @@ final class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> {
         if (profile.disconnect(mDevice)) {
             if (Utils.D) {
                 Log.d(TAG, "Command sent successfully:DISCONNECT " + describe(profile));
+            }
+        }
+    }
+
+    public void resetAllServerProfiles() {
+        for (LocalBluetoothProfile profile : mProfiles) {
+            if (profile instanceof SapProfile) {
+                ((SapProfile)profile).setConnectionStatus(BluetoothProfile.STATE_DISCONNECTED);
             }
         }
     }

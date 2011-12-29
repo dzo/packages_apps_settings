@@ -32,6 +32,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.List;
 
 /**
  * BluetoothEventManager receives broadcasts and callbacks from the Bluetooth
@@ -164,6 +165,12 @@ final class BluetoothEventManager {
                 for (BluetoothCallback callback : mCallbacks) {
                     callback.onBluetoothStateChanged(state);
                 }
+            }
+
+            /*Reset the connection state of all server role based
+            profiles*/
+            if (state == BluetoothAdapter.STATE_TURNING_OFF) {
+                resetAllServerRoles();
             }
         }
     }
@@ -385,5 +392,13 @@ final class BluetoothEventManager {
         }
 
         return deviceAdded;
+    }
+
+    private void resetAllServerRoles() {
+        Collection<CachedBluetoothDevice> cachedDevices =
+                mDeviceManager.getCachedDevicesCopy();
+        for (CachedBluetoothDevice cachedDevice : cachedDevices) {
+               cachedDevice.resetAllServerProfiles();
+        }
     }
 }
