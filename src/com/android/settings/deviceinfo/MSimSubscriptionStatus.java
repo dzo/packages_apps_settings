@@ -148,7 +148,7 @@ public class MSimSubscriptionStatus extends PreferenceActivity {
             } else {
                 setSummaryText(KEY_IMEI, mPhone.getDeviceId());
 
-                setSummaryText(KEY_IMEI_SV, mTelephonyManager.getDeviceSoftwareVersion());
+                setSummaryText(KEY_IMEI_SV, mPhone.getDeviceSvn());
 
                 // device is not CDMA, do not display CDMA features
                 // check Null in case no specified preference in overlay xml
