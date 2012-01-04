@@ -1444,6 +1444,8 @@ alog [CHAR LIMIT=none] -->
     <string name="wifi_tether_configure_subtext"><xliff:g id="network_ssid">%1$s</xliff:g> <xliff:g id="network_security">%2$s</xliff:g> portable Wi-Fi hotspot</string>
     <!-- Default access point SSID used for tethering -->
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>
+    <!-- Error to display when not able to set transmit power while turning on Wi-Fi hotspot  -->
+    <string name="wifi_tether_transmit_power_error">Failed to set transmit power</string>
 
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary
          Wi-Fi Testing on the diagnostic screen-->
