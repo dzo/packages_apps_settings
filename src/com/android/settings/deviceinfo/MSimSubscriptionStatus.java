@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
- * Copyright (c) 2011 Code Aurora Forum. All rights reserved
+ * Copyright (c) 2011-2012, Code Aurora Forum. All rights reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,6 +65,7 @@ public class MSimSubscriptionStatus extends PreferenceActivity {
     private static final String KEY_ICC_ID = "icc_id";
     private static final String KEY_PRL_VERSION = "prl_version";
     private static final String KEY_MIN_NUMBER = "min_number";
+    private static final String KEY_ESN_NUMBER = "esn_number";
     private static final String KEY_MEID_NUMBER = "meid_number";
     private static final String KEY_SIGNAL_STRENGTH = "signal_strength";
     private static final String KEY_BASEBAND_VERSION = "baseband_version";
@@ -79,6 +80,7 @@ public class MSimSubscriptionStatus extends PreferenceActivity {
         KEY_ICC_ID,
         KEY_PRL_VERSION,
         KEY_MIN_NUMBER,
+        KEY_ESN_NUMBER,
         KEY_MEID_NUMBER,
         KEY_SIGNAL_STRENGTH,
         KEY_BASEBAND_VERSION
@@ -127,12 +129,25 @@ public class MSimSubscriptionStatus extends PreferenceActivity {
                 removePreferenceFromScreen(key);
             }
         } else {
+
+            if ((SystemProperties.getBoolean("ro.config.multimode_cdma", false))
+                    || (mPhone.getPhoneName().equals("CDMA"))) {
+                setSummaryText(KEY_PRL_VERSION, mPhone.getCdmaPrlVersion());
+            } else {
+                // device does not support CDMA, do not display PRL
+                removePreferenceFromScreen(KEY_PRL_VERSION);
+            }
+
             // NOTE "imei" is the "Device ID" since it represents
             //  the IMEI in GSM and the MEID in CDMA
             if (mPhone.getPhoneName().equals("CDMA")) {
+                setSummaryText(KEY_ESN_NUMBER, mPhone.getEsn());
                 setSummaryText(KEY_MEID_NUMBER, mPhone.getMeid());
                 setSummaryText(KEY_MIN_NUMBER, mPhone.getCdmaMin());
-                setSummaryText(KEY_PRL_VERSION, mPhone.getCdmaPrlVersion());
+                if (getResources().getBoolean(R.bool.config_msid_enable)) {
+                    findPreference(KEY_MIN_NUMBER).setTitle(R.string.status_msid_number);
+                }
+
                 removePreferenceFromScreen(KEY_IMEI_SV);
 
                 if (mPhone.getLteOnCdmaMode() == Phone.LTE_ON_CDMA_TRUE) {
@@ -152,7 +167,7 @@ public class MSimSubscriptionStatus extends PreferenceActivity {
 
                 // device is not CDMA, do not display CDMA features
                 // check Null in case no specified preference in overlay xml
-                removePreferenceFromScreen(KEY_PRL_VERSION);
+                removePreferenceFromScreen(KEY_ESN_NUMBER);
                 removePreferenceFromScreen(KEY_MEID_NUMBER);
                 removePreferenceFromScreen(KEY_MIN_NUMBER);
                 removePreferenceFromScreen(KEY_ICC_ID);
