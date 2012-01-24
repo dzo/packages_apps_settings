@@ -25,7 +25,6 @@ import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
-import android.os.SystemProperties;
 
 import com.android.settings.R;
 import com.android.settings.WirelessSettings;
@@ -122,7 +121,6 @@ public final class BluetoothEnabler implements CompoundButton.OnCheckedChangeLis
                 mSwitch.setEnabled(false);
                 break;
             case BluetoothAdapter.STATE_ON:
-                SystemProperties.set("bluetooth.isEnabled","true");
                 mSwitch.setChecked(true);
                 mSwitch.setEnabled(true);
                 break;
@@ -130,7 +128,6 @@ public final class BluetoothEnabler implements CompoundButton.OnCheckedChangeLis
                 mSwitch.setEnabled(false);
                 break;
             case BluetoothAdapter.STATE_OFF:
-                SystemProperties.set("bluetooth.isEnabled","false");
                 mSwitch.setChecked(false);
                 mSwitch.setEnabled(true);
                 break;
