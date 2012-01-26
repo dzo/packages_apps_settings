@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (c) 2012 Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +22,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -59,6 +62,8 @@ public class BluetoothPermissionActivity extends AlertActivity implements
     private CheckBox mRememberChoice;
     private boolean mRememberChoiceValue = false;
 
+    private static final int MSG_INTERNAL_USER_CONFIRM_TIMEOUT = 1;
+    private static final int TIME_TO_WAIT = 30000;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -87,12 +92,11 @@ public class BluetoothPermissionActivity extends AlertActivity implements
             finish();
             return;
         }
-
         mDevice = i.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
         mReturnPackage = i.getStringExtra(BluetoothDevice.EXTRA_PACKAGE_NAME);
         mReturnClass = i.getStringExtra(BluetoothDevice.EXTRA_CLASS_NAME);
         requestType = i.getIntExtra(BluetoothDevice.EXTRA_ACCESS_REQUEST_TYPE,
-                                     BluetoothDevice.REQUEST_TYPE_PHONEBOOK_ACCESS);
+                                    BluetoothDevice.ERROR);
 
         if (requestType == BluetoothDevice.REQUEST_TYPE_PROFILE_CONNECTION) {
             showConnectionDialog();
@@ -109,10 +113,27 @@ public class BluetoothPermissionActivity extends AlertActivity implements
             finish();
             return;
         }
+
+        /* Post a delayed message to the handler to clear authorization dialog on time out */
+        mHandler.sendMessageDelayed(mHandler
+            .obtainMessage(MSG_INTERNAL_USER_CONFIRM_TIMEOUT), TIME_TO_WAIT);
         registerReceiver(mReceiver,
                          new IntentFilter(BluetoothDevice.ACTION_CONNECTION_ACCESS_CANCEL));
         mReceiverRegistered = true;
     }
+
+    private final Handler mHandler = new Handler() {
+      @Override
+      public void handleMessage(Message msg) {
+         switch (msg.what) {
+            case MSG_INTERNAL_USER_CONFIRM_TIMEOUT:
+               onNegative();
+               break;
+            default:
+               break;
+         }
+      }
+    };
 
     private void showConnectionDialog() {
         final AlertController.AlertParams p = mAlertParams;
@@ -170,7 +191,7 @@ public class BluetoothPermissionActivity extends AlertActivity implements
         final AlertController.AlertParams p = mAlertParams;
         p.mIconId = android.R.drawable.ic_dialog_info;
         p.mTitle = getString(R.string.bluetooth_sap_request);
-        p.mView = createFtpDialogView();
+        p.mView = createSapDialogView();
         p.mPositiveButtonText = getString(android.R.string.yes);
         p.mPositiveButtonListener = this;
         p.mNegativeButtonText = getString(android.R.string.no);
@@ -311,6 +332,7 @@ public class BluetoothPermissionActivity extends AlertActivity implements
         }
         sendIntentToReceiver(BluetoothDevice.ACTION_CONNECTION_ACCESS_REPLY, true,
                              BluetoothDevice.EXTRA_ALWAYS_ALLOWED, mRememberChoiceValue);
+        mHandler.removeMessages(MSG_INTERNAL_USER_CONFIRM_TIMEOUT);
         finish();
     }
 
@@ -323,6 +345,7 @@ public class BluetoothPermissionActivity extends AlertActivity implements
         sendIntentToReceiver(BluetoothDevice.ACTION_CONNECTION_ACCESS_REPLY, false,
                              null, false // dummy value, no effect since last param is null
                              );
+        mHandler.removeMessages(MSG_INTERNAL_USER_CONFIRM_TIMEOUT);
         finish();
     }
 

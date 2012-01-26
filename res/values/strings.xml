@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2007 The Android Open Source Project
-     Copyright (C) 2010-2011, Code Aurora Forum. All rights reserved.
+     Copyright (C) 2010-2012, Code Aurora Forum. All rights reserved.
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -324,6 +324,18 @@
 
     <!-- Activity label of BluetoothPermissionActivity [CHAR LIMIT=none]-->
     <string name="bluetooth_connection_permission_request">"Bluetooth connection request"</string>
+
+    <!-- Activity label of BluetoothPermissionActivity for PBAP [CHAR LIMIT=none]-->
+    <string name="bluetooth_pbap_connection_permission_request">"Pbap connection request"</string>
+
+    <!-- Activity label of BluetoothPermissionActivity for FTP [CHAR LIMIT=none]-->
+    <string name="bluetooth_ftp_connection_permission_request">"Ftp connection request"</string>
+
+    <!-- Activity label of BluetoothPermissionActivity for MAP [CHAR LIMIT=none]-->
+    <string name="bluetooth_map_connection_permission_request">"Map connection request"</string>
+
+    <!-- Activity label of BluetoothPermissionActivity for SAP [CHAR LIMIT=none]-->
+    <string name="bluetooth_sap_connection_permission_request">"Sap connection request"</string>
 
     <!-- Notification message when a remote Bluetooth device wants to connect to a Bluetooth profile [CHAR LIMIT=none]-->
     <string name="bluetooth_connection_notif_message">"Touch to connect to \u0022<xliff:g id="device_name">%1$s</xliff:g>\u0022."</string>

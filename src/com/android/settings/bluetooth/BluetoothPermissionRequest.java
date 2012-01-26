@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (c) 2012 Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +38,10 @@ public final class BluetoothPermissionRequest extends BroadcastReceiver {
     private static final String TAG = "BluetoothPermissionRequest";
     private static final boolean DEBUG = Utils.V;
     public static final int NOTIFICATION_ID = android.R.drawable.stat_sys_data_bluetooth;
+    private static final int NOTIFICATION_ID_ACCESS_PBAP = -1000001;
+    private static final int NOTIFICATION_ID_ACCESS_FTP = -1000005;
+    private static final int NOTIFICATION_ID_ACCESS_MAP = -1000007;
+    private static final int NOTIFICATION_ID_ACCESS_SAP = -1000009;
 
     Context mContext;
     int mRequestType;
@@ -55,7 +60,7 @@ public final class BluetoothPermissionRequest extends BroadcastReceiver {
             // convert broadcast intent into activity intent (same action string)
             mDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
             mRequestType = intent.getIntExtra(BluetoothDevice.EXTRA_ACCESS_REQUEST_TYPE,
-                                                 BluetoothDevice.REQUEST_TYPE_PROFILE_CONNECTION);
+                                              BluetoothDevice.ERROR);
             mReturnPackage = intent.getStringExtra(BluetoothDevice.EXTRA_PACKAGE_NAME);
             mReturnClass = intent.getStringExtra(BluetoothDevice.EXTRA_CLASS_NAME);
 
@@ -76,7 +81,6 @@ public final class BluetoothPermissionRequest extends BroadcastReceiver {
             }
 
             String deviceAddress = mDevice != null ? mDevice.getAddress() : null;
-
             PowerManager powerManager =
                 (PowerManager) context.getSystemService(Context.POWER_SERVICE);
 
@@ -88,35 +92,80 @@ public final class BluetoothPermissionRequest extends BroadcastReceiver {
 
                 // Create an intent triggered by clicking on the
                 // "Clear All Notifications" button
-
                 Intent deleteIntent = new Intent(BluetoothDevice.ACTION_CONNECTION_ACCESS_REPLY);
                 deleteIntent.putExtra(BluetoothDevice.EXTRA_DEVICE, mDevice);
                 deleteIntent.putExtra(BluetoothDevice.EXTRA_CONNECTION_ACCESS_RESULT,
                         BluetoothDevice.CONNECTION_ACCESS_NO);
 
+                int notificationId = 0;
+                int stringId = 0;
+                if (mRequestType == BluetoothDevice.REQUEST_TYPE_PROFILE_CONNECTION) {
+                   /*It looks that the extra type REQUEST_TYPE_PROFILE_CONNECTION is defined
+                    *to create pop up for remote initiated A2DP, HF and HID but not used for now
+                    */
+                   notificationId = NOTIFICATION_ID;
+                   stringId = R.string.bluetooth_connection_permission_request;
+                } else if (mRequestType == BluetoothDevice.REQUEST_TYPE_PHONEBOOK_ACCESS) {
+                   notificationId = NOTIFICATION_ID_ACCESS_PBAP;
+                   stringId = R.string.bluetooth_pbap_connection_permission_request;
+                } else if (mRequestType == BluetoothDevice.REQUEST_TYPE_FILE_ACCESS) {
+                   notificationId = NOTIFICATION_ID_ACCESS_FTP;
+                   stringId = R.string.bluetooth_ftp_connection_permission_request;
+                } else if (mRequestType == BluetoothDevice.REQUEST_TYPE_MESSAGE_ACCESS) {
+                   notificationId = NOTIFICATION_ID_ACCESS_MAP;
+                   stringId = R.string.bluetooth_map_connection_permission_request;
+                } else if (mRequestType == BluetoothDevice.REQUEST_TYPE_SIM_ACCESS) {
+                   notificationId = NOTIFICATION_ID_ACCESS_SAP;
+                   stringId = R.string.bluetooth_sap_connection_permission_request;
+                } else {
+                  /* Unhandled request */
+                  return;
+                }
+
                 Notification notification = new Notification(
                     android.R.drawable.stat_sys_data_bluetooth,
-                    context.getString(R.string.bluetooth_connection_permission_request),
+                    context.getString(stringId),
                     System.currentTimeMillis());
                 String deviceName = mDevice != null ? mDevice.getAliasName() : null;
                 notification.setLatestEventInfo(context,
-                    context.getString(R.string.bluetooth_connection_permission_request),
+                    context.getString(stringId),
                     context.getString(R.string.bluetooth_connection_notif_message, deviceName),
-                    PendingIntent.getActivity(context, 0, connectionAccessIntent, 0));
+                    PendingIntent.getActivity(context, notificationId, connectionAccessIntent,
+                       PendingIntent.FLAG_ONE_SHOT));
                 notification.flags = Notification.FLAG_AUTO_CANCEL |
                                      Notification.FLAG_ONLY_ALERT_ONCE;
                 notification.defaults = Notification.DEFAULT_SOUND;
-                notification.deleteIntent = PendingIntent.getBroadcast(context, 0, deleteIntent, 0);
+                notification.deleteIntent = PendingIntent.getBroadcast(context, 0, deleteIntent,
+                       PendingIntent.FLAG_ONE_SHOT);
 
                 NotificationManager notificationManager =
                     (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                notificationManager.notify(NOTIFICATION_ID, notification);
+                notificationManager.notify(notificationId, notification);
             }
         } else if (action.equals(BluetoothDevice.ACTION_CONNECTION_ACCESS_CANCEL)) {
             // Remove the notification
+            int notificationId = 0;
+            int clearNotification =  intent.getIntExtra(BluetoothDevice.EXTRA_ACCESS_REQUEST_TYPE,
+                                                        BluetoothDevice.ERROR);
+            if (clearNotification == BluetoothDevice.REQUEST_TYPE_PROFILE_CONNECTION) {
+              /* Not used for now */
+              notificationId = NOTIFICATION_ID;
+            } else if (clearNotification == BluetoothDevice.REQUEST_TYPE_PHONEBOOK_ACCESS) {
+                notificationId = NOTIFICATION_ID_ACCESS_PBAP;
+            } else if(clearNotification == BluetoothDevice.REQUEST_TYPE_FILE_ACCESS) {
+                notificationId = NOTIFICATION_ID_ACCESS_FTP;
+            } else if(clearNotification == BluetoothDevice.REQUEST_TYPE_MESSAGE_ACCESS) {
+                notificationId = NOTIFICATION_ID_ACCESS_MAP;
+            } else if(clearNotification == BluetoothDevice.REQUEST_TYPE_SIM_ACCESS) {
+                notificationId = NOTIFICATION_ID_ACCESS_SAP;
+            } else {
+              /* Do not clear */
+              return;
+            }
+
             NotificationManager manager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.cancel(NOTIFICATION_ID);
+            manager.cancel(notificationId);
         }
     }
 
