@@ -94,6 +94,7 @@ public class WifiP2pSettings extends SettingsPreferenceFragment
                 if (mWifiP2pManager != null) {
                     mWifiP2pManager.requestPeers(mChannel, WifiP2pSettings.this);
                 }
+                updateDevicePref();
             } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
                 if (mWifiP2pManager == null) return;
                 NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra(
