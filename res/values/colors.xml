@@ -32,4 +32,5 @@
 
     <color name="divider_color">#20ffffff</color>
     <color name="title_color">@android:color/holo_blue_light</color>
+    <color name="dragndrop_background">#e0103010</color>
 </resources>
