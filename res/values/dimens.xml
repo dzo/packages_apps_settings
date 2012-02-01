@@ -34,4 +34,9 @@
     <dimen name="volume_seekbar_side_margin">8dip</dimen>
 
     <dimen name="crypt_clock_size">100sp</dimen>
+
+    <!-- height of a normal list item in edit playlist mode -->
+    <dimen name="normal_height">64dip</dimen>
+    <!-- height of an expanded list item in edit playlist mode -->
+    <dimen name="expanded_height">128dip</dimen>
 </resources>

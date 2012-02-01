@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2007 The Android Open Source Project
+<!-- Copyright (C) 2012 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,15 +14,14 @@
      limitations under the License.
 -->
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/system_interface_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <!-- If false, MIN is displayed. If true, MSID is displayed. -->
-    <bool name="config_msid_enable" translatable="false">false</bool>
+    <PreferenceScreen
+        android:key="notification_drawer"
+        android:fragment="com.android.settings.oxygen.PowerWidget"
+        android:title="@string/notification_drawer_title" />
 
-    <string name="additional_system_update" translatable="false"></string>
-    <string name="additional_system_update_menu" translatable="false"></string>
-
-    <!-- LED Flashlight -->
-    <bool name="has_led_flash">true</bool>
-
-</resources>
+</PreferenceScreen>
