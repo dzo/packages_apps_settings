@@ -167,6 +167,7 @@ public class DataUsageSummary extends Fragment {
     private static final String TAG_DENIED_RESTRICT = "deniedRestrict";
     private static final String TAG_CONFIRM_APP_RESTRICT = "confirmAppRestrict";
     private static final String TAG_APP_DETAILS = "appDetails";
+    private static final String TAG_WARNING_DATA_STATISTICS = "confirmDataStatistics";
 
     private static final int LOADER_CHART_DATA = 2;
     private static final int LOADER_SUMMARY = 3;
@@ -220,6 +221,7 @@ public class DataUsageSummary extends Fragment {
     private TextView mAppBackground;
     private Button mAppSettings;
 
+    private Switch mDataStatisticsSwitch;
     private LinearLayout mAppSwitches;
     private CheckBox mAppRestrict;
     private View mAppRestrictView;
@@ -324,6 +326,11 @@ public class DataUsageSummary extends Fragment {
             mDataEnabledView = inflatePreference(inflater, mNetworkSwitches, mDataEnabled);
             mDataEnabled.setOnCheckedChangeListener(mDataEnabledListener);
             mNetworkSwitches.addView(mDataEnabledView);
+
+            mDataStatisticsSwitch =
+                (Switch) mHeader.findViewById(R.id.data_usage_data_statistics_switch);
+            mDataStatisticsSwitch.setChecked(isDataStatisticsEnabled());
+            mDataStatisticsSwitch.setOnCheckedChangeListener(mDataStatisticsEnabledListener);
 
             mDisableAtLimit = new CheckBox(inflater.getContext());
             mDisableAtLimit.setClickable(false);
@@ -827,6 +834,17 @@ public class DataUsageSummary extends Fragment {
         }
     }
 
+    private boolean isDataStatisticsEnabled() {
+        final ContentResolver resolver = getActivity().getContentResolver();
+        return Settings.Secure.getInt(resolver, Settings.Secure.NETSTATS_ENABLED, 1) != 0;
+    }
+
+    private void setDataStatistics(boolean enabled) {
+        final ContentResolver resolver = getActivity().getContentResolver();
+        Settings.Secure.putInt(resolver, Settings.Secure.NETSTATS_ENABLED, enabled ? 1 : 0);
+        mDataStatisticsSwitch.setChecked(enabled);
+    }
+
     private boolean getDataRoaming() {
         final ContentResolver resolver = getActivity().getContentResolver();
         return Settings.Secure.getInt(resolver, Settings.Secure.DATA_ROAMING, 0) != 0;
@@ -883,6 +901,23 @@ public class DataUsageSummary extends Fragment {
         }
 
         mAppRestrict.setChecked(restrictBackground);
+    }
+
+    private void updateOnSelection(boolean confirmSelection) {
+        boolean currSelection = mDataStatisticsSwitch.isChecked();
+        if (LOGD) Log.d(TAG, "updateOnSelection() " + "Current State: " +
+                currSelection + "User Confirmation Selction: " + confirmSelection);
+        mDataStatisticsSwitch.setOnCheckedChangeListener(null);
+
+        if(confirmSelection) {
+            setDataStatistics(currSelection);
+        } else {
+            // User canceled the operation. Revert to the previous state
+            setDataStatistics(!currSelection);
+        }
+        mDisableAtLimitView.setVisibility(mDataStatisticsSwitch.isChecked() ?
+                View.VISIBLE : View.GONE);
+        mDataStatisticsSwitch.setOnCheckedChangeListener(mDataStatisticsEnabledListener);
     }
 
     /**
@@ -995,6 +1030,21 @@ public class DataUsageSummary extends Fragment {
             updateDetailData();
         }
     }
+
+    private OnCheckedChangeListener mDataStatisticsEnabledListener =
+        new OnCheckedChangeListener() {
+        /** {@inheritDoc} */
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (mBinding) return;
+
+            final boolean dataStatsEnabled = isChecked;
+            final String currentTab = mCurrentTab;
+            if (TAB_MOBILE.equals(currentTab)) {
+                ConfirmDisableDataStatistics.show(DataUsageSummary.this, dataStatsEnabled);
+                mDisableAtLimitView.setVisibility(dataStatsEnabled ? View.VISIBLE : View.GONE);
+            }
+        }
+    };
 
     private OnCheckedChangeListener mDataEnabledListener = new OnCheckedChangeListener() {
         /** {@inheritDoc} */
@@ -1948,6 +1998,49 @@ public class DataUsageSummary extends Fragment {
                 }
             });
             builder.setNegativeButton(android.R.string.cancel, null);
+
+            return builder.create();
+        }
+    }
+
+    public static class ConfirmDisableDataStatistics extends DialogFragment {
+        private static boolean mUserSelection;
+        public static void show(DataUsageSummary parent, boolean enable) {
+            if (!parent.isAdded()) return;
+            mUserSelection = enable;
+            final ConfirmDisableDataStatistics dialog = new ConfirmDisableDataStatistics();
+            dialog.setTargetFragment(parent, 0);
+            dialog.show(parent.getFragmentManager(), TAG_WARNING_DATA_STATISTICS);
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Context context = getActivity();
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            final DataUsageSummary target = (DataUsageSummary) getTargetFragment();
+            builder.setTitle(R.string.data_usage_enable_mobile_statistics);
+            int id = mUserSelection ?  R.string.data_usage_enable_mobile_statistics_dialog :
+                R.string.data_usage_disable_mobile_statistics_dialog;
+            builder.setMessage(id);
+
+            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    if (target != null) {
+                        target.updateOnSelection(true);
+                    }
+                }
+            });
+
+            builder.setNegativeButton(android.R.string.cancel,
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    final DataUsageSummary target = (DataUsageSummary) getTargetFragment();
+                    if (target != null) {
+                        target.updateOnSelection(false);
+                    }
+                }
+            });
 
             return builder.create();
         }

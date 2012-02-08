@@ -34,6 +34,17 @@
             android:divider="?android:attr/listDivider" />
     </FrameLayout>
 
+    <Switch android:id="@+id/data_usage_data_statistics_switch"
+            android:text="@string/data_usage_enable_mobile_statistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@*android:dimen/preference_item_padding_side"
+            android:paddingRight="@*android:dimen/preference_item_padding_side"
+            android:checked="false"
+            android:orientation="vertical"
+            android:showDividers="middle|end"
+            android:divider="?android:attr/listDivider" />
+
     <include layout="@layout/data_usage_cycles" />
     <include layout="@layout/data_usage_chart" />
 

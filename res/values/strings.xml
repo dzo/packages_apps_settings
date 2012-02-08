@@ -3647,6 +3647,16 @@ found in the list of installed apps.</string>
 
     <!-- Toggle switch title for enabling all mobile data network connections. [CHAR LIMIT=32] -->
     <string name="data_usage_enable_mobile">Mobile data</string>
+
+    <!-- Toggle switch title for enabling or disabling collection mobile data statistics. [CHAR LIMIT=32] -->
+    <string name="data_usage_enable_mobile_statistics">Data statistics</string>
+
+    <!-- Body of dialog shown when user disables collection of data statistics. [CHAR LIMIT=NONE] -->
+    <string name="data_usage_disable_mobile_statistics_dialog">By disabling this feature collection of data usage statistics would be turned off.</string>
+
+    <!-- Body of dialog shown when user enables collection of data statistics [CHAR LIMIT=NONE] -->
+    <string name="data_usage_enable_mobile_statistics_dialog">By enabling this feature power consumption will be high on high data rate networks such as LTE...</string>
+
     <!-- Toggle switch title for enabling 2G and 3G data network connections. [CHAR LIMIT=32] -->
     <string name="data_usage_enable_3g">2G-3G data</string>
     <!-- Toggle switch title for enabling 4G data network connection. [CHAR LIMIT=32] -->
