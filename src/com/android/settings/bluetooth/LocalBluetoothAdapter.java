@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2012, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -219,5 +220,9 @@ public final class LocalBluetoothAdapter {
 
             syncBluetoothState();
         }
+    }
+
+    public boolean isHostPatchRequired(BluetoothDevice btDevice, int patch_id) {
+       return mAdapter.isHostPatchRequired(btDevice, patch_id);
     }
 }

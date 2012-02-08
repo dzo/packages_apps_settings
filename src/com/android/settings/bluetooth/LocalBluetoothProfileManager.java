@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2012, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -376,6 +377,62 @@ final class LocalBluetoothProfileManager {
 
         if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.NAP) &&
             mPanProfile != null) {
+            profiles.add(mPanProfile);
+            removedProfiles.remove(mPanProfile);
+        }
+    }
+    /**
+     * Fill in a list of LocalBluetoothProfile objects that are supported by
+     * the local device and the remote device without deleting existing.
+     *
+     * @param uuids of the remote device
+     * @param localUuids UUIDs of the local device
+     * @param profiles The list of profiles to fill
+     * @param removedProfiles list of profiles that were removed
+     */
+    synchronized void addNewProfiles(ParcelUuid[] uuids, ParcelUuid[] localUuids,
+            Collection<LocalBluetoothProfile> profiles,
+            Collection<LocalBluetoothProfile> removedProfiles) {
+
+        if (uuids == null) {
+            return;
+        }
+
+        if (mHeadsetProfile != null) {
+            if (((BluetoothUuid.isUuidPresent(localUuids, BluetoothUuid.HSP_AG) &&
+                    BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.HSP)) ||
+                    (BluetoothUuid.isUuidPresent(localUuids, BluetoothUuid.Handsfree_AG) &&
+                            BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.Handsfree))) &&
+                        !profiles.contains(mHeadsetProfile)) {
+                profiles.add(mHeadsetProfile);
+                removedProfiles.remove(mHeadsetProfile);
+            }
+        }
+
+        if (BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SINK_UUIDS) &&
+            (mA2dpProfile != null) &&
+            !profiles.contains(mA2dpProfile)) {
+            profiles.add(mA2dpProfile);
+            removedProfiles.remove(mA2dpProfile);
+        }
+
+        if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.ObexObjectPush) &&
+            (mOppProfile != null) &&
+            !profiles.contains(mOppProfile)) {
+            profiles.add(mOppProfile);
+            removedProfiles.remove(mOppProfile);
+        }
+
+        if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.Hid) &&
+            (mHidProfile != null) &&
+            !profiles.contains(mHidProfile)) {
+            profiles.add(mHidProfile);
+            removedProfiles.remove(mHidProfile);
+        }
+
+        if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.NAP) &&
+            (mPanProfile != null) &&
+            !profiles.contains(mPanProfile)) {
             profiles.add(mPanProfile);
             removedProfiles.remove(mPanProfile);
         }
