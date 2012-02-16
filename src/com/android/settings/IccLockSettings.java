@@ -358,7 +358,31 @@ public class IccLockSettings extends PreferenceActivity
         mPhone.getIccCard().setIccLockEnabled(mToState, mPin, callback);
 
     }
-    
+
+    /**
+     * Handles exceptions encountered when performing operations like
+     * PIN enable/disable, PIN change, etc.
+     * Displays appropriate Toast message depending on the exception
+     */
+    private void handleException(Throwable exception, int requestType) {
+        if (exception instanceof CommandException) {
+            CommandException.Error err = ((CommandException)(exception)).getCommandError();
+            if (err == CommandException.Error.REQUEST_NOT_SUPPORTED) {
+                int id;
+                if (requestType == MSG_ENABLE_ICC_PIN_COMPLETE) {
+                    id = R.string.sim_lock_change_not_supported;
+                } else {
+                    id = R.string.sim_change_failed_enable_sim_lock;
+                }
+                Toast.makeText(this, mRes.getString(id),Toast.LENGTH_SHORT).show();
+            } else {
+                displayRetryCounter(mRes.getString(R.string.sim_change_failed));
+            }
+        } else if (exception instanceof RuntimeException) {
+            Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void iccLockChanged(AsyncResult ar) {
         if (ar.exception == null) {
             if (mToState) {
@@ -368,31 +392,14 @@ public class IccLockSettings extends PreferenceActivity
             }
             mPinToggle.setChecked(mToState);
         } else {
-            CommandException.Error err = ((CommandException)(ar.exception)).getCommandError();
-            if (err == CommandException.Error.REQUEST_NOT_SUPPORTED) {
-                Toast.makeText(this, mRes.getString(R.string.sim_lock_change_not_supported),
-                        Toast.LENGTH_SHORT)
-                        .show();
-            } else {
-                displayRetryCounter(mRes.getString(R.string.sim_change_failed));
-            }
+            handleException(ar.exception, MSG_ENABLE_ICC_PIN_COMPLETE);
         }
         resetDialogState();
     }
 
     private void iccPinChanged(AsyncResult ar) {
         if (ar.exception != null) {
-            CommandException.Error err = ((CommandException)(ar.exception)).getCommandError();
-            // If the exception is REQUEST_NOT_SUPPORTED then change pin couldn't
-            // happen because SIM lock is not enabled.
-            if (err == CommandException.Error.REQUEST_NOT_SUPPORTED) {
-               Toast.makeText(this, mRes.getString(R.string.sim_change_failed_enable_sim_lock),
-                         Toast.LENGTH_SHORT)
-                         .show();
-            } else {
-               displayRetryCounter(mRes.getString(R.string.sim_change_failed));
-            }
-
+            handleException(ar.exception, MSG_CHANGE_ICC_PIN_COMPLETE);
         } else {
             Toast.makeText(this, mRes.getString(R.string.sim_change_succeeded),
                     Toast.LENGTH_SHORT)

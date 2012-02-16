@@ -1733,6 +1733,8 @@ alog [CHAR LIMIT=none] -->
     <string name="sim_bad_pin">Incorrect PIN</string>
     <!-- SIM card lock settings screen, SIM PIN dialog message when PINs don't match -->
     <string name="sim_pins_dont_match">PINs don\'t match</string>
+    <!-- SIM card lock settings screen, SIM PIN dialog message when SIM card is absent-->
+    <string name="sim_absent">No SIM/RUIM</string>
     <!-- SIM card lock settings screen, toast after not entering correct SIM PIN -->
     <string name="sim_change_failed">Can\'t change PIN.\nPossibly incorrect PIN.</string>
     <!-- SIM card lock settings screen, SIM PIN dialog message when the entered PIN is correct-->
