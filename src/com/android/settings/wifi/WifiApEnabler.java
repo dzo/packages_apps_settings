@@ -94,6 +94,13 @@ public class WifiApEnabler {
         mIntentFilter = new IntentFilter(WifiManager.WIFI_AP_STATE_CHANGED_ACTION);
         mIntentFilter.addAction(ConnectivityManager.ACTION_TETHER_STATE_CHANGED);
         mIntentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+
+        // If the device is an APQ device then there is no modem so
+        // do not set transmit power
+        if (SystemProperties.get("ro.baseband").equalsIgnoreCase("apq")) {
+            Log.d(TAG, "ro.baseband is set to apq");
+            mTransmitPower = false;
+        }
         Log.d(TAG, "ro.ril.transmitpower property is set to " + mTransmitPower);
     }
 
