@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2009 The Android Open Source Project
- * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2010-2012, Code Aurora Forum. All rights reserved.
 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Switch;
@@ -101,9 +102,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         final Activity activity = getActivity();
         mAirplaneModePreference = (CheckBoxPreference) findPreference(KEY_TOGGLE_AIRPLANE);
 
-        int resIndex = getArguments().getInt(Utils.RESOURCE_INDEX, 0);
-
-        if (Utils.MULTISIM_RESID == resIndex) {
+        if (TelephonyManager.getDefault().isMultiSimEnabled()) {
             findPreference(KEY_MOBILE_NETWORK_SETTINGS).getIntent().setClassName(
                     "com.android.phone", "com.android.phone.MSimSettings");
         }
