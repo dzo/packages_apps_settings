@@ -3932,13 +3932,13 @@ found in the list of installed apps.</string>
     <string name="title_widget_order">Widget button order</string>
     <string name="summary_widget_order">Select the order of the buttons in the power widget</string>
     <string name="title_buttons">Buttons</string>
-    <string name="title_toggle_wifi">Toggle Wifi</string>
+    <string name="title_toggle_wifi">Toggle Wi-Fi</string>
     <string name="title_toggle_bluetooth">Toggle Bluetooth</string>
     <string name="title_toggle_gps">Toggle GPS</string>
     <string name="title_toggle_sound">Toggle Sound</string>
     <string name="title_toggle_brightness">Toggle Brightness</string>
     <string name="title_toggle_sync">Toggle Sync</string>
-    <string name="title_toggle_wifiap">Toggle Wifi AP</string>
+    <string name="title_toggle_wifiap">Toggle Wi-Fi AP</string>
     <string name="title_toggle_screentimeout">Toggle Screentimeout</string>
     <string name="title_toggle_mobiledata">Toggle Mobiledata</string>
     <string name="title_toggle_lockscreen">Toggle Lockscreen</string>
@@ -3970,7 +3970,7 @@ found in the list of installed apps.</string>
     <string name="pref_flash_mode_summary">Choose High / Death Ray</string>
 
     <!-- Power Widget, Haptic feedback #CM -->
-    <string name="expanded_haptic_feedback_title">Haptic Feedback</string>
-    <string name="expanded_haptic_feedback_summary">Enable/Disable haptic feedback.</string>
+    <string name="expanded_haptic_feedback_title">Haptic feedback</string>
+    <string name="expanded_haptic_feedback_summary">Enable/disable haptic feedback</string>
 
 </resources>
