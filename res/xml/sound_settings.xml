@@ -69,6 +69,16 @@
     <!-- Do not nest these, or removals in code will break -->
 
     <CheckBoxPreference
+            android:key="dualmic"
+            android:title="@string/dualmic_enable_title"
+            android:defaultValue="false" />
+
+    <CheckBoxPreference
+            android:key="headsetmic"
+            android:title="@string/headsetmic_enable_title"
+            android:defaultValue="false" />
+
+    <CheckBoxPreference
             android:key="dtmf_tone"
             android:title="@string/dtmf_tone_enable_title"
             android:defaultValue="true" />
