@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -59,6 +60,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_VIBRATE = "vibrate_on_ring";
     private static final String KEY_RING_VOLUME = "ring_volume";
     private static final String KEY_MUSICFX = "musicfx";
+    private static final String KEY_DUALMIC = "dualmic";
+    private static final String KEY_HEADSETMIC = "headsetmic";
     private static final String KEY_DTMF_TONE = "dtmf_tone";
     private static final String KEY_SOUND_EFFECTS = "sound_effects";
     private static final String KEY_HAPTIC_FEEDBACK = "haptic_feedback";
@@ -68,6 +71,9 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_RINGTONE = "ringtone";
     private static final String KEY_NOTIFICATION_SOUND = "notification_sound";
     private static final String KEY_CATEGORY_CALLS = "category_calls";
+
+    private static final String DUALMIC_PROPERTY = "persist.sys.dualmic.enabled";
+    private static final String HEADSETMIC_PROPERTY = "persist.sys.headsetmic.enabled";
 
     private static final String SILENT_MODE_OFF = "off";
     private static final String SILENT_MODE_VIBRATE = "vibrate";
@@ -83,6 +89,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mVibrateOnRing;
     private ListPreference mSilentMode;
+    private CheckBoxPreference mDualMic;
+    private CheckBoxPreference mHeadsetMic;
     private CheckBoxPreference mDtmfTone;
     private CheckBoxPreference mSoundEffects;
     private CheckBoxPreference mHapticFeedback;
@@ -144,6 +152,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
         mVibrateOnRing = (CheckBoxPreference) findPreference(KEY_VIBRATE);
         mVibrateOnRing.setOnPreferenceChangeListener(this);
+
+	mDualMic = (CheckBoxPreference) findPreference(KEY_DUALMIC);
+        mDualMic.setChecked(SystemProperties.getBoolean(DUALMIC_PROPERTY, false));
+
+        mHeadsetMic = (CheckBoxPreference) findPreference(KEY_HEADSETMIC);
+        mHeadsetMic.setChecked(SystemProperties.getBoolean(HEADSETMIC_PROPERTY, false));
 
         mDtmfTone = (CheckBoxPreference) findPreference(KEY_DTMF_TONE);
         mDtmfTone.setPersistent(false);
@@ -338,6 +352,10 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         } else if (preference == mMusicFx) {
             // let the framework fire off the intent
             return false;
+        } else if (preference == mDualMic) {
+            SystemProperties.set(DUALMIC_PROPERTY, mDualMic.isChecked() ? "1" : "0");
+        } else if (preference == mHeadsetMic) {
+            SystemProperties.set(HEADSETMIC_PROPERTY, mHeadsetMic.isChecked() ? "1" : "0");
         }
 
         return true;

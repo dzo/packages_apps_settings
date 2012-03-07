@@ -1586,6 +1586,10 @@ alog [CHAR LIMIT=none] -->
     <!-- Sound settings screen, dock settings summary-->
     <string name="dock_settings_summary">Audio settings for the attached dock</string>
     <!-- Sound settings screen, setting check box label -->
+    <string name="dualmic_enable_title">Use echo cancelling microphone</string>
+    <!-- Sound settings screen, setting check box label -->
+    <string name="headsetmic_enable_title">Use headset microphone</string>
+    <!-- Sound settings screen, setting check box label -->
     <string name="dtmf_tone_enable_title">Dial pad touch tones</string>
     <!-- Sound settings screen, setting check box label -->
     <string name="sound_effects_enable_title">Touch sounds</string>
