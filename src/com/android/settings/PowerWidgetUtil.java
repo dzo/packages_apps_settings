@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.oxygen;
+package com.android.settings;
 
 import com.android.settings.R;
 
