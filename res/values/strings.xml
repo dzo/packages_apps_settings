@@ -27,8 +27,6 @@
     <!-- Category headings in left-pane header menu --> <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
     <string name="header_category_wireless_networks">WIRELESS &amp; NETWORKS</string>
-    <!-- Settings main menu category heading. Oxygen. [CHAR LIMIT=40] -->
-    <string name="header_category_oxygen">OXYGEN</string>
     <!-- Settings main menu category heading. Device (Sound, display, battery, applications...). [CHAR LIMIT=40] -->
     <string name="header_category_device">DEVICE</string>
     <!-- Settings main menu category heading. Personal (Accounts, security, language, backup...). [CHAR LIMIT=40] -->
@@ -3913,7 +3911,7 @@ found in the list of installed apps.</string>
     <string name="cpu_set_on_boot_summary">Restore the processor settings on boot</string>
 
     <!-- System Interface settings #CM -->
-    <string name="system_settings_title">System</string>
+    <string name="system_settings_title">Notification Drawer</string>
     <string name="system_interface_title">System interface</string>
     
     <!-- Notification Drawer #CM -->

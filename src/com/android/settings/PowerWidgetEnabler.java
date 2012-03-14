@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.android.settings.oxygen;
+package com.android.settings;
 
 import android.provider.Settings;
 import android.content.Context;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-import com.android.settings.oxygen.SwitchWidget;
+import com.android.settings.SwitchWidget;
 
 public class PowerWidgetEnabler extends SwitchWidget {
     public PowerWidgetEnabler(Context context, Switch switch_) {
