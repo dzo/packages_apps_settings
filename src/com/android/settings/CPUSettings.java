@@ -40,8 +40,7 @@ import com.android.settings.Utils;
 public class CPUSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    public static final String FREQ_CUR_PREF = "pref_cpu_freq_cur";
-    public static final String FREQ_CUR_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq";
+    public static final String FREQ_CUR_PREF = "pref_cpu_freq_cur";;
     public static final String SCALE_CUR_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq";
     public static final String FREQINFO_CUR_FILE = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq";
     private static String FREQ_CUR_FILE = SCALE_CUR_FILE;
