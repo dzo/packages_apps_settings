@@ -748,6 +748,7 @@
         <item>1</item>
         <!-- Do not translate. -->
         <item>2</item>
+    </string-array>
 
     <!-- Arrays required by Notification Widgets. -->
     <string-array name="entries_brightness_widget" formatted="false" translatable="false">
