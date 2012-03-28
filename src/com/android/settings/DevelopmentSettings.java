@@ -61,6 +61,7 @@ public class DevelopmentSettings extends PreferenceFragment
     private static final String HDCP_CHECKING_PROPERTY = "persist.sys.hdcp_checking";
     private static final String LOCAL_BACKUP_PASSWORD = "local_backup_password";
     private static final String HARDWARE_UI_PROPERTY = "persist.sys.ui.hw";
+    private static final String WIFI_DRIVER_PROPERTY = "persist.sys.wifi.newdriver";
 
     private static final String STRICT_MODE_KEY = "strict_mode";
     private static final String POINTER_LOCATION_KEY = "pointer_location";
@@ -70,6 +71,7 @@ public class DevelopmentSettings extends PreferenceFragment
     private static final String FORCE_HARDWARE_UI_KEY = "force_hw_ui";
     private static final String WINDOW_ANIMATION_SCALE_KEY = "window_animation_scale";
     private static final String TRANSITION_ANIMATION_SCALE_KEY = "transition_animation_scale";
+    private static final String NEW_WIFI_KEY = "new_wifi";
 
     private static final String IMMEDIATELY_DESTROY_ACTIVITIES_KEY
             = "immediately_destroy_activities";
@@ -86,6 +88,7 @@ public class DevelopmentSettings extends PreferenceFragment
     private PreferenceScreen mPassword;
 
     private CheckBoxPreference mStrictMode;
+    private CheckBoxPreference mWifiMode;
     private CheckBoxPreference mPointerLocation;
     private CheckBoxPreference mShowTouches;
     private CheckBoxPreference mShowScreenUpdates;
@@ -120,6 +123,7 @@ public class DevelopmentSettings extends PreferenceFragment
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
 
         mStrictMode = (CheckBoxPreference) findPreference(STRICT_MODE_KEY);
+        mWifiMode = (CheckBoxPreference) findPreference(NEW_WIFI_KEY);
         mPointerLocation = (CheckBoxPreference) findPreference(POINTER_LOCATION_KEY);
         mShowTouches = (CheckBoxPreference) findPreference(SHOW_TOUCHES_KEY);
         mShowScreenUpdates = (CheckBoxPreference) findPreference(SHOW_SCREEN_UPDATES_KEY);
@@ -177,6 +181,7 @@ public class DevelopmentSettings extends PreferenceFragment
         updateFlingerOptions();
         updateCpuUsageOptions();
         updateHardwareUiOptions();
+        updateWifiOptions();
         updateAnimationScaleOptions();
         updateImmediatelyDestroyActivitiesOptions();
         updateAppProcessLimitOptions();
@@ -233,6 +238,10 @@ public class DevelopmentSettings extends PreferenceFragment
                     ? "1" : "");
         } catch (RemoteException e) {
         }
+    }
+
+    private void writeWifiOptions() {
+        SystemProperties.set(WIFI_DRIVER_PROPERTY, mWifiMode.isChecked() ? "1" : "0");
     }
 
     private void updateStrictModeVisualOptions() {
@@ -301,6 +310,10 @@ public class DevelopmentSettings extends PreferenceFragment
 
     private void updateHardwareUiOptions() {
         mForceHardwareUi.setChecked(SystemProperties.getBoolean(HARDWARE_UI_PROPERTY, false));
+    }
+
+    private void updateWifiOptions() {
+        mWifiMode.setChecked(SystemProperties.getBoolean(WIFI_DRIVER_PROPERTY, false));
     }
     
     private void writeHardwareUiOptions() {
@@ -456,7 +469,9 @@ public class DevelopmentSettings extends PreferenceFragment
             writeShowAllANRsOptions();
         } else if (preference == mForceHardwareUi) {
             writeHardwareUiOptions();
-        }
+        } else if (preference == mWifiMode) {
+            writeWifiOptions();
+	}
 
         return false;
     }

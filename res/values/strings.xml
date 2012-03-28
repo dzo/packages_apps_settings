@@ -2762,6 +2762,10 @@ found in the list of installed apps.</string>
     <string name="enable_adb">USB debugging</string>
     <!-- Setting checkbox summary for Whether to enable USB debugging support on the phone -->
     <string name="enable_adb_summary">Debug mode when USB is connected</string>
+    <!-- Setting checkbox title for Whether to use new wifi drivers. -->
+    <string name="new_wifi">New Wifi Driver</string>
+    <!-- Setting checkbox summary for Whether to use new wifi drivers. -->
+    <string name="new_wifi_summary">Use the new Wifi Driver</string>
     <!-- Development settings: title for the field that shows the "App ID" development identifier
          for this device. [CHAR LIMIT=40] -->
     <string name="verifier_device_identifier">Development device ID</string>
