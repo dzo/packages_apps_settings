@@ -1137,7 +1137,7 @@
     <string name="verifier_device_identifier_not_available" msgid="1272065992066977324">"Enhetsinformasjonen er ikke tilgjengelig"</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"Forbli våken"</string>
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"Skjermen blir aldri svart under lading"</string>
-    <string name="allow_mock_location" msgid="2787962564578664888">"Tillat simulert posisjon"</string>
+    <sstring name=tring name="allow_mock_location" msgid="2787962564578664888">"Tillat simulert posisjon"</string>
     <string name="allow_mock_location_summary" msgid="317615105156345626">"Tillat bruk av simulerte GPS-koordinater"</string>
     <string name="adb_warning_title" msgid="6234463310896563253">"Aktiver USB-debugging?"</string>
     <string name="adb_warning_message" msgid="7316799925425402244">"USB-feilsøking er bare ment for utviklingsformål. Bruk det til å kopiere data mellom datamaskinen og enheten, installere apper på enheten uten varsel og lese loggdata."</string>
@@ -1580,4 +1580,61 @@
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"Avbryt"</string>
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g> %%"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Ytterligere systemoppdateringer"</string>
+    <string name="new_wifi">Ny Wi-Fi-driver</string>
+    <string name="new_wifi_summary">Bruk den nye Wi-Fi-driveren</string>
+    <string name="dualmic_enable_title">Bruk ekkokansellerende mikrofon</string>
+    <string name="headsetmic_enable_title">Bruk hodetelefonmikrofon</string>
+    <string name="system_settings_title">Varslingsskuff</string>
+    <string name="power_widget_title">Strøm-widget</string>
+    <string name="title_expanded_widget">Vis strøm-widget</string>
+    <string name="summary_expanded_widget">Vis strøm-widgetten i varslingsskuffen</string>
+    <string name="title_expanded_hide_onchange">Skjul ved endring</string>
+    <string name="summary_expanded_hide_onchange">Skjul varslingsskuffen ved av-/påskruing av en widget-bryter</string>
+    <string name="title_expanded_hide_indicator">Skjul indikator</string>
+    <string name="summary_expanded_hide_indicator">Skjul strøm-widget-indikatoren</string>
+    <string name="title_expanded_hide_scrollbar">Skjul rullefeltet</string>
+    <string name="summary_expanded_hide_scrollbar">Skjul rullefeltet dersom flere enn maksimalt antall widget-brytere er til stede</string>
+    <string name="title_widget_picker">Widget-brytere</string>
+    <string name="summary_widget_picker">Velg hvilke brytere som skal vises i strøm-widgetten</string>
+    <string name="title_widget_order">Rekkefølge på widget-brytere</string>
+    <string name="summary_widget_order">Velg rekkefølgen på bryterne i strøm-widgetten</string>
+    <string name="title_buttons">Brytere</string>
+    <string name="title_toggle_wifi">Skru av/på Wi-Fi</string>
+    <string name="title_toggle_bluetooth">Skru av/på Bluetooth</string>
+    <string name="title_toggle_gps">Skru av/på GPS</string>
+    <string name="title_toggle_sound">Skru av/på lyd</string>
+    <string name="title_toggle_brightness">Skru av/på lysstyrke</string>
+    <string name="title_toggle_sync">Skru av/på synk.</string>
+    <string name="title_toggle_wifiap">Skru av/på Wi-Fi AP</string>
+    <string name="title_toggle_screentimeout">Skru av/på tidsavbruddet for skjerm</string>
+    <string name="title_toggle_mobiledata">Skru av/på mobildata</string>
+    <string name="title_toggle_lockscreen">Skru av/på låseskjerm</string>
+    <string name="title_toggle_networkmode">Skru av/på 2G/3G</string>
+    <string name="title_toggle_autorotate">Skru av/på orientering</string>
+    <string name="title_toggle_airplane">Skru av/på flymodus</string>
+    <string name="title_toggle_flashlight">Skru av/på LED-lommelykt</string>
+    <string name="title_toggle_sleep">Gå i dvalemodus</string>
+    <string name="title_toggle_media_play_pause">Media: Skru av/på spill/pause</string>
+    <string name="title_toggle_media_previous">Media: Hopp til forrige</string>
+    <string name="title_toggle_media_next">Media: Hopp til neste</string>
+    <string name="title_toggle_wimax">Skru av/på WiMAX</string>
+    <string name="title_button_modes">Brytermoduser</string>
+    <string name="pref_brightness_mode_title">Lysstyrkemoduser</string>
+    <string name="pref_brightness_mode_summary">Velg hvordan lysstyrkebryteren forandrer modus</string>
+    <string name="cm_brightness_mode_auto">Auto</string>
+    <string name="cm_brightness_mode_dim">Dunkelt</string>
+    <string name="pref_network_mode_title">Nettverksmoduser</string>
+    <string name="pref_network_mode_summary">Velg hvordan nettverksbryteren forandrer modus</string>
+    <string name="pref_screentimeout_mode_title">Tidsavbrudd for skjermmodus</string>
+    <string name="pref_screentimeout_mode_summary">Velg hvordan bryteren for tidsavbrudd for skjerm forandrer modus</string>
+    <string name="pref_ring_mode_title">Lydmodus</string>
+    <string name="pref_ring_mode_summary">Velg hvordan lydbryteren forandrer modus</string>
+    <string name="cm_sound_mode_silent">Lydløs</string>
+    <string name="cm_sound_mode_vibrate">Vibrér</string>
+    <string name="cm_sound_mode_sound">Lyd</string>
+    <string name="cm_sound_mode_soundVibrate">Lyd+Vibrér</string>
+    <string name="pref_flash_mode_title">Lommelyktmodus</string>
+    <string name="pref_flash_mode_summary">Velg høy/dødsstråle</string>
+    <string name="expanded_haptic_feedback_title">Vibrér ved berøring</string>
+    <string name="expanded_haptic_feedback_summary">Skru av/på vibrasjon ved berøring</string>
 </resources>
