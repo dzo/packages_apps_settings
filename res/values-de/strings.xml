@@ -1637,5 +1637,5 @@
     <string name="pref_flash_mode_title">Blitzmodus</string>
     <string name="pref_flash_mode_summary">Wähle Helles / Dunkles Blitzlicht</string>
     <string name="expanded_haptic_feedback_title">Haptische Rückmeldung</string>
-    <string name="expanded_haptic_feedback_summary">Aktivire/Deaktiviere Haptische Rückmeldung</string>
+    <string name="expanded_haptic_feedback_summary">Aktiviere/Deaktiviere Haptische Rückmeldung</string>
 </resources>
