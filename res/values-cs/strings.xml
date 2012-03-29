@@ -1580,21 +1580,21 @@
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"Zrušit"</string>
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g> %%"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Další aktualizace systému"</string>
-    <string name="new_wifi">Nový ovladač Wifi</string>
+<string name="new_wifi">Nový ovladač Wifi</string>
     <string name="new_wifi_summary">Použít nový ovladač Wifi</string>
     <string name="dualmic_enable_title">Použít mikrofon pro rušení ozvěny</string>
     <string name="headsetmic_enable_title">Použít mikrofon sluchátek</string>
     <string name="system_settings_title">Notifikační lišta</string>
 
     <string name="power_widget_title">Power widget</string>
-    <string name="title_expanded_widget">Zobrazit power widget</string>
+    <string name="title_expanded_widget">Zobrazit Power widget</string>
     <string name="summary_expanded_widget">Zobrazit Power widget v notifikační liště</string>
     <string name="title_expanded_hide_onchange">Skrýt po změně</string>
     <string name="summary_expanded_hide_onchange">Skrýt notifikační lištu po změně nastavení</string>
     <string name="title_expanded_hide_indicator">Skrýt indikátor</string>
     <string name="summary_expanded_hide_indicator">Skrýt indikátory upozornění</string>
     <string name="title_expanded_hide_scrollbar">Skrýt posuvník</string>
-    <string name="summary_expanded_hide_scrollbar">Skrýt posuvník pokud je přítomno více widgetů, než se vejde na šířku plochy</string>
+    <string name="summary_expanded_hide_scrollbar">Skrýt posuvník, pokud je přítomno více widgetů, než se vejde na šířku plochy</string>
     <string name="title_widget_picker">Tlačítka widgetu</string>
     <string name="summary_widget_picker">Vyberte tlačítka widgetu</string>
     <string name="title_widget_order">Pořadí tlačítek widgetu</string>
@@ -1633,7 +1633,7 @@
     <string name="cm_sound_mode_silent">Ticho</string>
     <string name="cm_sound_mode_vibrate">Vibrace</string>
     <string name="cm_sound_mode_sound">Zvuk</string>
-    <string name="cm_sound_mode_soundVibrate">Zkuk+Vibrace</string>
+    <string name="cm_sound_mode_soundVibrate">Zvuk+Vibrace</string>
     <string name="pref_flash_mode_title">Režim LED</string>
     <string name="pref_flash_mode_summary">Zvolte režim LED přisvětlení</string>
     <string name="expanded_haptic_feedback_title">Hmatová odezva</string>
