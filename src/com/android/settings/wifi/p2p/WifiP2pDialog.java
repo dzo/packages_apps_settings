@@ -28,7 +28,7 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import android.util.Log;
 import com.android.settings.R;
 
 /**
@@ -37,7 +37,7 @@ import com.android.settings.R;
 public class WifiP2pDialog extends AlertDialog implements AdapterView.OnItemSelectedListener {
 
     static final int BUTTON_SUBMIT = DialogInterface.BUTTON_POSITIVE;
-
+    private static final String TAG = "WifiP2pDialog";
     private final DialogInterface.OnClickListener mListener;
 
     private View mView;
@@ -70,8 +70,8 @@ public class WifiP2pDialog extends AlertDialog implements AdapterView.OnItemSele
                 break;
             case WPS_KEYPAD:
                 config.wps.setup = WpsInfo.KEYPAD;
-                config.wps.pin = ((TextView) mView.findViewById(R.id.wps_pin)).
-                        getText().toString();
+                /*config.wps.pin = ((TextView) mView.findViewById(R.id.wps_pin)).
+                        getText().toString();*/
                 break;
             case WPS_DISPLAY:
                 config.wps.setup = WpsInfo.DISPLAY;
@@ -117,11 +117,12 @@ public class WifiP2pDialog extends AlertDialog implements AdapterView.OnItemSele
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         mWpsSetupIndex = position;
 
-        if (mWpsSetupIndex == WPS_KEYPAD) {
+        /*if (mWpsSetupIndex == WPS_KEYPAD) {
             mView.findViewById(R.id.wps_pin_entry).setVisibility(View.VISIBLE);
         } else {
             mView.findViewById(R.id.wps_pin_entry).setVisibility(View.GONE);
-        }
+        }*/
+
         return;
     }
 
