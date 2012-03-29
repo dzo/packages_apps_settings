@@ -1135,8 +1135,8 @@
     <string name="verifier_device_identifier" msgid="5079997701152411060">"Utviklings-ID for enhet"</string>
     <string name="verifier_device_identifier_not_available" msgid="1272065992066977324">"Enhetsinformasjonen er ikke tilgjengelig"</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"Forbli våken"</string>
-    <string name="keep_screen_on_summary" msgid="2173114350754293009">"Skjermen blir aldri svart under lading"</string>
-    <string name=tring name="allow_mock_location" msgid="2787962564578664888">"Tillat simulert posisjon"</string>
+    <string name="keep_screen_on_summary" msgid="2173114350754293009">"Skjermen blir aldri svart underinput_methods_settings_label_format lading"</string>
+    <string name="allow_mock_location" msgid="2787962564578664888">"Tillat simulert posisjon"</string>
     <string name="allow_mock_location_summary" msgid="317615105156345626">"Tillat bruk av simulerte GPS-koordinater"</string>
     <string name="adb_warning_title" msgid="6234463310896563253">"Aktiver USB-debugging?"</string>
     <string name="adb_warning_message" msgid="7316799925425402244">"USB-feilsøking er bare ment for utviklingsformål. Bruk det til å kopiere data mellom datamaskinen og enheten, installere apper på enheten uten varsel og lese loggdata."</string>
@@ -1637,3 +1637,4 @@
     <string name="expanded_haptic_feedback_title">Vibrér ved berøring</string>
     <string name="expanded_haptic_feedback_summary">Skru av/på vibrasjon ved berøring</string>
 </resources>
+Tilbake til anrop
