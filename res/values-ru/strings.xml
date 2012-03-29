@@ -1577,6 +1577,64 @@
     <string name="confirm_new_backup_pw_prompt" msgid="3238728882512787864">"Подтвердите пароль"</string>
     <string name="backup_pw_set_button_text" msgid="2387480910044648795">"Сохранить пароль"</string>
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"Отмена"</string>
+ <string name="system_interface_title">System interface</string>
+    <string name="notification_drawer_title">Переключатели в шторке</string>
+    <string name="power_widget_title">Power widget</string>
+    <string name="title_expanded_widget">Показывать переключатели</string>
+    <string name="summary_expanded_widget">Показывать виджеты-переключатели в шторке</string>
+    <string name="title_expanded_hide_onchange">Закрывать шторку</string>
+    <string name="summary_expanded_hide_onchange">Прятать шторку после переключения виджетов</string>
+    <string name="title_expanded_hide_indicator">Спрятать индикатор</string>
+    <string name="summary_expanded_hide_indicator">Выключить индикатор под кнопками виджетов</string>
+    <string name="title_expanded_hide_scrollbar">Прятать скроллбар</string>
+    <string name="summary_expanded_hide_scrollbar">Убрать скроллбар, появляющийся когда переключателей больше, чем может поместиться в шторке</string>
+    <string name="title_widget_picker">Кнопки переключателей</string>
+    <string name="summary_widget_picker">Выберите, какие кнопки переключателей будут отображены</string>
+    <string name="title_widget_order">Порядок кнопок</string>
+    <string name="summary_widget_order">Выберите порядок кнопок переключателей</string>
+    <string name="title_buttons">Переключатели</string>
+    <string name="title_toggle_wifi">Wi-Fi</string>
+    <string name="title_toggle_bluetooth">Bluetooth</string>
+    <string name="title_toggle_gps">GPS</string>
+    <string name="title_toggle_sound">Звук</string>
+    <string name="title_toggle_brightness">Яркость</string>
+    <string name="title_toggle_sync">Синхронизация</string>
+    <string name="title_toggle_wifiap">Wi-Fi AP</string>
+    <string name="title_toggle_screentimeout">Спящий режим</string>
+    <string name="title_toggle_mobiledata">Передача данных</string>
+    <string name="title_toggle_lockscreen">Блокировка экрана</string>
+    <string name="title_toggle_networkmode">2G/3G</string>
+    <string name="title_toggle_autorotate">Автоповорот</string>
+    <string name="title_toggle_airplane">Режим полёта</string>
+    <string name="title_toggle_flashlight">Фонарик</string>
+    <string name="title_toggle_sleep">Отправить спать :)</string>
+    <string name="title_toggle_media_play_pause">Медиа: Play/Pause</string>
+    <string name="title_toggle_media_previous">Медиа:Skip to Next</string>
+    <string name="title_toggle_media_next">Медиа: Skip to Previous</string>
+    <string name="title_toggle_wimax">WiMAX</string>
+    <string name="title_button_modes">Настройка переключателей</string>
+    <string name="cm_brightness_mode_auto">Авто</string>
+    <string name="cm_brightness_mode_dim">Тусклый</string>
+    <string name="pref_network_mode_title">Режим сети</string>
+    <string name="pref_network_mode_summary">Выберите режим переключения сети</string>
+    <string name="pref_screentimeout_mode_title">Настройка спящего режима</string>
+    <string name="pref_screentimeout_mode_summary">Выберите таймаут спящего режима</string>
+    <string name="pref_brightness_mode_title">Настройки яркости</string>
+    <string name="pref_brightness_mode_summary">Выбор режимов переключения яркости</string>
+    <string name="pref_ring_mode_title">Рингтон и уведомления</string>
+    <string name="pref_ring_mode_summary">Выберите режимы смены звука</string>
+    <string name="cm_sound_mode_silent">Без звука</string>
+    <string name="cm_sound_mode_vibrate">Вибрация</string>
+    <string name="cm_sound_mode_sound">Мелодия</string>
+    <string name="cm_sound_mode_soundVibrate">Мелодия+Вибрация</string>
+    <string name="pref_flash_mode_title">Flash mode</string>
+    <string name="pref_flash_mode_summary">Choose High / Death Ray</string>
+    <string name="expanded_haptic_feedback_title">Виброотклик</string>
+    <string name="expanded_haptic_feedback_summary">Включение/выключение виброотклика переключателей</string>
+    <string name="dualmic_enable_title">Шумоподавление</string>
+    <string name="headsetmic_enable_title">Микрофон гарнитуры</string>
+    <string name="new_wifi">Новый драйвер Wi-Fi</string>
+    <string name="new_wifi_summary">Использовать новый драйвер Wi-Fi</string>
     <!-- String.format failed for translation -->
     <!-- no translation found for percentage (5866131581207788624) -->
     <skip />
