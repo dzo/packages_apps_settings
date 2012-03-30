@@ -1579,4 +1579,63 @@
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"取消"</string>
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g>%%"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string>
+    New Wifi Driver</string>
+    
+    <string name="new_wifi_summary">开启新WI-FI驱动</string>
+    <string name="dualmic_enable_title">开启双麦克降噪</string>
+    <string name="headsetmic_enable_title">自动识别耳机麦</string>
+    <string name="system_settings_title">通知栏设置</string>
+
+    <string name="power_widget_title">工具条</string>
+    <string name="title_expanded_widget">显示工具条</string>
+    <string name="summary_expanded_widget">在通知栏抽屉中显示工具条</string>
+    <string name="title_expanded_hide_onchange">自动隐藏</string>
+    <string name="summary_expanded_hide_onchange">点击任意插件按钮之后自动收起下拉列表</string>
+    <string name="title_expanded_hide_indicator">隐藏指示器</string>
+    <string name="summary_expanded_hide_indicator">隐藏工具条按钮上的指示器/string>
+    <string name="title_expanded_hide_scrollbar">隐藏滚动条</string>
+    <string name="summary_expanded_hide_scrollbar">当插件数量超出最大值时不显示滚动条</string>
+    <string name="title_widget_picker">插件选择</string>
+    <string name="summary_widget_picker">选择你想显示的小插件</string>
+    <string name="title_widget_order">插件顺序</string>
+    <string name="summary_widget_order">对插件进行排序</string>
+    <string name="title_buttons">按钮</string>
+    <string name="title_toggle_wifi">开启 Wi-Fi</string>
+    <string name="title_toggle_bluetooth">开启蓝牙</string>
+    <string name="title_toggle_gps">开启 GPS</string>
+    <string name="title_toggle_sound">声音选项</string>
+    <string name="title_toggle_brightness">亮度调整</string>
+    <string name="title_toggle_sync">数据同步</string>
+    <string name="title_toggle_wifiap">开启 Wi-Fi AP</string>
+    <string name="title_toggle_screentimeout">背光时间</string>
+    <string name="title_toggle_mobiledata">数据连接</string>
+    <string name="title_toggle_lockscreen">屏幕截图</string>
+    <string name="title_toggle_networkmode">2G/3G</string>
+    <string name="title_toggle_autorotate">屏幕自动旋转</string>
+    <string name="title_toggle_airplane">飞行模式</string>
+    <string name="title_toggle_flashlight">手电筒</string>
+    <string name="title_toggle_sleep">锁屏</string>
+    <string name="title_toggle_media_play_pause">播放/暂停/string>
+    <string name="title_toggle_media_previous">上一首</string>
+    <string name="title_toggle_media_next">下一首</string>
+    <string name="title_toggle_wimax">开启WiMAX</string>
+    <string name="title_button_modes">按键模式</string>
+    <string name="pref_brightness_mode_title">亮度模式</string>
+    <string name="pref_brightness_mode_summary">选择亮度模式</string>
+    <string name="cm_brightness_mode_auto">自动</string>
+    <string name="cm_brightness_mode_dim">暗</string>
+    <string name="pref_network_mode_title">网络模式</string>
+    <string name="pref_network_mode_summary">选择你想要的网络模式选项</string>
+    <string name="pref_screentimeout_mode_title">背光时间</string>
+    <string name="pref_screentimeout_mode_summary">选择你想要的背光时间模式</string>
+    <string name="pref_ring_mode_title">声音模式</string>
+    <string name="pref_ring_mode_summary">选择你想要的声音模式</string>
+    <string name="cm_sound_mode_silent">静音</string>
+    <string name="cm_sound_mode_vibrate">震动</string>
+    <string name="cm_sound_mode_sound">铃声</string>
+    <string name="cm_sound_mode_soundVibrate">铃声+震动</string>
+    <string name="pref_flash_mode_title">闪光灯</string>
+    <string name="pref_flash_mode_summary">高亮/低亮</string>
+    <string name="expanded_haptic_feedback_title">触觉反馈</string>
+    <string name="expanded_haptic_feedback_summary">开启或关闭触觉反馈</string>
 </resources>
