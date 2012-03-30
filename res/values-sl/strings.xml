@@ -18,8 +18,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="new_wifi">Novi Wifi gonilnik</string>
     <string name="new_wifi_summary">Uporabi novi Wifi gonilnik</string>
-    <string name="dualmic_enable_title">Uporabi mikrofon za izničenje odmeva</string>
-    <string name="headsetmic_enable_title">Uporabi mikrofon na slušalkah</string>
+    <string name="dualmic_enable_title">Mikrofon za izničenje odmeva</string>
+    <string name="headsetmic_enable_title">Mikrofon na slušalkah</string>
     <string name="system_settings_title">Opozorilna vrstica</string>
 
     <string name="power_widget_title">Pripomoček za upravljanje naprav</string>
@@ -51,9 +51,9 @@
     <string name="title_toggle_airplane">Preklopi način za letalo</string>
     <string name="title_toggle_flashlight">Preklopi LED svetilko</string>
     <string name="title_toggle_sleep">Preklopi spanje</string>
-    <string name="title_toggle_media_play_pause">Predstavnost: preklop Predvajaj/Pavza</string>
-    <string name="title_toggle_media_previous">Predstavnost: Skoči na prejšnji posnetek</string>
-    <string name="title_toggle_media_next">Predstavnost: Skoči na naslednji posnetek</string>
+    <string name="title_toggle_media_play_pause">Preklop predvajaj/pavza</string>
+    <string name="title_toggle_media_previous">Skoči na prejšnji posnetek</string>
+    <string name="title_toggle_media_next">Skoči na naslednji posnetek</string>
     <string name="title_toggle_wimax">Preklopi WiMAX</string>
     <string name="title_button_modes">Načini gumbov</string>
     <string name="pref_brightness_mode_title">Načini osvetlitve</string>
@@ -62,7 +62,7 @@
     <string name="cm_brightness_mode_dim">Zatemni</string>
     <string name="pref_network_mode_title">Omrežni načini</string>
     <string name="pref_network_mode_summary">Izberite kako gumb za omrežje preklopi med načini povezav</string>
-    <string name="pref_screentimeout_mode_title">Načini časovnega izklopa zaslona</string>
+    <string name="pref_screentimeout_mode_title">Časovni izklop zaslona</string>
     <string name="pref_screentimeout_mode_summary">Preklopite med časovnimi zakasnitvami izklopa zaslona</string>
     <string name="pref_ring_mode_title">Zvočni načini</string>
     <string name="pref_ring_mode_summary">Izberite način za preklop med zvočnimi načini naprave</string>
@@ -71,7 +71,7 @@
     <string name="cm_sound_mode_sound">Zvok</string>
     <string name="cm_sound_mode_soundVibrate">Zvok+Vibriraj</string>
     <string name="pref_flash_mode_title">Načini bliskavice</string>
-    <string name="pref_flash_mode_summary">Močna</string>
+    <string name="pref_flash_mode_summary">Izberite moč bliskavice</string>
     <string name="expanded_haptic_feedback_title">Vibriraj na dotik</string>
     <string name="expanded_haptic_feedback_summary">Vklopi/Izklopi vibracijo na dotik</string>
 
