@@ -1581,7 +1581,7 @@
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string>
     <string name="new_wifi">新的WIFI驱动</string>
     <string name="new_wifi_summary">启用新的WIFI驱动</string>
-    <string name="dualmic_enable_title">启用麦克风回声</string>
+    <string name="dualmic_enable_title">启用麦克风消除回声</string>
     <string name="headsetmic_enable_title">启用耳机麦克风</string>
     <string name="system_settings_title">通知栏</string>
     <string name="power_widget_title">电源部件</string>
