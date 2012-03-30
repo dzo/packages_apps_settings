@@ -1593,7 +1593,7 @@
     <string name="title_expanded_hide_indicator">Απόκρυψη δείκτη</string>
     <string name="summary_expanded_hide_indicator">Απόκρυψη δεικτών στα κουμπιά</string>
     <string name="title_expanded_hide_scrollbar">Απόκρυψη μπάρας κύλυσης</string>
-    <string name="summary_expanded_hide_scrollbar">Απόκρυψη μπάρας κύλισης όταν οι διακόπτες είναι περισσότεροι απ' όσοι χωράνε</string>
+    <string name="summary_expanded_hide_scrollbar">"Απόκρυψη μπάρας κύλισης όταν οι διακόπτες είναι περισσότεροι απ' όσοι χωράνε"</string>
     <string name="title_widget_picker">Κουμπιά διακοπτών</string>
     <string name="summary_widget_picker">Επιλογή των κουμπιών που θα εμφανίζονται στην εργαλειοθήκη</string>
     <string name="title_widget_order">Επιλογή σειράς κουμπιών</string>
@@ -1636,7 +1636,6 @@
     <string name="pref_flash_mode_title">Επιλογή τρόπου χρήσης φακού</string>
     <string name="pref_flash_mode_summary">Επιλογή δυνατού/αδύναμου φωστισμού</string>
     <string name="expanded_haptic_feedback_title">Δονισή κατά την χρήση των διακοπτών</string>
-    <string name="expanded_haptic_feedback_summary">Ενέργοποίηση/Απενεργοποίηση 
+    <string name="expanded_haptic_feedback_summary">Ενέργοποίηση/Απενεργοποίηση</string>
 </resources> 
-     
-</resources>
+
