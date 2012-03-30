@@ -1578,5 +1578,62 @@
     <string name="backup_pw_set_button_text" msgid="2387480910044648795">"设置备份密码"</string>
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"取消"</string>
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g>%%"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string>
+    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string> 
+    <string name="new_wifi">新的WIFI驱动</string>
+    <string name="new_wifi_summary">启用新的WIFI驱动</string>
+    <string name="dualmic_enable_title">启用麦克风消除回声</string>
+    <string name="headsetmic_enable_title">启用耳机麦克风</string>
+    <string name="system_settings_title">通知栏</string>
+    <string name="power_widget_title">电源部件</string>
+    <string name="title_expanded_widget">显示电源部件</string>
+    <string name="summary_expanded_widget">在通知栏显示电源部件</string>
+    <string name="title_expanded_hide_onchange">切换隐藏</string>
+    <string name="summary_expanded_hide_onchange">切换部件按钮后自动隐藏通知栏</string>
+    <string name="title_expanded_hide_indicator">隐藏指示灯</string>
+    <string name="summary_expanded_hide_indicator">隐藏电源部件指示灯</string>
+    <string name="title_expanded_hide_scrollbar">隐藏滚动条</string>
+    <string name="summary_expanded_hide_scrollbar">部件按钮超过最大显示时隐藏滚动条</string>
+    <string name="title_widget_picker">部件按钮</string>
+    <string name="summary_widget_picker">选择在电源部件显示按钮</string>
+    <string name="title_widget_order">部件按钮顺序</string>
+    <string name="summary_widget_order">选择在电源部件按钮顺序</string>
+    <string name="title_buttons">按钮</string>
+    <string name="title_toggle_wifi">切换Wi-Fi</string>
+    <string name="title_toggle_bluetooth">切换蓝牙</string>
+    <string name="title_toggle_gps">切换 GPS</string>
+    <string name="title_toggle_sound">切换声音</string>
+    <string name="title_toggle_brightness">切换亮度</string>
+    <string name="title_toggle_sync">切换同步</string>
+    <string name="title_toggle_wifiap">切换Wi-Fi AP</string>
+    <string name="title_toggle_screentimeout">切换休眠</string>
+    <string name="title_toggle_mobiledata">切换移动数据</string>
+    <string name="title_toggle_lockscreen">切换锁屏</string>
+    <string name="title_toggle_networkmode">切换 2G/3G</string>
+    <string name="title_toggle_autorotate">切换定位</string>
+    <string name="title_toggle_airplane">切换飞行模式</string>
+    <string name="title_toggle_flashlight">切换LED手电筒</string>
+    <string name="title_toggle_sleep">睡眠模式</string>
+    <string name="title_toggle_media_play_pause">媒体：切换播放/暂停</string>
+    <string name="title_toggle_media_previous">媒体：跳转到上一首</string>
+    <string name="title_toggle_media_next">媒体：跳转到下一首</string>
+    <string name="title_toggle_wimax">切换 WiMAX</string>
+    <string name="title_button_modes">按钮模式</string>
+    <string name="pref_brightness_mode_title">亮度模式</string>
+    <string name="pref_brightness_mode_summary">选择亮度按钮改变模式</string>
+    <string name="cm_brightness_mode_auto">自动</string>
+    <string name="cm_brightness_mode_dim">变暗</string>
+    <string name="pref_network_mode_title">网络模式</string>
+    <string name="pref_network_mode_summary">选择网络按钮改变模式</string>
+    <string name="pref_screentimeout_mode_title">休眠模式</string>
+    <string name="pref_screentimeout_mode_summary">选择休眠按钮改变模式</string>
+    <string name="pref_ring_mode_title">声音模式</string>
+    <string name="pref_ring_mode_summary">选择声音按钮改变模式</string>
+    <string name="cm_sound_mode_silent">无声</string>
+    <string name="cm_sound_mode_vibrate">振动</string>
+    <string name="cm_sound_mode_sound">声音</string>
+    <string name="cm_sound_mode_soundVibrate">声音+振动</string>
+    <string name="pref_flash_mode_title">闪光模式</string>
+    <string name="pref_flash_mode_summary">选择高光/Death Ray</string>
+    <string name="expanded_haptic_feedback_title">触控反馈</string>
+    <string name="expanded_haptic_feedback_summary">启用/禁用触控反馈</string>
 </resources>
