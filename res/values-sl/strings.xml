@@ -13,6 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
+    
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="new_wifi">Novi Wifi gonilnik</string>
     <string name="new_wifi_summary">Uporabi novi Wifi gonilnik</string>
     <string name="dualmic_enable_title">Mikrofon za izničenje odmeva</string>
@@ -71,9 +74,7 @@
     <string name="pref_flash_mode_summary">Izberite moč bliskavice</string>
     <string name="expanded_haptic_feedback_title">Vibriraj na dotik</string>
     <string name="expanded_haptic_feedback_summary">Vklopi/Izklopi vibracijo na dotik</string>
-    
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="yes" msgid="4676390750360727396">"Da"</string>
     <string name="no" msgid="6731231425810196216">"Ne"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Neznano"</string>
