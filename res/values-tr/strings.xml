@@ -1579,4 +1579,66 @@
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"İptal"</string>
     <string name="percentage" msgid="5866131581207788624">"%%<xliff:g id="NUMBER">%d</xliff:g>"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Ek sistem güncellemeleri"</string>
+<!-- BOF: dzo's u8800 aurora port new settings / gokkor / 31.03.2012 -->
+    <string name="new_wifi">Yeni kablosuz ağ sürücüsü</string>
+    <string name="new_wifi_summary">Yeni kablosuz ağ sürücülerini kullan</string>
+    <string name="dualmic_enable_title">Yankı engelleyici ikinci mikrofonu kullan</string>
+    <string name="headsetmic_enable_title">Kulaklık mikrofonunu kullan</string>
+    <string name="system_settings_title">Bildirim çekmecesi</string>
+
+    <string name="power_widget_title">Power widget</string>
+    <string name="title_expanded_widget">Power widget'ı göster</string>
+    <string name="summary_expanded_widget">Power Widget'ı bildirim çekmecesinde göster</string>
+    <string name="title_expanded_hide_onchange">Değişiklik olduğunda gizle</string>
+    <string name="summary_expanded_hide_onchange">Bir butonunu durumu değiştirildiğinde bildirim çekmecesini gizler</string>
+    <string name="title_expanded_hide_indicator">Durum göstergesini gizle</string>
+    <string name="summary_expanded_hide_indicator">Power widget göstergelerini gizle</string>
+    <string name="title_expanded_hide_scrollbar">Kaydırma çubuğunu gizle</string>
+    <string name="summary_expanded_hide_scrollbar">Gösterilebilir alana sığmayacak kadar çok buton olduğunda kaydırma çubuğunu gösterme</string>
+    <string name="title_widget_picker">Widget butonları</string>
+    <string name="summary_widget_picker">Power widget içerisinde görüntülenecek olan butonları seç</string>
+    <string name="title_widget_order">Widget buton sıralaması</string>
+    <string name="summary_widget_order">Power diget içerisinde görüntülenecek olan butonları sırasını değiştir</string>
+    <string name="title_buttons">Butonlar</string>
+    <string name="title_toggle_wifi">Kablosuz ağı aç/kapa</string>
+    <string name="title_toggle_bluetooth">Bluetooth'u aç/kapa</string>
+    <string name="title_toggle_gps">GPS'i aç/kapa</string>
+    <string name="title_toggle_sound">Sesi aç/kapa</string>
+    <string name="title_toggle_brightness">Parlaklık modu değiştir</string>
+    <string name="title_toggle_sync">Senkronizasyonu aç/kapa</string>
+    <string name="title_toggle_wifiap">Kablosuz Ağ Erişim noktası aç/kapa</string>
+    <string name="title_toggle_screentimeout">Ekran zamanaşımı</string>
+    <string name="title_toggle_mobiledata">Mobil Veri</string>
+    <string name="title_toggle_lockscreen">Ekran kilidini aç/kapa</string>
+    <string name="title_toggle_networkmode">2G/3G ağ seçimi</string>
+    <string name="title_toggle_autorotate">Ekran yön değiştirmeyi aç/kapa</string>
+    <string name="title_toggle_airplane">Uçak modunu aç/kapa</string>
+    <string name="title_toggle_flashlight">LED flaşı aç/kapa</string>
+    <string name="title_toggle_sleep">Uyku moduna geç</string>
+    <string name="title_toggle_media_play_pause">Medya: Çalıştır/Durdur</string>
+    <string name="title_toggle_media_previous">Medya: Önceki parça</string>
+    <string name="title_toggle_media_next">Medya: Sonraki parça</string>
+    <string name="title_toggle_wimax">WiMAX'i aç/kapa</string>
+    <string name="title_button_modes">Buton modları</string>
+    <string name="pref_brightness_mode_title">Parlaklık modları</string>
+    <string name="pref_brightness_mode_summary">Parlaklık modu değiştirme butonunun modları nasıl değiştireceğini seç</string>
+    <string name="cm_brightness_mode_auto">Otomatik</string>
+    <string name="cm_brightness_mode_dim">Loş</string>
+    <string name="pref_network_mode_title">Ağ modları</string>
+    <string name="pref_network_mode_summary">Ağ modu değiştirme butonunu  modları nasıl değiştireceğini seç</string>
+    <string name="pref_screentimeout_mode_title">Ekran zamanaşımı modu</string>
+    <string name="pref_screentimeout_mode_summary">Ekran zamanaşımı değiştirme butonunun modları nasıl değiştireceğini seç</string>
+    <string name="pref_ring_mode_title">Ses modları</string>
+    <string name="pref_ring_mode_summary">Ses modu değiştirme düğmesinin modları nasıl değiştireceğini seç</string>
+    <string name="cm_sound_mode_silent">Sessiz</string>
+    <string name="cm_sound_mode_vibrate">Titreşim</string>
+    <string name="cm_sound_mode_sound">Sesli</string>
+    <string name="cm_sound_mode_soundVibrate">Sesli+Titreşim</string>
+    <string name="pref_flash_mode_title">Flaş modu</string>
+    <string name="pref_flash_mode_summary">Yüksek parlaklık / ölüm ışını modunu seç</string>
+    <string name="expanded_haptic_feedback_title">Haptic geri besleme</string>
+    <string name="expanded_haptic_feedback_summary">Haptic geri beslemeyi (doknunca titreşim) aç/kapa</string>
+<!-- EOF: dzo's u8800 aurora port new settings / gokkor / 31.03.2012 -->
+     
+     
 </resources>
