@@ -1436,8 +1436,6 @@ alog [CHAR LIMIT=none] -->
     <string name="wifi_p2p_menu_create_group">Create group</string>
     <!-- Menu option to remove a group-->
     <string name="wifi_p2p_menu_remove_group">Remove group</string>
-    <!-- Menu option to Wi-Fi p2p advanced settings -->
-    <string name="wifi_p2p_menu_advanced">Advanced</string>
     <!-- Title for available p2p devices -->
     <string name="wifi_p2p_available_devices">Available devices</string>
     <string name="wifi_p2p_on_summary">Turn on wifi direct</string>
