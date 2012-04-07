@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2011-2012, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     private static final int DIALOG_SET_DATA_SUBSCRIPTION_IN_PROGRESS = 100;
 
     static final int EVENT_SET_DATA_SUBSCRIPTION_DONE = 1;
-
+    protected boolean mIsForeground = false;
     static final int SUBSCRIPTION_ID_0 = 0;
     static final int SUBSCRIPTION_ID_1 = 1;
     static final int SUBSCRIPTION_ID_INVALID = -1;
@@ -88,13 +88,14 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     @Override
     protected void onResume() {
         super.onResume();
-
+        mIsForeground = true;
         updateState();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        mIsForeground = false;
     }
 
     private boolean isAirplaneModeOn() {
@@ -202,8 +203,9 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         if (KEY_DATA.equals(key)) {
             int D_value = Integer.parseInt((String) objValue);
             Log.d(TAG, "setDataSubscription " + D_value);
-            showDialog(DIALOG_SET_DATA_SUBSCRIPTION_IN_PROGRESS);
-
+            if (mIsForeground) {
+                showDialog(DIALOG_SET_DATA_SUBSCRIPTION_IN_PROGRESS);
+            }
             SubscriptionManager mSubscriptionManager = SubscriptionManager.getInstance();
             Message setDdsMsg = Message.obtain(mHandler, EVENT_SET_DATA_SUBSCRIPTION_DONE, null);
             mSubscriptionManager.setDataSubscription(D_value, setDdsMsg);
@@ -227,7 +229,9 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
             switch(msg.what) {
                 case EVENT_SET_DATA_SUBSCRIPTION_DONE:
                     Log.d(TAG, "EVENT_SET_DATA_SUBSCRIPTION_DONE");
-                    dismissDialog(DIALOG_SET_DATA_SUBSCRIPTION_IN_PROGRESS);
+                    if (mIsForeground) {
+                        dismissDialog(DIALOG_SET_DATA_SUBSCRIPTION_IN_PROGRESS);
+                    }
                     getPreferenceScreen().setEnabled(true);
                     updateDataSummary();
 
