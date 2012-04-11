@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
- * Copyright (c) 2010-2011, Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2010-2012, Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.security.KeyStore;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -188,19 +189,32 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // Append the rest of the settings
         addPreferencesFromResource(R.xml.security_settings_misc);
 
-        // Do not display SIM lock for CDMA phone
-        TelephonyManager tm = TelephonyManager.getDefault();
-        if ((TelephonyManager.PHONE_TYPE_CDMA == tm.getCurrentPhoneType()) &&
-                (tm.getLteOnCdmaMode() != Phone.LTE_ON_CDMA_TRUE)) {
-            root.removePreference(root.findPreference(KEY_SIM_LOCK));
-        } else {
-            // Disable SIM lock if sim card is missing or unknown
-            if ((TelephonyManager.getDefault().getSimState() ==
-                                 TelephonyManager.SIM_STATE_ABSENT) ||
-                (TelephonyManager.getDefault().getSimState() ==
-                                 TelephonyManager.SIM_STATE_UNKNOWN)) {
-                root.findPreference(KEY_SIM_LOCK).setEnabled(false);
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+        int numPhones = TelephonyManager.getDefault().getPhoneCount();
+        boolean disableLock = false;
+        boolean removeLock = false;
+        for (int i = 0; i < numPhones; i++) {
+            // Do not display SIM lock for CDMA phone
+            if ((TelephonyManager.PHONE_TYPE_CDMA == tm.getCurrentPhoneType(i)) &&
+                    (tm.getLteOnCdmaMode(i) != Phone.LTE_ON_CDMA_TRUE)) {
+                removeLock = true;
+            } else {
+                // Disable SIM lock if sim card is missing or unknown
+                removeLock = false;
+                if ((tm.getSimState(i) == TelephonyManager.SIM_STATE_ABSENT) ||
+                        (tm.getSimState(i) == TelephonyManager.SIM_STATE_UNKNOWN)) {
+                    disableLock = true;
+                } else {
+                    disableLock = false;
+                    break;
+                }
             }
+        }
+        if (removeLock) {
+            root.removePreference(root.findPreference(KEY_SIM_LOCK));
+        }
+        if (disableLock) {
+            root.findPreference(KEY_SIM_LOCK).setEnabled(false);
         }
 
         // Show password
