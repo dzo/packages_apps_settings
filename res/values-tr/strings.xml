@@ -1588,8 +1588,8 @@
     <string name="system_settings_title">Bildirim çekmecesi</string>
 
     <string name="power_widget_title">Power widget</string>
-    <string name="title_expanded_widget">Power widget'ı göster</string>
-    <string name="summary_expanded_widget">Power Widget'ı bildirim çekmecesinde göster</string>
+    <string name="title_expanded_widget">Power widget\'ı göster</string>
+    <string name="summary_expanded_widget">Power Widget\'ı bildirim çekmecesinde göster</string>
     <string name="title_expanded_hide_onchange">Değişiklik olduğunda gizle</string>
     <string name="summary_expanded_hide_onchange">Bir butonunu durumu değiştirildiğinde bildirim çekmecesini gizler</string>
     <string name="title_expanded_hide_indicator">Durum göstergesini gizle</string>
@@ -1602,8 +1602,8 @@
     <string name="summary_widget_order">Power diget içerisinde görüntülenecek olan butonları sırasını değiştir</string>
     <string name="title_buttons">Butonlar</string>
     <string name="title_toggle_wifi">Kablosuz ağı aç/kapa</string>
-    <string name="title_toggle_bluetooth">Bluetooth'u aç/kapa</string>
-    <string name="title_toggle_gps">GPS'i aç/kapa</string>
+    <string name="title_toggle_bluetooth">Bluetooth\'u aç/kapa</string>
+    <string name="title_toggle_gps">GPS\'i aç/kapa</string>
     <string name="title_toggle_sound">Sesi aç/kapa</string>
     <string name="title_toggle_brightness">Parlaklık modu değiştir</string>
     <string name="title_toggle_sync">Senkronizasyonu aç/kapa</string>
@@ -1619,7 +1619,7 @@
     <string name="title_toggle_media_play_pause">Medya: Çalıştır/Durdur</string>
     <string name="title_toggle_media_previous">Medya: Önceki parça</string>
     <string name="title_toggle_media_next">Medya: Sonraki parça</string>
-    <string name="title_toggle_wimax">WiMAX'i aç/kapa</string>
+    <string name="title_toggle_wimax">WiMAX\'i aç/kapa</string>
     <string name="title_button_modes">Buton modları</string>
     <string name="pref_brightness_mode_title">Parlaklık modları</string>
     <string name="pref_brightness_mode_summary">Parlaklık modu değiştirme butonunun modları nasıl değiştireceğini seç</string>
