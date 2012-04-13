@@ -240,8 +240,8 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
                     String status;
 
                     if (ar.exception != null) {
-                        // This should never happens.  But display an alert message in case.
-                        status = getResources().getString(R.string.set_dds_failed);
+                        status = getResources().getString(R.string.set_dds_error)
+                                    + " " + ar.exception.getMessage();
                         displayAlertDialog(status);
                         break;
                     }

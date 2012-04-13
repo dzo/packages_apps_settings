@@ -3877,6 +3877,8 @@ found in the list of installed apps.</string>
     <string name="set_dds_success">Set data subscription success</string>
     <!-- Multi Sim Settings screen, Set DDS failure message -->
     <string name="set_dds_failed">Error in set data subscription.  Clean up any existing data connection and try again.</string>
+    <!-- Multi Sim Settings screen, Set DDS error message -->
+    <string name="set_dds_error">Error in set data subscription.</string>
 
     <!-- Mobile networks, item title to go into the network settings -->
     <string name="subscription_01_title">SUB 1</string>
