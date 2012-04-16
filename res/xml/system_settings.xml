@@ -19,6 +19,11 @@
     android:title="@string/system_interface_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <CheckBoxPreference
+        android:key="battery_percentage"
+        android:title="@string/title_battery_percentage"
+        android:defaultValue="false" />
+
     <PreferenceScreen
         android:key="notification_drawer"
         android:fragment="com.android.settings.PowerWidget"
