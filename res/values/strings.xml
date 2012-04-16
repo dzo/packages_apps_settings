@@ -3923,6 +3923,8 @@ found in the list of installed apps.</string>
     <!-- System Interface settings #CM -->
     <string name="system_settings_title">Notification Drawer</string>
     <string name="system_interface_title">System interface</string>
+
+    <string name="title_battery_percentage">Battery percentage</string>
     
     <!-- Notification Drawer #CM -->
     <string name="notification_drawer_title">Notification drawer</string>

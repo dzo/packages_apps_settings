@@ -21,20 +21,31 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 import android.util.Log;
 
 public class SystemSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
 
+    private static final String KEY_BATTERY_PERCENTAGE = "battery_percentage";
+    private CheckBoxPreference mBatteryPercentage;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+	
         addPreferencesFromResource(R.xml.system_settings);
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        mBatteryPercentage = (CheckBoxPreference) prefSet.findPreference(KEY_BATTERY_PERCENTAGE);
+        mBatteryPercentage.setChecked((Settings.System.getInt(getContentResolver(),
+            Settings.System.STATUS_BAR_BATTERY, 0) == 1));
     }
 
     @Override
@@ -49,7 +60,15 @@ public class SystemSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+        boolean value;
+
+        if (preference == mBatteryPercentage) {
+            value = mBatteryPercentage.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY, value ? 1 : 0);
+            return true;
+        }
+        return false;
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
