@@ -1584,7 +1584,7 @@
 
     <string name="new_wifi">"Novo Driver Wi-Fi"</string>
     <string name="new_wifi_summary">"Usar o novo driver wi-Fi"</string>
-    <string name="dualmic_enable_title">"Cancelamento de echo"</string>
+    <string name="dualmic_enable_title">"Cancelamento de eco"</string>
     <string name="headsetmic_enable_title">"Usar microfone do auricular"</string>
     <string name="system_settings_title">"Barra de Notificação"</string>
 
