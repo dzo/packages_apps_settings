@@ -1583,7 +1583,7 @@
 
     <string name="new_wifi">"Novo Driver Wi-Fi"</string>
     <string name="new_wifi_summary">"Usar o novo driver wi-Fi"</string>
-    <string name="dualmic_enable_title">"Cancelamento de ruído"</string>
+    <string name="dualmic_enable_title">"Cancelamento de eco"</string>
     <string name="headsetmic_enable_title">"Usar microfone do auricular"</string>
     <string name="system_settings_title">"Barra de Notificação"</string>
 
@@ -1627,7 +1627,7 @@
     <string name="cm_brightness_mode_dim">"Mínimo"</string>
     <string name="pref_network_mode_title">"Modos de Rede"</string>
     <string name="pref_network_mode_summary">"Escolhe os valores do botão 'Alterar o 2G/3G'"</string>
-    <string name="pref_screentimeout_mode_title">"Modos do Desligamento do Ecrã"</string>
+    <string name="pref_screentimeout_mode_title">"Modos de Desligamento do Ecrã"</string>
     <string name="pref_screentimeout_mode_summary">"Escolhe os valores do botão 'Alterar o Tempo de Desligamento do Ecrã'"</string>
     <string name="pref_ring_mode_title">"Modos de Som"</string>
     <string name="pref_ring_mode_summary">"Escolhe os valores do botão 'Alterar o Som'"</string>
