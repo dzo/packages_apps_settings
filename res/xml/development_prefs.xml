@@ -22,10 +22,12 @@
         android:title="@string/enable_adb" 
         android:summary="@string/enable_adb_summary"/>
 
+<!--
     <CheckBoxPreference 
         android:key="new_wifi" 
         android:title="@string/new_wifi" 
         android:summary="@string/new_wifi_summary"/>
+-->
 
     <Preference
         android:key="verifier_device_identifier"
