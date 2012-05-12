@@ -99,7 +99,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
         if (UsbManager.USB_FUNCTION_MTP.equals(function)) {
             mMtp.setChecked(true);
             mPtp.setChecked(false);
-        } else if (UsbManager.USB_FUNCTION_PTP.equals(function)) {
+        } else if (UsbManager.USB_FUNCTION_MASS_STORAGE.equals(function)) {
             mMtp.setChecked(false);
             mPtp.setChecked(true);
         } else  {
@@ -129,8 +129,8 @@ public class UsbSettings extends SettingsPreferenceFragment {
             mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_MTP, true);
             updateToggles(UsbManager.USB_FUNCTION_MTP);
         } else if (preference == mPtp) {
-            mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_PTP, true);
-            updateToggles(UsbManager.USB_FUNCTION_PTP);
+            mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_MASS_STORAGE, true);
+            updateToggles(UsbManager.USB_FUNCTION_MASS_STORAGE);
         }
         return true;
     }

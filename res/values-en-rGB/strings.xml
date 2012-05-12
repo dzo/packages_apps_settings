@@ -761,8 +761,8 @@
     <string name="usb_connection_category" msgid="7805945595165422882">"Connect as"</string>
     <string name="usb_mtp_title" msgid="3399663424394065964">"Media device (MTP)"</string>
     <string name="usb_mtp_summary" msgid="4617321473211391236">"Lets you transfer media files on Windows or using Android File Transfer on Mac (see www.android.com/filetransfer)"</string>
-    <string name="usb_ptp_title" msgid="3852760810622389620">"Camera (PTP)"</string>
-    <string name="usb_ptp_summary" msgid="7673397474756664929">"Lets you transfer photos using camera software and transfer any files on computers that don\'t support MTP"</string>
+    <string name="usb_ptp_title" msgid="3852760810622389620">"Mass Storage"</string>
+    <string name="usb_ptp_summary" msgid="7673397474756664929">"Legacy mode for mounting storage"</string>
     <string name="usb_label_installer_cd" msgid="4331173824920630215">"Install file-transfer tools"</string>
     <string name="battery_status_title" msgid="9159414319574976203">"Battery status"</string>
     <string name="battery_level_title" msgid="2965679202786873272">"Battery level"</string>

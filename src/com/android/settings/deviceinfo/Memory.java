@@ -107,7 +107,7 @@ public class Memory extends SettingsPreferenceFragment {
         }
 
         // only show options menu if we are not using the legacy USB mass storage support
-        setHasOptionsMenu(!massStorageEnabled);
+        setHasOptionsMenu(true); //!massStorageEnabled);
     }
 
     @Override
