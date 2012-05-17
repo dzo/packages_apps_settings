@@ -54,17 +54,21 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     private static final int DIALOG_SET_DATA_SUBSCRIPTION_IN_PROGRESS = 100;
 
     static final int EVENT_SET_DATA_SUBSCRIPTION_DONE = 1;
+    static final int EVENT_SUBSCRIPTION_ACTIVATED = 2;
+    static final int EVENT_SUBSCRIPTION_DEACTIVATED = 3;
     protected boolean mIsForeground = false;
     static final int SUBSCRIPTION_ID_0 = 0;
     static final int SUBSCRIPTION_ID_1 = 1;
     static final int SUBSCRIPTION_ID_INVALID = -1;
     static final int PROMPT_OPTION = 2;
+    static final int SUBSCRIPTION_DUAL_STANDBY = 2;
 
     private ListPreference mVoice;
     private ListPreference mData;
     private ListPreference mSms;
     private PreferenceScreen mConfigSub;
 
+    SubscriptionManager subManager = SubscriptionManager.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,11 +87,24 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
             Log.d(TAG, "Airplane mode is ON, grayout the config subscription menu!!!");
             mConfigSub.setEnabled(false);
         }
+        for (int subId = 0; subId < SubscriptionManager.NUM_SUBSCRIPTIONS; subId++) {
+            subManager.registerForSubscriptionActivated(subId,
+                    mHandler, EVENT_SUBSCRIPTION_ACTIVATED, null);
+            subManager.registerForSubscriptionDeactivated(subId,
+                    mHandler, EVENT_SUBSCRIPTION_DEACTIVATED, null);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        int count = subManager.getActiveSubscriptionsCount();
+        if (count == SUBSCRIPTION_DUAL_STANDBY) {
+            mVoice.setEntries(R.array.multi_sim_entries_voice);
+        } else  {
+            mVoice.setEntries(R.array.multi_sim_entries_voice_without_prompt);
+        }
         mIsForeground = true;
         updateState();
     }
@@ -259,6 +276,15 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
                         displayAlertDialog(status);
                     }
 
+                    break;
+                case EVENT_SUBSCRIPTION_ACTIVATED:
+                case EVENT_SUBSCRIPTION_DEACTIVATED:
+                    int count = subManager.getActiveSubscriptionsCount();
+                    if (count == SUBSCRIPTION_DUAL_STANDBY) {
+                        mVoice.setEntries(R.array.multi_sim_entries_voice);
+                    } else  {
+                        mVoice.setEntries(R.array.multi_sim_entries_voice_without_prompt);
+                    }
                     break;
             }
         }

@@ -749,4 +749,11 @@
         <!-- Do not translate. -->
         <item>2</item>
     </string-array>
+
+    <!-- Multi SIM voice settings.  The type of Subscriptions to show. -->
+    <string-array name="multi_sim_entries_voice_without_prompt">
+        <item>Subscription 1</item>
+        <item>Subscription 2</item>
+    </string-array>
+
 </resources>
