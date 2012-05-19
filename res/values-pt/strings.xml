@@ -1635,13 +1635,9 @@
     <string name="pref_flash_mode_summary">"Escolher Brilho Normal / Intenso"</string>
     <string name="expanded_haptic_feedback_title">"Vibração ao seleccionar"</string>
     <string name="expanded_haptic_feedback_summary">"Liga / Desliga a vibração de resposta a uma acção de 'touch'"</string>
-</resources>
-
-     <!--
-	Please push only those two new strings (plus new-wifi driver and notification drawer ones), because all other ones are in Brazilian, not Portuguese   
-	-->
-	<string name="usb_mtp_title" msgid="3399663424394065964">"Media Transfer Protocol (MTP)"</string>
+    <string name="usb_mtp_title" msgid="3399663424394065964">"Media Transfer Protocol (MTP)"</string>
     <string name="usb_mtp_summary" msgid="4617321473211391236">"Permite montar ambas as memórias (interna e externa) no Windows ou por meio do Android File Transfer no Mac."</string>
     <string name="usb_ptp_title" msgid="3852760810622389620">"Armazenamento em Massa"</string>
     <string name="usb_ptp_summary" msgid="7673397474756664929">"Apenas monta o cartão microSD externo."</string>
 	
+</resources>
