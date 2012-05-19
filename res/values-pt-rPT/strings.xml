@@ -1580,4 +1580,69 @@
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"Cancelar"</string>
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g>%%"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Atualizações adicionais do sistema"</string>
+    
+    <string name="new_wifi">"Novo Driver Wi-Fi"</string>
+    <string name="new_wifi_summary">"Usar o novo driver wi-Fi"</string>
+    <string name="dualmic_enable_title">"Cancelamento de eco"</string>
+    <string name="headsetmic_enable_title">"Usar microfone do auricular"</string>
+    <string name="system_settings_title">"Barra de Notificação"</string>
+
+    <string name="power_widget_title">"Barra de Controlo de Energia"</string>
+    <string name="title_expanded_widget">"Mostrar a Barra de Energia"</string>
+    <string name="summary_expanded_widget">"Mostra a barra de controlo de energia na barra de notificações"</string>
+    <string name="title_expanded_hide_onchange">"Esconder ao alterar"</string>
+    <string name="summary_expanded_hide_onchange">"Esconde a barra de notificações ao alterar uma opção"</string>
+    <string name="title_expanded_hide_indicator">"Esconder indicador de estado"</string>
+    <string name="summary_expanded_hide_indicator">"Esconde os indicadores por baixo do botão que informam sobre o estado do mesmo"</string>
+    <string name="title_expanded_hide_scrollbar">"Desactivar 'Deslizamento Lateral'"</string>
+    <string name="summary_expanded_hide_scrollbar">"Esconde a barra de deslizamento que aparece quando é excedido o número máximo de botões que podem aparecer ao mesmo tempo na barra"</string>
+    <string name="title_widget_picker">"Botões da Barra de Energia"</string>
+    <string name="summary_widget_picker">"Selecciona os botões que aparecem na Barra de Energia"</string>
+    <string name="title_widget_order">"Ordem dos botões"</string>
+    <string name="summary_widget_order">"Selecciona a ordem pela qual os botões aparecem na Barra de Energia"</string>
+    <string name="title_buttons">"Botões"</string>
+    <string name="title_toggle_wifi">"Alterar o Wi-Fi"</string>
+    <string name="title_toggle_bluetooth">"Alterar o Bluetooth"</string>
+    <string name="title_toggle_gps">"Alterar o GPS"</string>
+    <string name="title_toggle_sound">"Alterar o Som"</string>
+    <string name="title_toggle_brightness">"Alterar o Brilho do Ecrã"</string>
+    <string name="title_toggle_sync">"Alterar a Sincronização Automática"</string>
+    <string name="title_toggle_wifiap">"Alterar o Wi-Fi AP"</string>
+    <string name="title_toggle_screentimeout">"Alterar o Tempo de Desligamento do Ecrã"</string>
+    <string name="title_toggle_mobiledata">"Alterar os Dados Móveis"</string>
+    <string name="title_toggle_lockscreen">"Alterar o Ecrã de Bloqueio"</string>
+    <string name="title_toggle_networkmode">"Alterar o 2G/3G"</string>
+    <string name="title_toggle_autorotate">"Alterar o Sensor de Orientação"</string>
+    <string name="title_toggle_airplane">"Alterar o modo de Avião"</string>
+    <string name="title_toggle_flashlight">"Alterar a Lanterna LED"</string>
+    <string name="title_toggle_sleep">"Bloquear o Smartphone"</string>
+    <string name="title_toggle_media_play_pause">"Media: Alterar Tocar/Parar"</string>
+    <string name="title_toggle_media_previous">"Media: Voltar à anterior"</string>
+    <string name="title_toggle_media_next">"Media: Passar à próxima"</string>
+    <string name="title_toggle_wimax">"Alterar o WiMAX"</string>
+    <string name="title_button_modes">"Modos dos Botões"</string>
+    <string name="pref_brightness_mode_title">"Modos do Brilho do Ecrã"</string>
+    <string name="pref_brightness_mode_summary">"Escolhe os valores do botão 'Alterar o Brilho do Ecrã'"</string>
+    <string name="cm_brightness_mode_auto">"Automático"</string>
+    <string name="cm_brightness_mode_dim">"Mínimo"</string>
+    <string name="pref_network_mode_title">"Modos de Rede"</string>
+    <string name="pref_network_mode_summary">"Escolhe os valores do botão 'Alterar o 2G/3G'"</string>
+    <string name="pref_screentimeout_mode_title">"Modos de Desligamento do Ecrã"</string>
+    <string name="pref_screentimeout_mode_summary">"Escolhe os valores do botão 'Alterar o Tempo de Desligamento do Ecrã'"</string>
+    <string name="pref_ring_mode_title">"Modos de Som"</string>
+    <string name="pref_ring_mode_summary">"Escolhe os valores do botão 'Alterar o Som'"</string>
+    <string name="cm_sound_mode_silent">"Silêncio"</string>
+    <string name="cm_sound_mode_vibrate">"Apenas vibrar"</string>
+    <string name="cm_sound_mode_sound">"Apenas som"</string>
+    <string name="cm_sound_mode_soundVibrate">"Som + Vibrar"</string>
+    <string name="pref_flash_mode_title">"Modos da Lanterna"</string>
+    <string name="pref_flash_mode_summary">"Escolher Brilho Normal / Intenso"</string>
+    <string name="expanded_haptic_feedback_title">"Vibração ao seleccionar"</string>
+    <string name="expanded_haptic_feedback_summary">"Liga / Desliga a vibração de resposta a uma acção de 'touch'"</string>
+    <string name="usb_mtp_title" msgid="3399663424394065964">"Media Transfer Protocol (MTP)"</string>
+    <string name="usb_mtp_summary" msgid="4617321473211391236">"Permite montar ambas as memórias (interna e externa) no Windows ou por meio do Android File Transfer no Mac."</string>
+    <string name="usb_ptp_title" msgid="3852760810622389620">"Armazenamento em Massa"</string>
+    <string name="usb_ptp_summary" msgid="7673397474756664929">"Apenas monta o cartão microSD externo."</string>
+    <string name="title_battery_percentage">Bateria em percentagem</string>
+     
 </resources>
