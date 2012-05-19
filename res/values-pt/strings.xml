@@ -1639,5 +1639,5 @@
     <string name="usb_mtp_summary" msgid="4617321473211391236">"Permite montar ambas as memórias (interna e externa) no Windows ou por meio do Android File Transfer no Mac."</string>
     <string name="usb_ptp_title" msgid="3852760810622389620">"Armazenamento em Massa"</string>
     <string name="usb_ptp_summary" msgid="7673397474756664929">"Apenas monta o cartão microSD externo."</string>
-	
+    <string name="title_battery_percentage">Bateria em percentagem</string>		
 </resources>
