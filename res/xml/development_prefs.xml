@@ -46,6 +46,11 @@
         android:entries="@array/hdcp_checking_titles"
         android:entryValues="@array/hdcp_checking_values" />
 
+    <CheckBoxPreference
+        android:key="battery_percentage"
+        android:title="@string/title_battery_percentage"
+        android:defaultValue="false" />
+
     <PreferenceScreen
             android:key="local_backup_password"
             android:title="@string/local_backup_password_title"

@@ -70,6 +70,7 @@ public class DevelopmentSettings extends PreferenceFragment
     private static final String FORCE_HARDWARE_UI_KEY = "force_hw_ui";
     private static final String WINDOW_ANIMATION_SCALE_KEY = "window_animation_scale";
     private static final String TRANSITION_ANIMATION_SCALE_KEY = "transition_animation_scale";
+    private static final String KEY_BATTERY_PERCENTAGE = "battery_percentage";
 
     private static final String IMMEDIATELY_DESTROY_ACTIVITIES_KEY
             = "immediately_destroy_activities";
@@ -93,6 +94,7 @@ public class DevelopmentSettings extends PreferenceFragment
     private CheckBoxPreference mForceHardwareUi;
     private ListPreference mWindowAnimationScale;
     private ListPreference mTransitionAnimationScale;
+    private CheckBoxPreference mBatteryPercentage;
 
     private CheckBoxPreference mImmediatelyDestroyActivities;
     private ListPreference mAppProcessLimit;
@@ -129,6 +131,9 @@ public class DevelopmentSettings extends PreferenceFragment
         mWindowAnimationScale.setOnPreferenceChangeListener(this);
         mTransitionAnimationScale = (ListPreference) findPreference(TRANSITION_ANIMATION_SCALE_KEY);
         mTransitionAnimationScale.setOnPreferenceChangeListener(this);
+        mBatteryPercentage = (CheckBoxPreference) findPreference(KEY_BATTERY_PERCENTAGE);
+        mBatteryPercentage.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.STATUS_BAR_BATTERY, 0) == 1));
 
         mImmediatelyDestroyActivities = (CheckBoxPreference) findPreference(
                 IMMEDIATELY_DESTROY_ACTIVITIES_KEY);
@@ -456,8 +461,10 @@ public class DevelopmentSettings extends PreferenceFragment
             writeShowAllANRsOptions();
         } else if (preference == mForceHardwareUi) {
             writeHardwareUiOptions();
+        } else if (preference == mBatteryPercentage) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY, mBatteryPercentage.isChecked() ? 1 : 0);
         }
-
         return false;
     }
 
