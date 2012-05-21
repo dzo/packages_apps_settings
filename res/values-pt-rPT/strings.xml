@@ -759,10 +759,6 @@
     <string name="storage_menu_usb" msgid="5708207885333243384">"Ligação USB do computador"</string>
     <string name="storage_title_usb" msgid="679612779321689418">"Ligação USB do computador"</string>
     <string name="usb_connection_category" msgid="7805945595165422882">"Ligado como"</string>
-    <string name="usb_mtp_title" msgid="3399663424394065964">"Aparelho multimédia (MTP)"</string>
-    <string name="usb_mtp_summary" msgid="4617321473211391236">"Permite transferir ficheiros multimédia no Windows ou através da Transferência de Ficheiros Android no Mac (consulte www.android.com/filetransfer)"</string>
-    <string name="usb_ptp_title" msgid="3852760810622389620">"Câmara (PTP)"</string>
-    <string name="usb_ptp_summary" msgid="7673397474756664929">"Permite transferir fotografias utilizando o software da câmara e quaisquer ficheiros em computadores que não suportem MTP"</string>
     <string name="usb_label_installer_cd" msgid="4331173824920630215">"Instalar ferramentas de transferência de ficheiros"</string>
     <string name="battery_status_title" msgid="9159414319574976203">"Estado da bateria"</string>
     <string name="battery_level_title" msgid="2965679202786873272">"Nível da bateria"</string>
