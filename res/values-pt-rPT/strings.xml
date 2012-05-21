@@ -579,6 +579,8 @@
     <string name="wifi_p2p_menu_remove_group" msgid="4844634506540667517">"Remover grupo"</string>
     <string name="wifi_p2p_menu_advanced" msgid="2578792521809265949">"Avançado"</string>
     <string name="wifi_p2p_available_devices" msgid="5943352520059654483">"Aparelhos disponíveis"</string>
+    <string name="wifi_p2p_on_summary">Activar conectividade ponto a ponto</string>
+    <string name="wifi_p2p_settings">Definições do Wi-Fi Direct</string>
     <string name="wifi_tether_checkbox_text" msgid="6961605862058056788">"Hotspot Wi-Fi portátil"</string>
     <string name="wifi_tether_enabled_subtext" msgid="8948641212931906143">"Hotspot portátil <xliff:g id="NETWORK_SSID">%1$s</xliff:g> activo"</string>
     <string name="wifi_tether_failed_subtext" msgid="2654888578056042315">"Erro do hotspot Wi-Fi portátil"</string>
@@ -1209,7 +1211,7 @@
     <string name="power_screen" msgid="3023346080675904613">"Ecrã"</string>
     <string name="power_wifi" msgid="2382791137776486974">"Wi-Fi"</string>
     <string name="power_bluetooth" msgid="4373329044379008289">"Bluetooth"</string>
-    <string name="power_cell" msgid="6596471490976003056">"inactividade do telefone"</string>
+    <string name="power_cell" msgid="6596471490976003056">"Rádio do telefone"</string>
     <string name="power_phone" msgid="5392641106474567277">"Chamadas de voz"</string>
     <string name="power_idle" product="tablet" msgid="4612478572401640759">"Tablet inactivo"</string>
     <string name="power_idle" product="default" msgid="9055659695602194990">"Telefone inactivo"</string>
