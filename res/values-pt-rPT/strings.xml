@@ -1209,7 +1209,7 @@
     <string name="power_screen" msgid="3023346080675904613">"Ecrã"</string>
     <string name="power_wifi" msgid="2382791137776486974">"Wi-Fi"</string>
     <string name="power_bluetooth" msgid="4373329044379008289">"Bluetooth"</string>
-    <string name="power_cell" msgid="6596471490976003056">"inactividade do telefone"</string>
+    <string name="power_cell" msgid="6596471490976003056">"Rádio do telefone"</string>
     <string name="power_phone" msgid="5392641106474567277">"Chamadas de voz"</string>
     <string name="power_idle" product="tablet" msgid="4612478572401640759">"Tablet inactivo"</string>
     <string name="power_idle" product="default" msgid="9055659695602194990">"Telefone inactivo"</string>
