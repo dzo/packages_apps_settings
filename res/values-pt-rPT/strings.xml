@@ -100,8 +100,8 @@
     <string name="battery_info_health_cold" msgid="3835692786176707318">"Frio"</string>
     <string name="bluetooth" msgid="5549625000628014477">"Bluetooth"</string>
     <string name="bluetooth_visibility" msgid="2930835434091839916">"Detectável"</string>
-    <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"Visível p/ tds aparelhos Bluetooth próximos (<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
-    <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"Visível para tds os aparelhos Bluetooth nas prox."</string>
+    <string name="bluetooth_is_discoverable" msgid="8373421452106840526">"Visível para todos os aparelhos Bluetooth(<xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g>)"</string>
+    <string name="bluetooth_is_discoverable_always" msgid="2849387702249327748">"Visível para todos os aparelhos Bluetooth"</string>
     <string name="bluetooth_not_visible_to_other_devices" msgid="9120274591523391910">"Não visível a outros aparelhos Bluetooth"</string>
     <string name="bluetooth_only_visible_to_paired_devices" msgid="2049983392373296028">"Visível apenas para aparelhos sincronizados"</string>
     <string name="bluetooth_not_discoverable" msgid="128269993123955177">"Tornar o dispositivo detectável"</string>
@@ -118,8 +118,8 @@
     <string name="bluetooth_rename_button" msgid="1648028693822994566">"Mudar o nome"</string>
     <string name="bluetooth_disconnect_title" msgid="6026705382020027966">"Desligar?"</string>
     <string name="bluetooth_disconnect_all_profiles" msgid="9148530542956217908">"Isto terminará a sua ligação com:&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%1$s</xliff:g>&lt;/b&gt;"</string>
-    <string name="bluetooth_disable_profile_title" msgid="5916643979709342557">"Desativar perfil?"</string>
-    <string name="bluetooth_disable_profile_message" msgid="2895844842011809904">"Isto desativará:&lt;br&gt;&lt;b&gt;<xliff:g id="PROFILE_NAME">%1$s</xliff:g>&lt;/b&gt;&lt;br&gt;&lt;br&gt;Do:&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%2$s</xliff:g>&lt;/b&gt;"</string>
+    <string name="bluetooth_disable_profile_title" msgid="5916643979709342557">"Desactivar perfil?"</string>
+    <string name="bluetooth_disable_profile_message" msgid="2895844842011809904">"Isto desactivará:&lt;br&gt;&lt;b&gt;<xliff:g id="PROFILE_NAME">%1$s</xliff:g>&lt;/b&gt;&lt;br&gt;&lt;br&gt;Do:&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%2$s</xliff:g>&lt;/b&gt;"</string>
     <string name="bluetooth_connected" msgid="6038755206916626419">"Ligado"</string>
     <string name="bluetooth_connected_no_headset" msgid="2866994875046035609">"Ligado (sem telefone)"</string>
     <string name="bluetooth_connected_no_a2dp" msgid="4576188601581440337">"Ligado (sem multimédia)"</string>
@@ -132,24 +132,24 @@
     <string name="bluetooth_device" msgid="5291950341750186887">"Aparelho Bluetooth sem nome"</string>
     <string name="progress_scanning" msgid="192587958424295789">"A pesquisar"</string>
     <string name="progress_tap_to_pair" msgid="5655704645616731277">"Tocar p/ sincronizar"</string>
-    <string name="bluetooth_no_devices_found" msgid="1085232930277181436">"Nenhum aparelho Bluetooth nas proximid."</string>
+    <string name="bluetooth_no_devices_found" msgid="1085232930277181436">"Nenhum aparelho Bluetooth próximo"</string>
     <string name="bluetooth_notif_ticker" msgid="4726721390078512173">"Pedido de emparelhamento de Bluetooth"</string>
     <string name="bluetooth_notif_title" msgid="2485175521845371514">"Pedido de emparelhamento"</string>
     <string name="bluetooth_notif_message" msgid="1931617700075106801">"Toque para sincronizar com <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_show_received_files" msgid="5164787486105868895">"Mostrar ficheiros recebidos"</string>
     <string name="device_picker" msgid="8721012448931226323">"Seleccionador de dispositivo Bluetooth"</string>
     <string name="bluetooth_permission_request" msgid="1523129741266262748">"Pedido de emparelhamento de Bluetooth"</string>
-    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"Uma aplicação pretende ativar o Bluetooth. Permitir?"</string>
+    <string name="bluetooth_ask_enablement" msgid="5279027758886569301">"Uma aplicação pretende activar o Bluetooth. Permitir?"</string>
     <string name="bluetooth_ask_discovery" product="tablet" msgid="4420151924834278808">"Uma aplicação do tablet pretende que outros aparelhos Bluetooth possam detetar o seu tablet durante <xliff:g id="TIMEOUT">%1$d</xliff:g> segundos. Permitir?"</string>
     <string name="bluetooth_ask_discovery" product="default" msgid="4478906085771274647">"Uma aplicação do telemóvel pretende que outros aparelhos Bluetooth possam detetar o seu telemóvel durante <xliff:g id="TIMEOUT">%1$d</xliff:g> segundos. Permitir?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"Uma aplicação do tablet pretende que o tablet possa “sempre ser detetado” por outros aparelhos Bluetooth. Permitir?"</string>
-    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"Uma aplicação do telemóvel pretende que o telemóvel possa \"sempre ser detetado\" por outros aparelhos Bluetooth. Permitir?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"Uma aplicação do tablet pretende ativar o Bluetooth para que o tablet possa ser detetado por outros aparelhos durante <xliff:g id="TIMEOUT">%1$d</xliff:g> segundos. Permitir?"</string>
-    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"Uma aplicação do telemóvel pretende ativar o Bluetooth para que o telemóvel possa ser detetado por outros aparelhos durante <xliff:g id="TIMEOUT">%1$d</xliff:g> segundos. Permitir?"</string>
+    <string name="bluetooth_ask_lasting_discovery" product="tablet" msgid="8737516188038252313">"Uma aplicação do tablet pretende que o tablet possa “sempre ser detectado” por outros aparelhos Bluetooth. Permitir?"</string>
+    <string name="bluetooth_ask_lasting_discovery" product="default" msgid="7751530664834149084">"Uma aplicação do telemóvel pretende que o telemóvel possa \"sempre ser detectado\" por outros aparelhos Bluetooth. Permitir?"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="tablet" msgid="8504403125440086020">"Uma aplicação do tablet pretende activar o Bluetooth para que o tablet possa ser detetado por outros aparelhos durante <xliff:g id="TIMEOUT">%1$d</xliff:g> segundos. Permitir?"</string>
+    <string name="bluetooth_ask_enablement_and_discovery" product="default" msgid="3040361003987241057">"Uma aplicação do telemóvel pretende activar o Bluetooth para que o telemóvel possa ser detetado por outros aparelhos durante <xliff:g id="TIMEOUT">%1$d</xliff:g> segundos. Permitir?"</string>
     <string name="bluetooth_ask_enablement_and_lasting_discovery" product="tablet" msgid="7254712987802497615">"Uma aplicação do tablet pretende ativar o Bluetooth para que o tablet possa ser detetado por outros aparelhos. Permitir?"</string>
     <string name="bluetooth_ask_enablement_and_lasting_discovery" product="default" msgid="3947789545028519103">"Uma aplicação do telemóvel pretende ativar o Bluetooth para que o telemóvel possa ser detetado por outros aparelhos. Permitir?"</string>
     <string name="bluetooth_turning_on" msgid="4850574877288036646">"Ligar Bluetooth…"</string>
-    <string name="bluetooth_turning_off" msgid="2337747302892025192">"Desativar o Bluetooth…"</string>
+    <string name="bluetooth_turning_off" msgid="2337747302892025192">"Desactivar o Bluetooth…"</string>
     <string name="bluetooth_auto_connect" msgid="40711424456733571">"Ligação automática"</string>
     <string name="bluetooth_connection_permission_request" msgid="4747918249032890077">"Pedido de ligação Bluetooth"</string>
     <string name="bluetooth_connection_notif_message" msgid="3687933246423942977">"Toque para ligar a “<xliff:g id="DEVICE_NAME">%1$s</xliff:g>”."</string>
@@ -183,7 +183,7 @@
     <string name="proxy_error" msgid="8926675299638611451">"Atenção"</string>
     <string name="proxy_error_dismiss" msgid="4993171795485460060">"OK"</string>
     <string name="proxy_error_invalid_host" msgid="8052095511862922213">"O nome de anfitrião que introduziu não é válido."</string>
-    <string name="proxy_error_invalid_exclusion_list" msgid="6467799485443290961">"A lista de exclusão introduzida não está formatada corretamente. Introduza uma lista de domínios excluídos separados por vírgulas."</string>
+    <string name="proxy_error_invalid_exclusion_list" msgid="6467799485443290961">"A lista de exclusão introduzida não está formatada correctamente. Introduza uma lista de domínios excluídos separados por vírgulas."</string>
     <string name="proxy_error_empty_port" msgid="3525734169948795417">"É necessário preencher o campo referente à porta."</string>
     <string name="proxy_error_empty_host_set_port" msgid="2451694104858226781">"O campo referente à porta tem de estar vazio se o campo do anfitrião estiver vazio."</string>
     <string name="proxy_error_invalid_port" msgid="2671425042711054494">"A porta introduzida não é válida."</string>
@@ -482,9 +482,9 @@
     <string name="android_beam_settings_title" msgid="7832812974600338649">"Android Beam"</string>
     <string name="android_beam_on_summary" msgid="3618057099355636830">"Pronto para transmitir conteúdo da aplicação via NFC"</string>
     <string name="android_beam_off_summary" msgid="4663095428454779138">"Desativado"</string>
-    <string name="android_beam_disabled_summary" msgid="1737782116894793393">"Não disponível, porque o NFC está desativado"</string>
+    <string name="android_beam_disabled_summary" msgid="1737782116894793393">"Não disponível, porque o NFC está desactivado"</string>
     <string name="android_beam_label" msgid="6257036050366775040">"Android Beam"</string>
-    <string name="android_beam_explained" msgid="6981652347448777459">"Quando esta funcionalidade está ativada, pode transmitir o conteúdo da aplicação para outro aparelho com capacidade de NFC mantendo os aparelhos próximos um do outro. Por exemplo, pode transmitir páginas do Navegador, vídeos do YouTube, contactos de Pessoas e muito mais. "\n\n"Basta juntar os aparelhos (normalmente de costas) e, em seguida, tocar no ecrã. A aplicação determina o que é transmitido."</string>
+    <string name="android_beam_explained" msgid="6981652347448777459">"Quando esta funcionalidade está activada, pode transmitir o conteúdo da aplicação para outro aparelho com capacidade de NFC mantendo os aparelhos próximos um do outro. Por exemplo, pode transmitir páginas do Navegador, vídeos do YouTube, contactos de Pessoas e muito mais. "\n\n"Basta juntar os aparelhos (normalmente de costas) e, em seguida, tocar no ecrã. A aplicação determina o que é transmitido."</string>
     <string name="wifi_quick_toggle_title" msgid="874495178395350104">"Wi-Fi"</string>
     <string name="wifi_quick_toggle_summary" msgid="1047950931623694366">"Activar Wi-Fi"</string>
     <string name="wifi_settings" msgid="1277428034634973011">"Wi-Fi"</string>
@@ -523,7 +523,7 @@
     <string name="wifi_status" msgid="4824568012414605414">"Estado"</string>
     <string name="wifi_speed" msgid="3526198708812322037">"Velocidade da ligação"</string>
     <string name="wifi_ip_address" msgid="1440054061044402918">"Endereço IP"</string>
-    <string name="wifi_eap_method" msgid="8529436133640730382">"método EAP"</string>
+    <string name="wifi_eap_method" msgid="8529436133640730382">"Método EAP"</string>
     <string name="please_select_phase2" msgid="5231074529772044898">"Autenticação da fase 2"</string>
     <string name="wifi_eap_ca_cert" msgid="3521574865488892851">"Certificado CA"</string>
     <string name="wifi_eap_user_cert" msgid="1291089413368160789">"Certificado do utilizador"</string>
@@ -535,10 +535,10 @@
     <string name="wifi_unchanged" msgid="3410422020930397102">"(não alterado)"</string>
     <string name="wifi_unspecified" msgid="5431501214192991253">"(não especificado)"</string>
     <string name="wifi_remembered" msgid="4955746899347821096">"Guardada"</string>
-    <string name="wifi_disabled_generic" msgid="4259794910584943386">"Desativado"</string>
+    <string name="wifi_disabled_generic" msgid="4259794910584943386">"Desactivado"</string>
     <string name="wifi_disabled_network_failure" msgid="3111321240793227690">"Evitada ligação à internet fraca"</string>
     <string name="wifi_disabled_heading" msgid="1428050635183875599"></string>
-    <string name="wifi_disabled_help" msgid="5416325603334140666">"A rede foi evitada devido a uma ligação fraca. Desative essa opção no ecrã Definições &gt; Wi-Fi, no item de menu Avançadas."</string>
+    <string name="wifi_disabled_help" msgid="5416325603334140666">"A rede foi evitada devido a uma ligação fraca. Desactive essa opção no ecrã Definições &gt; Wi-Fi, no item de menu Avançadas."</string>
     <string name="wifi_disabled_password_failure" msgid="8659805351763133575">"Problema de autenticação"</string>
     <string name="wifi_not_in_range" msgid="1136191511238508967">"Fora do alcance"</string>
     <string name="wifi_wps_available_first_item" msgid="3538912605343585226">"Rede protegida disponível"</string>
@@ -550,7 +550,7 @@
     <string name="wifi_forget" msgid="8168174695608386644">"Esquecer"</string>
     <string name="wifi_save" msgid="3331121567988522826">"Guardar"</string>
     <string name="wifi_cancel" msgid="6763568902542968964">"Cancelar"</string>
-    <string name="wifi_wps_overlap_error" msgid="3352261777053283320">"Detetada outra sessão Wi-Fi protegida. Tente dentro de alguns minutos."</string>
+    <string name="wifi_wps_overlap_error" msgid="3352261777053283320">"Detectada outra sessão Wi-Fi protegida. Tente dentro de alguns minutos."</string>
     <string name="wifi_advanced_titlebar" msgid="1627063574532930090">"Wi-Fi Avançada"</string>
     <string name="wifi_setting_frequency_band_title" msgid="7493768705046080060">"Banda de frequência Wi-Fi"</string>
     <string name="wifi_setting_frequency_band_summary" msgid="3250740757118009784">"Especifique o intervalo de frequência de operação"</string>
@@ -649,7 +649,7 @@
     <string name="wallpaper_settings_fragment_title" msgid="519078346877860129">"Escolher imagem de fundo de"</string>
     <string name="screensaver_settings_title" msgid="3848608373818910549">"Proteção de Ecrã"</string>
     <string name="screensaver_settings_summary_on" msgid="433728808047613634">"Será iniciado ao suspender, se estiver ligado à alimentação"</string>
-    <string name="screensaver_settings_summary_off" msgid="7019248565878953105">"Desativado"</string>
+    <string name="screensaver_settings_summary_off" msgid="7019248565878953105">"Desactivado"</string>
     <string name="screensaver_component_title" msgid="8596216100441725363">"Proteção de Ecrã selecionada"</string>
     <string name="screensaver_timeout_title" msgid="4882666970355550822">"Quando ativar"</string>
     <string name="screensaver_timeout_summary" msgid="7717201094598701673">"Após <xliff:g id="TIMEOUT_DESCRIPTION">%1$s</xliff:g> inativo"</string>
@@ -787,9 +787,9 @@
     <string name="apn_type" msgid="469613123902220544">"Tipo APN"</string>
     <string name="apn_protocol" msgid="3272222921649348640">"Protocolo APN"</string>
     <string name="apn_roaming_protocol" msgid="3386954381510788422">"Protocolo APN quando em roaming"</string>
-    <string name="carrier_enabled" msgid="407655861175280806">"Ativar/desativar APN"</string>
-    <string name="carrier_enabled_summaryOn" msgid="6338915271908057531">"APN ativado"</string>
-    <string name="carrier_enabled_summaryOff" msgid="4300790190221203756">"APN desativado"</string>
+    <string name="carrier_enabled" msgid="407655861175280806">"Activar/desactivar APN"</string>
+    <string name="carrier_enabled_summaryOn" msgid="6338915271908057531">"APN activado"</string>
+    <string name="carrier_enabled_summaryOff" msgid="4300790190221203756">"APN desactivado"</string>
     <string name="bearer" msgid="594270280031923558">"Portador"</string>
     <string name="menu_delete" msgid="6981294422841124659">"Eliminar APN"</string>
     <string name="menu_new" msgid="3014205883303921729">"Novo APN"</string>
@@ -944,10 +944,10 @@
     <string name="applications_settings_header" msgid="1014813055054356646">"Definições da aplicação"</string>
     <string name="install_applications" msgid="4872012136210802181">"Fontes desconhecidas"</string>
     <string name="install_unknown_applications" msgid="8149117044297868948">"Permitir instalação de aplicações que não são do Market"</string>
-    <string name="install_all_warning" product="tablet" msgid="3263360446508268880">"O tablet e os dados pessoais estão mais vulneráveis ​​a ataques de aplicações de fontes desconhecidas. O utilizador concorda que é o único responsável por qualquer dano causado ao tablet ou perda de dados que possam resultar da utilização destas aplicações."</string>
-    <string name="install_all_warning" product="default" msgid="8113734576826384682">"O telemóvel e os dados pessoais estão mais vulneráveis ​​a ataques de aplicações de fontes desconhecidas. O utilizador concorda que é o único responsável por qualquer dano causado ao telemóvel ou perda de dados que possam resultar da utilização dessas aplicações."</string>
+    <string name="install_all_warning" product="tablet" msgid="3263360446508268880">"O tablet e os dados pessoais estão mais vulneráveis a ataques de aplicações de fontes desconhecidas. O utilizador concorda que é o único responsável por qualquer dano causado ao tablet ou perda de dados que possam resultar da utilização destas aplicações."</string>
+    <string name="install_all_warning" product="default" msgid="8113734576826384682">"O telemóvel e os dados pessoais estão mais vulneráveis a ataques de aplicações de fontes desconhecidas. O utilizador concorda que é o único responsável por qualquer dano causado ao telemóvel ou perda de dados que possam resultar da utilização dessas aplicações."</string>
     <string name="advanced_settings" msgid="1777249286757067969">"Definições avançadas"</string>
-    <string name="advanced_settings_summary" msgid="4016682978071086747">"Ativar mais opções de definições"</string>
+    <string name="advanced_settings_summary" msgid="4016682978071086747">"Activar mais opções de definições"</string>
     <string name="application_info_label" msgid="5736524913065714880">"Informações da aplicação"</string>
     <string name="storage_label" msgid="8700867073480107253">"Armazenamento"</string>
     <string name="auto_launch_label" msgid="3012617472833815382">"Iniciar por predefinição"</string>
@@ -988,7 +988,7 @@
     <string name="filter_apps_running" msgid="7767071454371350486">"Em execução"</string>
     <string name="filter_apps_onsdcard" product="nosdcard" msgid="4843063154701023349">"Armazenamento USB"</string>
     <string name="filter_apps_onsdcard" product="default" msgid="1477351142334784771">"No cartão SD"</string>
-    <string name="disabled" msgid="9206776641295849915">"Desativada"</string>
+    <string name="disabled" msgid="9206776641295849915">"Desactivada"</string>
     <string name="no_applications" msgid="7336588977497084921">"Sem aplicações."</string>
     <string name="internal_storage" msgid="1584700623164275282">"Armaz. interno"</string>
     <string name="sd_card_storage" product="nosdcard" msgid="2673203150465132465">"Armaz. USB"</string>
@@ -1001,8 +1001,8 @@
     <string name="app_not_found_dlg_title" msgid="3127123411738434964"></string>
     <string name="app_not_found_dlg_text" msgid="8333723538280257243">"A aplicação não foi encontrada na lista de aplicações instaladas."</string>
     <string name="clear_data_failed" msgid="1907582169616856698">"Não foi possível limpar os dados da aplicação."</string>
-    <string name="app_factory_reset_dlg_title" msgid="7441012826373143593">"Desinstalar atualizações?"</string>
-    <string name="app_factory_reset_dlg_text" msgid="6371247225487725860">"Serão desinstaladas todas as atualizações para esta aplicação do sistema Android."</string>
+    <string name="app_factory_reset_dlg_title" msgid="7441012826373143593">"Desinstalar actualizações?"</string>
+    <string name="app_factory_reset_dlg_text" msgid="6371247225487725860">"Serão desinstaladas todas as actualizações para esta aplicação do sistema Android."</string>
     <string name="clear_failed_dlg_title" msgid="2387060805294783175">"Limpar dados"</string>
     <string name="clear_failed_dlg_text" msgid="1092177570631523106">"Não foi possível limpar os dados da aplicação."</string>
     <string name="security_settings_desc" product="tablet" msgid="1292421279262430109">"Esta aplicação pode aceder aos seguintes itens no seu tablet:"</string>
@@ -1081,7 +1081,7 @@
     <string name="show_password" msgid="3001113966880559611">"Visualizar palavras-passe"</string>
     <string name="show_password_summary" msgid="7345931695292850058"></string>
     <string name="ime_security_warning" msgid="4135828934735934248">"Este método de introdução pode permitir a recolha de todo o texto que digitar, incluindo dados pessoais como, por exemplo, palavras-passe e números de cartões de crédito. Decorre da aplicação <xliff:g id="IME_APPLICATION_NAME">%1$s</xliff:g>. Utilizar este método de introdução?"</string>
-    <string name="spellchecker_security_warning" msgid="9060897418527708922">"Este corretor ortográfico pode permitir a recolha de todo o texto que introduzir, incluindo dados pessoais, como palavras-passe e números de cartões de crédito. Decorre da aplicação <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>. Utilizar este corretor ortográfico?"</string>
+    <string name="spellchecker_security_warning" msgid="9060897418527708922">"Este corrector ortográfico pode permitir a recolha de todo o texto que introduzir, incluindo dados pessoais, como palavras-passe e números de cartões de crédito. Decorre da aplicação <xliff:g id="SPELLCHECKER_APPLICATION_NAME">%1$s</xliff:g>. Utilizar este corretor ortográfico?"</string>
     <string name="pointer_settings_category" msgid="8183819795164034286">"Rato/trackpad"</string>
     <string name="pointer_speed" msgid="1221342330217861616">"Velocidade do ponteiro"</string>
     <string name="user_dict_settings_titlebar" msgid="765659257455000490">"Dicionário do utilizador"</string>
@@ -1166,7 +1166,7 @@
     <string name="accessibility_menu_item_tutorial" msgid="567989492004682307">"Tutorial"</string>
     <string name="accessibility_service_state_on" msgid="8791337599927106344">"Em"</string>
     <string name="accessibility_service_state_off" msgid="2458594460762620776">"Desligado"</string>
-    <string name="accessibility_script_injection_allowed" msgid="7624804397748427621">"permitido"</string>
+    <string name="accessibility_script_injection_allowed" msgid="7624804397748427621">"Permitido"</string>
     <string name="accessibility_script_injection_disallowed" msgid="8639525487720429182">"Não permitido"</string>
     <string name="accessibility_script_injection_button_allow" msgid="2201503285877102870">"Permitir"</string>
     <string name="accessibility_script_injection_button_disallow" msgid="5697152768523270885">"Não permitir"</string>
@@ -1195,7 +1195,7 @@
     <string name="battery_stats_screen_on_label" msgid="7150221809877509708">"Ecrã activo"</string>
     <string name="battery_stats_gps_on_label" msgid="1193657533641951256">"GPS activado"</string>
     <string name="battery_stats_wifi_running_label" msgid="3093545080361658269">"Wi-Fi"</string>
-    <string name="battery_stats_wake_lock_label" msgid="1908942681902324095">"Despertar"</string>
+    <string name="battery_stats_wake_lock_label" msgid="1908942681902324095">"Acordado"</string>
     <string name="battery_stats_phone_signal_label" msgid="4137799310329041341">"Sinal da rede móvel"</string>
     <!-- no translation found for battery_stats_last_duration (1535831453827905957) -->
     <skip />
@@ -1216,8 +1216,8 @@
     <string name="power_idle" product="tablet" msgid="4612478572401640759">"Tablet inactivo"</string>
     <string name="power_idle" product="default" msgid="9055659695602194990">"Telefone inactivo"</string>
     <string name="usage_type_cpu" msgid="715162150698338714">"Total da CPU"</string>
-    <string name="usage_type_cpu_foreground" msgid="6500579611933211831">"primeiro plano da CPU"</string>
-    <string name="usage_type_wake_lock" msgid="5125438890233677880">"Manter desperto"</string>
+    <string name="usage_type_cpu_foreground" msgid="6500579611933211831">"CPU em primeiro plano"</string>
+    <string name="usage_type_wake_lock" msgid="5125438890233677880">"Em funcionamento"</string>
     <string name="usage_type_gps" msgid="7989688715128160790">"GPS"</string>
     <string name="usage_type_wifi_running" msgid="8234997940652067049">"Wi-Fi em execução"</string>
     <string name="usage_type_phone" product="tablet" msgid="262638572890253393">"Tablet"</string>
@@ -1638,9 +1638,9 @@
     <string name="expanded_haptic_feedback_title">"Vibração ao seleccionar"</string>
     <string name="expanded_haptic_feedback_summary">"Liga / Desliga a vibração de resposta a uma acção de 'touch'"</string>
     <string name="usb_mtp_title" msgid="3399663424394065964">"Media Transfer Protocol (MTP)"</string>
-    <string name="usb_mtp_summary" msgid="4617321473211391236">"Permite montar ambas as memórias (interna e externa) no Windows ou por meio do Android File Transfer no Mac."</string>
+    <string name="usb_mtp_summary" msgid="4617321473211391236">"Permite transferir ficheiros media no Windows ou por meio do Android File Transfer no Mac."</string>
     <string name="usb_ptp_title" msgid="3852760810622389620">"Armazenamento em Massa"</string>
-    <string name="usb_ptp_summary" msgid="7673397474756664929">"Apenas monta o cartão microSD externo."</string>
+    <string name="usb_ptp_summary" msgid="7673397474756664929">"Modo original de transferência de ficheiros."</string>
     <string name="title_battery_percentage">Bateria em percentagem</string>
      
 </resources>
