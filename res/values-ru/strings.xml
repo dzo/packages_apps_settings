@@ -1123,7 +1123,7 @@
     <string name="input_method_settings" msgid="5801295625486269553">"Настройки"</string>
     <string name="input_method_settings_button" msgid="6778344383871619368">"Настройки"</string>
     <string name="active_input_method_subtypes" msgid="3596398805424733238">"Активные способы ввода"</string>
-    <string name="use_system_language_to_select_input_method_subtypes" msgid="3346751753141428573">"Язык системы"</string>
+    <string name="use_system_language_to_select_input_method_subtypes" msgid="334675175314142quick_launch_display_mode_shortcuts8573">"Язык системы"</string>
     <string name="input_methods_settings_label_format" msgid="6002887604815693322">"Настройки <xliff:g id="IME_NAME">%1$s</xliff:g>"</string>
     <string name="input_methods_and_subtype_enabler_title" msgid="4421813273170250462">"Выберите активные способы ввода"</string>
     <string name="onscreen_keyboard_settings_summary" msgid="5841558383556238653">"Настройки экранной клавиатуры"</string>
@@ -1636,6 +1636,7 @@
     <string name="headsetmic_enable_title">Микрофон гарнитуры</string>
     <string name="new_wifi">Новый драйвер Wi-Fi</string>
     <string name="new_wifi_summary">Использовать новый драйвер Wi-Fi</string>
+    <string name="title_battery_percentage">Батарейка в процентах</string>
     <!-- String.format failed for translation -->
     <!-- no translation found for percentage (5866131581207788624) -->
     <skip />
