@@ -1199,13 +1199,13 @@
     <string name="battery_stats_phone_signal_label" msgid="4137799310329041341">"Sinal da rede móvel"</string>
     <!-- no translation found for battery_stats_last_duration (1535831453827905957) -->
     <skip />
-    <string name="awake" msgid="387122265874485088">"Hora de activação do dispositivo"</string>
+    <string name="awake" msgid="387122265874485088">"Tempo total activado"</string>
     <string name="wifi_on_time" msgid="6310209835617490616">"Tempo de ligação Wi-Fi"</string>
-    <string name="bluetooth_on_time" msgid="6157799524996162271">"Tempo de ligação Wi-Fi"</string>
+    <string name="bluetooth_on_time" msgid="6157799524996162271">"Tempo de ligação Bluetooth"</string>
     <string name="usage_name_percent" msgid="7976919382448235858">"<xliff:g id="NAME">%1$s</xliff:g> -  <xliff:g id="NUMBER">%2$s</xliff:g><xliff:g id="PERCENT">%%</xliff:g>"</string>
     <string name="history_details_title" msgid="3608240585315506067">"Detalhes do histórico"</string>
-    <string name="details_title" msgid="3792801565213935385">"Utilizar detalhes"</string>
-    <string name="details_subtitle" msgid="32593908269911734">"Utilizar detalhes"</string>
+    <string name="details_title" msgid="3792801565213935385">"Detalhes de utilização"</string>
+    <string name="details_subtitle" msgid="32593908269911734">"Detalhes de utilização"</string>
     <string name="controls_subtitle" msgid="390468421138288702">"Ajustar utilização de energia"</string>
     <string name="packages_subtitle" msgid="4736416171658062768">"Pacotes incluídos"</string>
     <string name="power_screen" msgid="3023346080675904613">"Ecrã"</string>
@@ -1226,7 +1226,7 @@
     <string name="usage_type_data_recv" msgid="7251090882025234185">"Dados recebidos"</string>
     <string name="usage_type_audio" msgid="6957269406840886290">"Áudio"</string>
     <string name="usage_type_video" msgid="4295357792078579944">"Vídeo"</string>
-    <string name="usage_type_on_time" msgid="3351200096173733159">"Hora activada"</string>
+    <string name="usage_type_on_time" msgid="3351200096173733159">"Tempo activado"</string>
     <string name="usage_type_no_coverage" msgid="3797004252954385053">"Tempo sem sinal"</string>
     <string name="battery_action_stop" msgid="649958863744041872">"Forçar paragem"</string>
     <string name="battery_action_app_details" msgid="7861051816778419018">"Informações da aplicação"</string>
@@ -1241,14 +1241,14 @@
     <string name="battery_sugg_radio" msgid="8211336978326295047">"Mudar para modo de avião para poupar energia em áreas sem cobertura de rede"</string>
     <string name="battery_desc_display" msgid="5432795282958076557">"Bateria utilizada pelo ecrã e pela iluminação de fundo"</string>
     <string name="battery_sugg_display" msgid="3370202402045141760">"Reduzir o brilho do ecrã e/ou o tempo que este permanece iluminado"</string>
-    <string name="battery_desc_wifi" msgid="1702486494565080431">"Bateria utilizada por Wi-Fi"</string>
-    <string name="battery_sugg_wifi" msgid="2085605314976704287">"Desativar Wi-Fi quando não estiver a ser utilizada ou não estiver disponível"</string>
+    <string name="battery_desc_wifi" msgid="1702486494565080431">"Bateria utilizada pelo Wi-Fi"</string>
+    <string name="battery_sugg_wifi" msgid="2085605314976704287">"Desactivar Wi-Fi quando não estiver a ser utilizado ou não estiver disponível"</string>
     <string name="battery_desc_bluetooth" msgid="8069070756186680367">"Bateria utilizada pelo Bluetooth"</string>
-    <string name="battery_sugg_bluetooth_basic" msgid="1942935021750897422">"Desligar o Bluetooth quando não estiver a ser utilizado"</string>
+    <string name="battery_sugg_bluetooth_basic" msgid="1942935021750897422">"Desactivar o Bluetooth quando não estiver a ser utilizado"</string>
     <string name="battery_sugg_bluetooth_headset" msgid="4071352514714259230">"Tentar ligação a um aparelho Bluetooth diferente"</string>
     <string name="battery_desc_apps" msgid="8530418792605735226">"Bateria utilizada pelo serviço"</string>
     <string name="battery_sugg_apps_info" msgid="6907588126789841231">"Parar ou desinstalar a aplicação"</string>
-    <string name="battery_sugg_apps_gps" msgid="7287643439298561315">"Controlar manualmente o GPS para impedir que a aplicação o utilize"</string>
+    <string name="battery_sugg_apps_gps" msgid="7287643439298561315">"Controlar manualmente o GPS para impedir que seja utilizado indevidamente"</string>
     <string name="battery_sugg_apps_settings" msgid="3974902365643634514">"A aplicação pode sugerir definições para reduzir a utilização da bateria"</string>
     <string name="menu_stats_unplugged" msgid="8296577130840261624">"<xliff:g id="UNPLUGGED">%1$s</xliff:g> desde que foi desligado"</string>
     <string name="menu_stats_last_unplugged" msgid="5922246077592434526">"Desde a última vez que foi desligado por <xliff:g id="UNPLUGGED">%1$s</xliff:g>"</string>
@@ -1320,7 +1320,7 @@
     <string name="credentials_unlock_hint" msgid="2301301378040499348">"Introduzir palavra-passe do armazenamento de credenciais."</string>
     <string name="credentials_old_password" msgid="7553393815538684028">"Palavra-passe actual:"</string>
     <string name="credentials_reset_hint" msgid="6297256880896133631">"Remover todo o conteúdo?"</string>
-    <string name="credentials_password_too_short" msgid="7502749986405522663">"A palavra-passe deve ter, pelo menos, 8 caracteres."</string>
+    <string name="credentials_password_too_short" msgid="7502749986405522663">"A palavra-passe deve ter pelo menos 8 caracteres."</string>
     <string name="credentials_wrong_password" msgid="2541932597104054807">"Palavra-passe incorrecta."</string>
     <string name="credentials_reset_warning" msgid="5320653011511797600">"Palavra-passe incorrecta. Tem mais uma tentativa antes de o armazenamento de credenciais ser apagado."</string>
     <string name="credentials_reset_warning_plural" msgid="6514085665301095279">"Palavra-passe incorrecta. Tem mais <xliff:g id="NUMBER">%1$d</xliff:g> tentativas antes de o armazenamento de credenciais ser apagado."</string>
@@ -1388,16 +1388,16 @@
     <string name="wifi_setup_eap_not_supported" msgid="595556546597351489">"Não é possível configurar uma ligação Wi-Fi tipo EAP durante a configuração. Após a configuração, é possível fazê-lo em Definições &gt; Redes sem fios e outras."</string>
     <string name="wifi_setup_description_connecting" msgid="2793554932006756795">"A ligação pode demorar alguns minutos..."</string>
     <string name="wifi_setup_description_connected" msgid="5235991893829582459">"Toque em "<b>"Seguinte"</b>" para continuar a configuração."\n\n"Toque em "<b>"Anterior"</b>" para ligar a uma rede Wi-Fi diferente."</string>
-    <string name="accessibility_sync_enabled" msgid="558480439730263116">"Sincronização ativada"</string>
-    <string name="accessibility_sync_disabled" msgid="1741194106479011384">"Sincronização desativada"</string>
+    <string name="accessibility_sync_enabled" msgid="558480439730263116">"Sincronização activada"</string>
+    <string name="accessibility_sync_disabled" msgid="1741194106479011384">"Sincronização desactivada"</string>
     <string name="accessibility_sync_error" msgid="8703299118794272041">"Erro de sincronização"</string>
     <string name="account_sync_settings_title" msgid="4578227872921044660">"Definições de sincronização"</string>
-    <string name="sync_is_failing" msgid="1591561768344128377">"A sincronização está atualmente com problemas e será retomada em breve."</string>
+    <string name="sync_is_failing" msgid="1591561768344128377">"A sincronização está actualmente com problemas e será retomada em breve."</string>
     <string name="add_account_label" msgid="7811707265834013767">"Adicionar conta"</string>
     <string name="background_data" msgid="5779592891375473817">"Dados em segundo plano"</string>
     <string name="background_data_summary" msgid="8328521479872763452">"As aplicações podem sincronizar, enviar e receber dados em qualquer altura"</string>
-    <string name="background_data_dialog_title" msgid="6059217698124786537">"Desat. dados seg. plano?"</string>
-    <string name="background_data_dialog_message" msgid="6981661606680941633">"A desativação dos dados de segundo plano permite economizar a bateria e reduzir a utilização de dados. Algumas aplicações podem continuar a utilizar a ligação de dados de segundo plano."</string>
+    <string name="background_data_dialog_title" msgid="6059217698124786537">"Desact. dados seg. plano?"</string>
+    <string name="background_data_dialog_message" msgid="6981661606680941633">"A desactivação dos dados de segundo plano permite economizar a bateria e reduzir a utilização de dados. Algumas aplicações podem continuar a utilizar a ligação de dados de segundo plano."</string>
     <string name="sync_automatically" msgid="1682730255435062059">"Sinc. autom. de dados da aplicação"</string>
     <string name="sync_enabled" msgid="4551148952179416813">"Sincron. activada"</string>
     <string name="sync_disabled" msgid="8511659877596511991">"A sincronização está desactivada"</string>
@@ -1438,27 +1438,27 @@
     <string name="misc_files" msgid="6720680815969643497">"Ficheiros diversos"</string>
     <string name="misc_files_selected_count" msgid="4647048020823912088">"selecionado(s) <xliff:g id="NUMBER">%1$d</xliff:g> de <xliff:g id="TOTAL">%2$d</xliff:g>"</string>
     <string name="misc_files_selected_count_bytes" msgid="2876232009069114352">"<xliff:g id="NUMBER">%1$s</xliff:g> de <xliff:g id="TOTAL">%2$s</xliff:g>"</string>
-    <string name="select_all" msgid="1562774643280376715">"Selecionar tudo"</string>
+    <string name="select_all" msgid="1562774643280376715">"Seleccionar tudo"</string>
     <string name="hdcp_checking_title" msgid="8605478913544273282">"Verificação HDCP"</string>
     <string name="hdcp_checking_dialog_title" msgid="5141305530923283">"Definir o comportamento da verificação HDCP"</string>
     <string name="debug_ui_category" msgid="9023948280291055349">"Interface de utilizador"</string>
     <string name="strict_mode" msgid="1938795874357830695">"Modo rigoroso ativado"</string>
     <string name="strict_mode_summary" msgid="142834318897332338">"Piscar ecrã qd aplic. fazem oper. prolong. no tópico princ."</string>
     <string name="pointer_location" msgid="6084434787496938001">"Localização do ponteiro"</string>
-    <string name="pointer_location_summary" msgid="840819275172753713">"Sobrep. de ecrã que mostra a dados atuais de toque"</string>
+    <string name="pointer_location_summary" msgid="840819275172753713">"Sobrep. de ecrã que mostra a dados actuais de toque"</string>
     <string name="show_touches" msgid="1356420386500834339">"Apresentar toques"</string>
     <string name="show_touches_summary" msgid="6684407913145150041">"Apresentar feedback visual para toques"</string>
-    <string name="show_screen_updates" msgid="8282711794220426931">"Mostrar atualiz. de ecrã"</string>
-    <string name="show_screen_updates_summary" msgid="1716122382094924596">"Piscar áreas do ecrã quando são atualizadas"</string>
+    <string name="show_screen_updates" msgid="8282711794220426931">"Mostrar actualiz. de ecrã"</string>
+    <string name="show_screen_updates_summary" msgid="1716122382094924596">"Piscar áreas do ecrã quando são actualizadas"</string>
     <string name="show_cpu_usage" msgid="2389212910758076024">"Mostrar utilização da CPU"</string>
-    <string name="show_cpu_usage_summary" msgid="2113341923988958266">"Sobrep. de ecrã que mostra a utiliz. atual da CPU"</string>
+    <string name="show_cpu_usage_summary" msgid="2113341923988958266">"Sobrep. de ecrã que mostra a utiliz. actual da CPU"</string>
     <string name="force_hw_ui" msgid="6426383462520888732">"Forçar composição GPU"</string>
     <string name="force_hw_ui_summary" msgid="8642000962902609976">"Utilizar aceleração de hardware 2D em aplicações"</string>
     <string name="window_animation_scale_title" msgid="6162587588166114700">"Escala de anim. da janela"</string>
     <string name="transition_animation_scale_title" msgid="387527540523595875">"Escala de anim. de trans."</string>
     <string name="debug_applications_category" msgid="4206913653849771549">"Aplicações"</string>
-    <string name="immediately_destroy_activities" msgid="8366775083630234121">"Não manter atividades"</string>
-    <string name="immediately_destroy_activities_summary" msgid="3592221124808773368">"Destruir atividades assim que o utilizador sair"</string>
+    <string name="immediately_destroy_activities" msgid="8366775083630234121">"Não manter actividades"</string>
+    <string name="immediately_destroy_activities_summary" msgid="3592221124808773368">"Destruir actividades assim que o utilizador sair"</string>
     <string name="app_process_limit_title" msgid="4280600650253107163">"Limite proc. em 2º plano"</string>
     <string name="show_all_anrs" msgid="28462979638729082">"Mostrar todos os ANR"</string>
     <string name="show_all_anrs_summary" msgid="641908614413544127">"Mostrar erro \"Aplic. não Resp.\" p/ aplic. 2º plano"</string>
@@ -1476,7 +1476,7 @@
     <string name="data_usage_label_background" msgid="3225844085975764519">"Fundo"</string>
     <string name="data_usage_disclaimer" product="tablet" msgid="2591250607795265503">"Calculado pelo tablet. A utiliz. de dados calculada pela operadora pode diferir."</string>
     <string name="data_usage_disclaimer" product="default" msgid="4735170480663491977"></string>
-    <string name="data_usage_disable_mobile" msgid="5211007048880167438">"Desativar dados móveis?"</string>
+    <string name="data_usage_disable_mobile" msgid="5211007048880167438">"Desactivar dados móveis?"</string>
     <string name="data_usage_disable_mobile_limit" msgid="4644364396844393848">"Definir limite de dados móveis"</string>
     <string name="data_usage_disable_4g_limit" msgid="6233554774946681175">"Definir limite de dados 4G"</string>
     <string name="data_usage_disable_3g_limit" msgid="2558557840444266906">"Definir limite de dados 2G-3G"</string>
@@ -1493,7 +1493,7 @@
     <string name="data_usage_enable_4g" msgid="3635854097335036738">"Dados 4G"</string>
     <string name="data_usage_app_settings" msgid="8430240158135453271">"Ver definições da aplicação"</string>
     <string name="data_usage_app_restrict_background" msgid="9149728936265100841"></string>
-    <string name="data_usage_app_restrict_background_summary" msgid="6236080762898226645">"Desativar dados de segundo plano apenas na rede de dados móvel. Será usado o Wi-Fi se estiver disponível."</string>
+    <string name="data_usage_app_restrict_background_summary" msgid="6236080762898226645">"Desactivar dados de segundo plano apenas na rede de dados móvel. Será usado o Wi-Fi se estiver disponível."</string>
     <string name="data_usage_app_restrict_background_summary_disabled" msgid="7401927377070755054">"Para restringir os dados de segundo plano para esta aplicação, comece por definir um limite de dados móveis."</string>
     <string name="data_usage_app_restrict_dialog_title" msgid="1613108390242737923">"Restringir dados em segundo plano?"</string>
     <string name="data_usage_app_restrict_dialog" msgid="5651588785118290771">"Esta funcionalidade pode levar à paragem de uma aplicação que depende de dados de segundo plano, quando a rede Wi-Fi não estiver disponível."\n\n"É possível encontrar controlos de utilização de dados mais adequados nas definições disponíveis na aplicação."</string>
@@ -1558,19 +1558,19 @@
     <string name="accessibility_tutorial_finish" msgid="3964330895719289570">"Concluir"</string>
     <string name="accessibility_tutorial_skip" msgid="3635250542851027317">"Ign. tutorial"</string>
     <string name="accessibility_tutorial_lesson_1_title" msgid="1358771359529627110">"Lição 1: Explorar o ecrã"</string>
-    <string name="accessibility_tutorial_lesson_1_text_1" msgid="477937585801538951">"Após ativar a opção Explorar por Toque, poderá tocar no ecrã para saber o que está sob o dedo. Por exemplo, o ecrã atual contém ícones de aplicações. Toque no ecrã e deslize lentamente o dedo para localizar um deles."</string>
+    <string name="accessibility_tutorial_lesson_1_text_1" msgid="477937585801538951">"Após activar a opção Explorar por Toque, poderá tocar no ecrã para saber o que está sob o dedo. Por exemplo, o ecrã actual contém ícones de aplicações. Toque no ecrã e deslize lentamente o dedo para localizar um deles."</string>
     <string name="accessibility_tutorial_lesson_1_text_2_more" msgid="7849927882225521983">"Bom. Continue a deslizar o dedo pelo ecrã até localizar pelo menos mais um ícone."</string>
     <string name="accessibility_tutorial_lesson_1_text_3" msgid="3973201880357468747">"Para ativar algo em que está a tocar, toque nisso. Deslize lentamente o dedo até localizar o ícone de <xliff:g id="APP_NAME">%s</xliff:g>. Em seguida, toque uma vez no ícone para o ativar."</string>
-    <string name="accessibility_tutorial_lesson_1_text_4" msgid="1032496840167920946">"O seu dedo está a tocar no ícone <xliff:g id="APP_NAME">%s</xliff:g>. Toque uma vez para ativar o ícone."</string>
+    <string name="accessibility_tutorial_lesson_1_text_4" msgid="1032496840167920946">"O seu dedo está a tocar no ícone <xliff:g id="APP_NAME">%s</xliff:g>. Toque uma vez para activar o ícone."</string>
     <string name="accessibility_tutorial_lesson_1_text_4_exited" msgid="4950620030782545150">"O seu dedo moveu-se sobre o ícone <xliff:g id="APP_NAME">%s</xliff:g> e depois afastou-se. Lentamente, deslize o dedo em torno do ecrã até encontrar novamente o ícone do Navegador."</string>
     <string name="accessibility_tutorial_lesson_1_text_5" msgid="9010294007210301008">"Bom. Para passar à próxima lição, localize e ative o botão <xliff:g id="NEXT">%s</xliff:g>, situado junto ao canto inferior direito do ecrã."</string>
     <string name="accessibility_tutorial_lesson_2_title" msgid="5970537388562569614">"Lição 2: Deslocar com dois dedos"</string>
     <string name="accessibility_tutorial_lesson_2_text_1" msgid="8764686624055084454">"Para percorrer uma lista, pode deslizar lentamente dois dedos ao longo do ecrã. Por exemplo, o ecrã atual contém uma lista de nomes de aplicações que pode percorrer para cima ou para baixo. Primeiro, tente identificar alguns itens na lista deslizando lentamente um dedo."</string>
-    <string name="accessibility_tutorial_lesson_2_text_2_more" msgid="2052918502757226679">"Ótimo. Continue a deslizar o dedo para encontrar pelo menos mais um item."</string>
+    <string name="accessibility_tutorial_lesson_2_text_2_more" msgid="2052918502757226679">"Óptimo. Continue a deslizar o dedo para encontrar pelo menos mais um item."</string>
     <string name="accessibility_tutorial_lesson_2_text_3" msgid="1326501593438442305">"Agora, coloque dois dedos sobre um item da lista e deslize os dedos para cima. Se chegar ao topo do ecrã, levante os dedos, coloque-os mais abaixo na lista e continue a deslizar para cima."</string>
-    <string name="accessibility_tutorial_lesson_2_text_3_more" msgid="2223814499106104083">"Ótimo. Continue a deslizar os dedos para percorrer mais itens."</string>
+    <string name="accessibility_tutorial_lesson_2_text_3_more" msgid="2223814499106104083">"Óptimo. Continue a deslizar os dedos para percorrer mais itens."</string>
     <string name="accessibility_tutorial_lesson_2_text_4" msgid="3055831259260848004">"Concluiu o tutorial. Para sair, localize e toque no botão <xliff:g id="FINISH">%s</xliff:g>."</string>
-    <string name="spellcheckers_settings_title" msgid="8843785708050235008">"Correção ortográfica"</string>
+    <string name="spellcheckers_settings_title" msgid="8843785708050235008">"Correcção ortográfica"</string>
     <string name="current_backup_pw_prompt" msgid="7735254412051914576">"Introduza a palavra-passe de cópia de segurança completa atual aqui"</string>
     <string name="new_backup_pw_prompt" msgid="8755501377391998428">"Introduzir nova palavra-passe para cópias de segurança completas aqui"</string>
     <string name="confirm_new_backup_pw_prompt" msgid="3238728882512787864">"Reintroduza a nova palavra-passe da cópia de segurança completa aqui"</string>
