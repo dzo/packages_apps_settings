@@ -1637,5 +1637,11 @@
     <string name="pref_flash_mode_summary">Zvolte režim LED přisvětlení</string>
     <string name="expanded_haptic_feedback_title">Hmatová odezva</string>
     <string name="expanded_haptic_feedback_summary">Zapnout/vypnout hmatovou odezvu</string>
-    <string name="title_battery_percentage">Procenta u ukazatele baterie</string>
+    <string name="title_battery_percentage">Baterie v procentech</string>
+    <string name="pref_title_strip_unicode">Převést na unicode</string>
+    <string name="pref_summary_strip_unicode">Nahradit znaky, které nejsou podporovány ve standartní SMS zprávě</string>
+    <string name="pref_title_mms_full_timestamp">Plná časová značka</string>
+    <string name="pref_summary_mms_full_timestamp">Zobrazit datum i čas</string>
+    <string name="pref_title_mms_use_sent_timestamp">Původní časová značka</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Zobrazit datum odeslání namísto data přijetí</string>
 </resources>
