@@ -756,4 +756,11 @@
         <item>Subscription 2</item>
     </string-array>
 
+    <!-- Do not translate.  Value for voice Subscription. -->
+    <string-array name="multi_sim_values_voice_without_prompt">
+        <!-- Do not translate. -->
+        <item>0</item>
+        <!-- Do not translate. -->
+        <item>1</item>
+    </string-array>
 </resources>

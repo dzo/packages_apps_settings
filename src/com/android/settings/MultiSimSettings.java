@@ -102,8 +102,10 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
         int count = subManager.getActiveSubscriptionsCount();
         if (count == SUBSCRIPTION_DUAL_STANDBY) {
             mVoice.setEntries(R.array.multi_sim_entries_voice);
+            mVoice.setEntryValues(R.array.multi_sim_values_voice);
         } else  {
             mVoice.setEntries(R.array.multi_sim_entries_voice_without_prompt);
+            mVoice.setEntryValues(R.array.multi_sim_values_voice_without_prompt);
         }
         mIsForeground = true;
         updateState();
@@ -127,29 +129,24 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
     }
 
     private void updateVoiceSummary() {
-        int voiceSub = SUBSCRIPTION_ID_INVALID;
         CharSequence[] summaries = getResources().getTextArray(R.array.multi_sim_summaries_voice);
-
-        try {
-            voiceSub = Settings.System.getInt(getContentResolver(),Settings.System.MULTI_SIM_VOICE_CALL_SUBSCRIPTION);
-        } catch (SettingNotFoundException snfe) {
-            Log.e(TAG, "Settings Exception Reading Multi sim Voice Call Values", snfe);
-        }
+        int voiceSub = MSimPhoneFactory.getVoiceSubscription();
         boolean promptEnabled  = MSimPhoneFactory.isPromptEnabled();
-        Log.d(TAG, "updateVoiceSummary: voiceSub =  " + voiceSub + "promptEnabled = " + promptEnabled);
-        if (voiceSub == SUBSCRIPTION_ID_0 && (!promptEnabled)) {
-            mVoice.setValue("0");
-            mVoice.setSummary(summaries[0]);
-        } else if (voiceSub == SUBSCRIPTION_ID_1 && (!promptEnabled)) {
-            mVoice.setValue("1");
-            mVoice.setSummary(summaries[1]);
-        } else if (promptEnabled) {
-            Log.d(TAG, "prompt is enabled");
+        int count = subManager.getActiveSubscriptionsCount();
+
+        Log.d(TAG, "updateVoiceSummary: voiceSub =  " + voiceSub
+                + " promptEnabled = " + promptEnabled
+                + " number of active SUBs = " + count);
+
+        if (promptEnabled && count == SUBSCRIPTION_DUAL_STANDBY) {
+            Log.d(TAG, "prompt is enabled: setting value to : 2");
             mVoice.setValue("2");
             mVoice.setSummary(summaries[2]);
         } else {
-            mVoice.setValue("0");
-            mVoice.setSummary(summaries[0]);
+            String sub = Integer.toString(voiceSub);
+            Log.d(TAG, "setting value to : " + sub);
+            mVoice.setValue(sub);
+            mVoice.setSummary(summaries[voiceSub]);
         }
     }
 
@@ -282,8 +279,10 @@ public class MultiSimSettings extends PreferenceActivity implements DialogInterf
                     int count = subManager.getActiveSubscriptionsCount();
                     if (count == SUBSCRIPTION_DUAL_STANDBY) {
                         mVoice.setEntries(R.array.multi_sim_entries_voice);
+                        mVoice.setEntryValues(R.array.multi_sim_values_voice);
                     } else  {
                         mVoice.setEntries(R.array.multi_sim_entries_voice_without_prompt);
+                        mVoice.setEntryValues(R.array.multi_sim_values_voice_without_prompt);
                     }
                     break;
             }
